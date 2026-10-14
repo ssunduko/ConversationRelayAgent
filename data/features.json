@@ -1,0 +1,4457 @@
+{
+  "schema_version": "1.0",
+  "product": "Salesmsg",
+  "generated": "2026-08-16",
+  "total_features": 261,
+  "total_new_features": 141,
+  "categories": [
+    "Platform and Developer",
+    "Campaigns and Workflows",
+    "AI and Automation",
+    "Compliance, Security and Admin",
+    "Productivity Features",
+    "Communication and Engagement",
+    "Team Collaboration",
+    "Contact and Lead Management",
+    "Integrations"
+  ],
+  "documents": [
+    {
+      "id": "feature-001",
+      "category": "Communication and Engagement",
+      "subcategory": "Two-Way Texting",
+      "feature": "Send and Receive Dashboard",
+      "description": "A centralized dashboard where teams can view, send, and respond to text messages in real time. Provides a familiar chat-like interface for managing all inbound and outbound SMS conversations.",
+      "is_new": false,
+      "text": "Send and Receive Dashboard: A centralized dashboard where teams can view, send, and respond to text messages in real time. Provides a familiar chat-like interface for managing all inbound and outbound SMS conversations.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Two-Way Texting",
+        "feature_name": "Send and Receive Dashboard",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-002",
+      "category": "Communication and Engagement",
+      "subcategory": "Two-Way Texting",
+      "feature": "Live Typing Indicators",
+      "description": "Shows real-time typing indicators so both agents and contacts can see when the other party is composing a message.",
+      "is_new": false,
+      "text": "Live Typing Indicators: Shows real-time typing indicators so both agents and contacts can see when the other party is composing a message.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Two-Way Texting",
+        "feature_name": "Live Typing Indicators",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-003",
+      "category": "Communication and Engagement",
+      "subcategory": "Two-Way Texting",
+      "feature": "Landline Texting",
+      "description": "Text-enable your existing business landline or toll-free number so customers can text the same number they already call.",
+      "is_new": false,
+      "text": "Landline Texting: Text-enable your existing business landline or toll-free number so customers can text the same number they already call.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Two-Way Texting",
+        "feature_name": "Landline Texting",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-004",
+      "category": "Communication and Engagement",
+      "subcategory": "Two-Way Texting",
+      "feature": "Team Collaboration and Shared Inboxes",
+      "description": "Organize conversations into private or shared inboxes so multiple team members can collaborate on responses.",
+      "is_new": false,
+      "text": "Team Collaboration and Shared Inboxes: Organize conversations into private or shared inboxes so multiple team members can collaborate on responses.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Two-Way Texting",
+        "feature_name": "Team Collaboration and Shared Inboxes",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-005",
+      "category": "Communication and Engagement",
+      "subcategory": "Two-Way Texting",
+      "feature": "Smart Inbox Group Chats",
+      "description": "Create group conversations with multiple contacts from within the smart inbox.",
+      "is_new": false,
+      "text": "Smart Inbox Group Chats: Create group conversations with multiple contacts from within the smart inbox.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Two-Way Texting",
+        "feature_name": "Smart Inbox Group Chats",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-006",
+      "category": "Communication and Engagement",
+      "subcategory": "Two-Way Texting",
+      "feature": "Mobile App",
+      "description": "A full-featured mobile application that lets you send texts, make calls, and manage conversations from anywhere.",
+      "is_new": false,
+      "text": "Mobile App: A full-featured mobile application that lets you send texts, make calls, and manage conversations from anywhere.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Two-Way Texting",
+        "feature_name": "Mobile App",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-007",
+      "category": "Communication and Engagement",
+      "subcategory": "Two-Way Texting",
+      "feature": "Mexico Texting Support",
+      "description": "Send and receive SMS messages to and from Mexican phone numbers with reliable carrier-level delivery.",
+      "is_new": false,
+      "text": "Mexico Texting Support: Send and receive SMS messages to and from Mexican phone numbers with reliable carrier-level delivery.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Two-Way Texting",
+        "feature_name": "Mexico Texting Support",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-008",
+      "category": "Communication and Engagement",
+      "subcategory": "Two-Way Texting",
+      "feature": "Click-to-Text Links and QR Codes",
+      "description": "Generate clickable links and scannable QR codes that open pre-filled text messages on the recipient's device for instant lead capture.",
+      "is_new": true,
+      "text": "Click-to-Text Links and QR Codes: Generate clickable links and scannable QR codes that open pre-filled text messages on the recipient's device for instant lead capture.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Two-Way Texting",
+        "feature_name": "Click-to-Text Links and QR Codes",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-009",
+      "category": "Communication and Engagement",
+      "subcategory": "Two-Way Texting",
+      "feature": "Quiet Hours",
+      "description": "Block outbound messages and calls during defined non-contact windows per inbox. Messages are automatically delayed until the window ends.",
+      "is_new": true,
+      "text": "Quiet Hours: Block outbound messages and calls during defined non-contact windows per inbox. Messages are automatically delayed until the window ends.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Two-Way Texting",
+        "feature_name": "Quiet Hours",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-010",
+      "category": "Communication and Engagement",
+      "subcategory": "Two-Way Texting",
+      "feature": "Unified Conversation History",
+      "description": "View all texts, notes, and activities for a contact across every inbox in one place. Configure org-wide or inbox-level visibility preferences.",
+      "is_new": true,
+      "text": "Unified Conversation History: View all texts, notes, and activities for a contact across every inbox in one place. Configure org-wide or inbox-level visibility preferences.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Two-Way Texting",
+        "feature_name": "Unified Conversation History",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-011",
+      "category": "Communication and Engagement",
+      "subcategory": "RCS Messaging",
+      "feature": "RCS Compliance",
+      "description": "Send verified Rich Communication Services messages with branding, media, and interactive elements that meet carrier approval.",
+      "is_new": true,
+      "text": "RCS Compliance: Send verified Rich Communication Services messages with branding, media, and interactive elements that meet carrier approval.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "RCS Messaging",
+        "feature_name": "RCS Compliance",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-012",
+      "category": "Communication and Engagement",
+      "subcategory": "RCS Messaging",
+      "feature": "RCS Broadcasts",
+      "description": "Deliver promotions and campaigns with branded layouts, media, and interactive buttons via RCS directly from your broadcast workflow.",
+      "is_new": true,
+      "text": "RCS Broadcasts: Deliver promotions and campaigns with branded layouts, media, and interactive buttons via RCS directly from your broadcast workflow.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "RCS Messaging",
+        "feature_name": "RCS Broadcasts",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-013",
+      "category": "Communication and Engagement",
+      "subcategory": "RCS Messaging",
+      "feature": "SMS Fallback",
+      "description": "When a recipient's device does not support RCS, messages automatically fall back to standard SMS.",
+      "is_new": true,
+      "text": "SMS Fallback: When a recipient's device does not support RCS, messages automatically fall back to standard SMS.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "RCS Messaging",
+        "feature_name": "SMS Fallback",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-014",
+      "category": "Communication and Engagement",
+      "subcategory": "RCS Messaging",
+      "feature": "RCS Send From Statistics",
+      "description": "Track RCS-specific delivery and engagement metrics to measure the performance of RCS vs SMS outreach.",
+      "is_new": true,
+      "text": "RCS Send From Statistics: Track RCS-specific delivery and engagement metrics to measure the performance of RCS vs SMS outreach.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "RCS Messaging",
+        "feature_name": "RCS Send From Statistics",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-015",
+      "category": "Communication and Engagement",
+      "subcategory": "International Messaging and Numbers",
+      "feature": "International Texting",
+      "description": "Text customers in over 100 countries directly from your existing US or Canada number with transparent per-country credit costs.",
+      "is_new": true,
+      "text": "International Texting: Text customers in over 100 countries directly from your existing US or Canada number with transparent per-country credit costs.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "International Messaging and Numbers",
+        "feature_name": "International Texting",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-016",
+      "category": "Communication and Engagement",
+      "subcategory": "International Messaging and Numbers",
+      "feature": "International Numbers (UK)",
+      "description": "Purchase and activate UK phone numbers to send SMS, MMS, and make calls with local compliance.",
+      "is_new": true,
+      "text": "International Numbers (UK): Purchase and activate UK phone numbers to send SMS, MMS, and make calls with local compliance.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "International Messaging and Numbers",
+        "feature_name": "International Numbers (UK)",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-017",
+      "category": "Communication and Engagement",
+      "subcategory": "International Messaging and Numbers",
+      "feature": "Request Additional Countries",
+      "description": "Submit requests for phone numbers in countries not yet available. Salesmsg expands based on customer demand.",
+      "is_new": true,
+      "text": "Request Additional Countries: Submit requests for phone numbers in countries not yet available. Salesmsg expands based on customer demand.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "International Messaging and Numbers",
+        "feature_name": "Request Additional Countries",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-018",
+      "category": "Communication and Engagement",
+      "subcategory": "SMS and MMS Broadcasting",
+      "feature": "Mass Texting (SMS/MMS)",
+      "description": "Send personalized text or multimedia messages to large contact lists in a single broadcast.",
+      "is_new": false,
+      "text": "Mass Texting (SMS/MMS): Send personalized text or multimedia messages to large contact lists in a single broadcast.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "SMS and MMS Broadcasting",
+        "feature_name": "Mass Texting (SMS/MMS)",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-019",
+      "category": "Communication and Engagement",
+      "subcategory": "SMS and MMS Broadcasting",
+      "feature": "Smarter Broadcasts",
+      "description": "Enhanced broadcasting engine with improved delivery optimization, scheduling intelligence, and send-rate controls.",
+      "is_new": false,
+      "text": "Smarter Broadcasts: Enhanced broadcasting engine with improved delivery optimization, scheduling intelligence, and send-rate controls.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "SMS and MMS Broadcasting",
+        "feature_name": "Smarter Broadcasts",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-020",
+      "category": "Communication and Engagement",
+      "subcategory": "SMS and MMS Broadcasting",
+      "feature": "Broadcast Send Time Preview",
+      "description": "See estimated delivery times before launching a broadcast so you can plan time-sensitive campaigns with confidence.",
+      "is_new": true,
+      "text": "Broadcast Send Time Preview: See estimated delivery times before launching a broadcast so you can plan time-sensitive campaigns with confidence.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "SMS and MMS Broadcasting",
+        "feature_name": "Broadcast Send Time Preview",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-021",
+      "category": "Communication and Engagement",
+      "subcategory": "SMS and MMS Broadcasting",
+      "feature": "Contact Management and Segmentation",
+      "description": "Upload, organize, and segment your contact database for targeted outreach.",
+      "is_new": false,
+      "text": "Contact Management and Segmentation: Upload, organize, and segment your contact database for targeted outreach.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "SMS and MMS Broadcasting",
+        "feature_name": "Contact Management and Segmentation",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-022",
+      "category": "Communication and Engagement",
+      "subcategory": "SMS and MMS Broadcasting",
+      "feature": "Advanced Segmentation",
+      "description": "Build complex audience segments using multiple filters such as tags, custom fields, activity history, and location.",
+      "is_new": false,
+      "text": "Advanced Segmentation: Build complex audience segments using multiple filters such as tags, custom fields, activity history, and location.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "SMS and MMS Broadcasting",
+        "feature_name": "Advanced Segmentation",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-023",
+      "category": "Communication and Engagement",
+      "subcategory": "SMS and MMS Broadcasting",
+      "feature": "Media Support (Images, Video, Attachments)",
+      "description": "Attach images, videos, PDFs, and other files to outbound messages.",
+      "is_new": false,
+      "text": "Media Support (Images, Video, Attachments): Attach images, videos, PDFs, and other files to outbound messages.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "SMS and MMS Broadcasting",
+        "feature_name": "Media Support (Images, Video, Attachments)",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-024",
+      "category": "Communication and Engagement",
+      "subcategory": "SMS and MMS Broadcasting",
+      "feature": "GIF Video Preview in MMS",
+      "description": "GIF and video attachments render inline previews directly in the MMS message.",
+      "is_new": false,
+      "text": "GIF Video Preview in MMS: GIF and video attachments render inline previews directly in the MMS message.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "SMS and MMS Broadcasting",
+        "feature_name": "GIF Video Preview in MMS",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-025",
+      "category": "Communication and Engagement",
+      "subcategory": "SMS and MMS Broadcasting",
+      "feature": "Send Images of Any Size",
+      "description": "Automatically compresses and optimizes images of any resolution for reliable MMS delivery.",
+      "is_new": false,
+      "text": "Send Images of Any Size: Automatically compresses and optimizes images of any resolution for reliable MMS delivery.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "SMS and MMS Broadcasting",
+        "feature_name": "Send Images of Any Size",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-026",
+      "category": "Communication and Engagement",
+      "subcategory": "SMS and MMS Broadcasting",
+      "feature": "Personalize Images",
+      "description": "Dynamically overlay contact-specific text or data onto images before sending.",
+      "is_new": false,
+      "text": "Personalize Images: Dynamically overlay contact-specific text or data onto images before sending.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "SMS and MMS Broadcasting",
+        "feature_name": "Personalize Images",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-027",
+      "category": "Communication and Engagement",
+      "subcategory": "SMS and MMS Broadcasting",
+      "feature": "Audio and Video Texting",
+      "description": "Record and send audio clips or short video messages directly within the platform.",
+      "is_new": false,
+      "text": "Audio and Video Texting: Record and send audio clips or short video messages directly within the platform.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "SMS and MMS Broadcasting",
+        "feature_name": "Audio and Video Texting",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-028",
+      "category": "Communication and Engagement",
+      "subcategory": "SMS and MMS Broadcasting",
+      "feature": "Accessible Media Assets",
+      "description": "A shared media library where teams can store and access approved images, videos, and files.",
+      "is_new": false,
+      "text": "Accessible Media Assets: A shared media library where teams can store and access approved images, videos, and files.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "SMS and MMS Broadcasting",
+        "feature_name": "Accessible Media Assets",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-029",
+      "category": "Communication and Engagement",
+      "subcategory": "SMS and MMS Broadcasting",
+      "feature": "Media Library 2.0",
+      "description": "Redesigned file management with drag-and-drop uploads, grid and list views, bulk actions, search, filter, and URL-based imports.",
+      "is_new": true,
+      "text": "Media Library 2.0: Redesigned file management with drag-and-drop uploads, grid and list views, bulk actions, search, filter, and URL-based imports.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "SMS and MMS Broadcasting",
+        "feature_name": "Media Library 2.0",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-030",
+      "category": "Communication and Engagement",
+      "subcategory": "Reporting and Analytics",
+      "feature": "Analytics 2.0",
+      "description": "Redesigned analytics with faster navigation, cleaner layout, homepage view, table view, export capabilities, and trend tracking.",
+      "is_new": true,
+      "text": "Analytics 2.0: Redesigned analytics with faster navigation, cleaner layout, homepage view, table view, export capabilities, and trend tracking.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Reporting and Analytics",
+        "feature_name": "Analytics 2.0",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-031",
+      "category": "Communication and Engagement",
+      "subcategory": "Reporting and Analytics",
+      "feature": "Click, Conversion and Revenue Tracking",
+      "description": "Track when recipients click shortened links, complete conversions, and generate revenue tied to specific campaigns.",
+      "is_new": false,
+      "text": "Click, Conversion and Revenue Tracking: Track when recipients click shortened links, complete conversions, and generate revenue tied to specific campaigns.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Reporting and Analytics",
+        "feature_name": "Click, Conversion and Revenue Tracking",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-032",
+      "category": "Communication and Engagement",
+      "subcategory": "Reporting and Analytics",
+      "feature": "Advanced Analytics",
+      "description": "Comprehensive dashboards surfacing trends in response rates, message volume, agent performance, and campaign effectiveness.",
+      "is_new": false,
+      "text": "Advanced Analytics: Comprehensive dashboards surfacing trends in response rates, message volume, agent performance, and campaign effectiveness.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Reporting and Analytics",
+        "feature_name": "Advanced Analytics",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-033",
+      "category": "Communication and Engagement",
+      "subcategory": "Reporting and Analytics",
+      "feature": "New Message Analytics",
+      "description": "Granular insights into individual message delivery status, read receipts, and response times.",
+      "is_new": false,
+      "text": "New Message Analytics: Granular insights into individual message delivery status, read receipts, and response times.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Reporting and Analytics",
+        "feature_name": "New Message Analytics",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-034",
+      "category": "Communication and Engagement",
+      "subcategory": "Reporting and Analytics",
+      "feature": "Credit Usage Report",
+      "description": "Monitor how messaging credits are consumed across the organization by team, inbox, or campaign.",
+      "is_new": false,
+      "text": "Credit Usage Report: Monitor how messaging credits are consumed across the organization by team, inbox, or campaign.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Reporting and Analytics",
+        "feature_name": "Credit Usage Report",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-035",
+      "category": "Communication and Engagement",
+      "subcategory": "Reporting and Analytics",
+      "feature": "Detailed Credit Usage",
+      "description": "Expanded credit usage reporting with granular breakdowns by message type, inbox, and time period.",
+      "is_new": true,
+      "text": "Detailed Credit Usage: Expanded credit usage reporting with granular breakdowns by message type, inbox, and time period.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Reporting and Analytics",
+        "feature_name": "Detailed Credit Usage",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-036",
+      "category": "Communication and Engagement",
+      "subcategory": "Reporting and Analytics",
+      "feature": "Per-Automation Credit Tracking",
+      "description": "Filter, sort, and export credit usage breakdowns by workflow, AI agent, and broadcast source to see exactly which automations are consuming credits.",
+      "is_new": true,
+      "text": "Per-Automation Credit Tracking: Filter, sort, and export credit usage breakdowns by workflow, AI agent, and broadcast source to see exactly which automations are consuming credits.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Reporting and Analytics",
+        "feature_name": "Per-Automation Credit Tracking",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-037",
+      "category": "Communication and Engagement",
+      "subcategory": "Reporting and Analytics",
+      "feature": "Recurring Broadcast Stats",
+      "description": "Dedicated reporting for recurring broadcast campaigns showing performance trends across each send cycle.",
+      "is_new": false,
+      "text": "Recurring Broadcast Stats: Dedicated reporting for recurring broadcast campaigns showing performance trends across each send cycle.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Reporting and Analytics",
+        "feature_name": "Recurring Broadcast Stats",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-038",
+      "category": "Communication and Engagement",
+      "subcategory": "Reporting and Analytics",
+      "feature": "Webhook Statistics and Automation Logs",
+      "description": "Track HubSpot SMS workflow performance with delivery, reply, click, and unsubscribe metrics with step-by-step automation logs.",
+      "is_new": true,
+      "text": "Webhook Statistics and Automation Logs: Track HubSpot SMS workflow performance with delivery, reply, click, and unsubscribe metrics with step-by-step automation logs.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Reporting and Analytics",
+        "feature_name": "Webhook Statistics and Automation Logs",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-039",
+      "category": "Communication and Engagement",
+      "subcategory": "Calling",
+      "feature": "Call Forwarding",
+      "description": "Route incoming calls from your Salesmsg number to any mobile, landline, or office phone.",
+      "is_new": false,
+      "text": "Call Forwarding: Route incoming calls from your Salesmsg number to any mobile, landline, or office phone.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Calling",
+        "feature_name": "Call Forwarding",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-040",
+      "category": "Communication and Engagement",
+      "subcategory": "Calling",
+      "feature": "Outbound Calling",
+      "description": "Place outbound calls directly from the Salesmsg platform using your business number.",
+      "is_new": false,
+      "text": "Outbound Calling: Place outbound calls directly from the Salesmsg platform using your business number.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Calling",
+        "feature_name": "Outbound Calling",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-041",
+      "category": "Communication and Engagement",
+      "subcategory": "Calling",
+      "feature": "Power Dialer 2.0",
+      "description": "Organize outbound calls into structured campaigns with session management, progress tracking, pause, skip, resume, and drafts.",
+      "is_new": true,
+      "text": "Power Dialer 2.0: Organize outbound calls into structured campaigns with session management, progress tracking, pause, skip, resume, and drafts.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Calling",
+        "feature_name": "Power Dialer 2.0",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-042",
+      "category": "Communication and Engagement",
+      "subcategory": "Calling",
+      "feature": "Inbound Calling",
+      "description": "Receive inbound calls on your Salesmsg numbers with real-time desktop and mobile notifications.",
+      "is_new": false,
+      "text": "Inbound Calling: Receive inbound calls on your Salesmsg numbers with real-time desktop and mobile notifications.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Calling",
+        "feature_name": "Inbound Calling",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-043",
+      "category": "Communication and Engagement",
+      "subcategory": "Calling",
+      "feature": "Call Recording (On-Demand and Auto)",
+      "description": "Record calls automatically or on-demand with a single click for coaching, compliance, and dispute resolution.",
+      "is_new": false,
+      "text": "Call Recording (On-Demand and Auto): Record calls automatically or on-demand with a single click for coaching, compliance, and dispute resolution.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Calling",
+        "feature_name": "Call Recording (On-Demand and Auto)",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-044",
+      "category": "Communication and Engagement",
+      "subcategory": "Calling",
+      "feature": "Mandatory Call Recording",
+      "description": "Enforce organization-wide call recording policies so every call is captured automatically.",
+      "is_new": false,
+      "text": "Mandatory Call Recording: Enforce organization-wide call recording policies so every call is captured automatically.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Calling",
+        "feature_name": "Mandatory Call Recording",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-045",
+      "category": "Communication and Engagement",
+      "subcategory": "Calling",
+      "feature": "Call Recording Pause and Resume",
+      "description": "Pause and resume call recording mid-call for sensitive portions of conversations like payment details.",
+      "is_new": true,
+      "text": "Call Recording Pause and Resume: Pause and resume call recording mid-call for sensitive portions of conversations like payment details.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Calling",
+        "feature_name": "Call Recording Pause and Resume",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-046",
+      "category": "Communication and Engagement",
+      "subcategory": "Calling",
+      "feature": "Call Management (Mute)",
+      "description": "Mute your microphone during live calls for quick sidebar conversations.",
+      "is_new": false,
+      "text": "Call Management (Mute): Mute your microphone during live calls for quick sidebar conversations.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Calling",
+        "feature_name": "Call Management (Mute)",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-047",
+      "category": "Communication and Engagement",
+      "subcategory": "Calling",
+      "feature": "Call Queuing",
+      "description": "Organize incoming calls into a virtual waiting room when agents are busy with background hold music.",
+      "is_new": true,
+      "text": "Call Queuing: Organize incoming calls into a virtual waiting room when agents are busy with background hold music.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Calling",
+        "feature_name": "Call Queuing",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-048",
+      "category": "Communication and Engagement",
+      "subcategory": "Calling",
+      "feature": "Conference Calling",
+      "description": "Merge multiple active calls into a single dynamic conference without ending the original call.",
+      "is_new": true,
+      "text": "Conference Calling: Merge multiple active calls into a single dynamic conference without ending the original call.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Calling",
+        "feature_name": "Conference Calling",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-049",
+      "category": "Communication and Engagement",
+      "subcategory": "Calling",
+      "feature": "Call Whisper",
+      "description": "Hear contextual information about the caller before you pick up so agents can personalize from the first word.",
+      "is_new": true,
+      "text": "Call Whisper: Hear contextual information about the caller before you pick up so agents can personalize from the first word.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Calling",
+        "feature_name": "Call Whisper",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-050",
+      "category": "Communication and Engagement",
+      "subcategory": "Calling",
+      "feature": "Simultaneous Call Handling",
+      "description": "See every simultaneous incoming caller in one popup. Accept, decline, or hold and answer each individually without dropping anyone.",
+      "is_new": true,
+      "text": "Simultaneous Call Handling: See every simultaneous incoming caller in one popup. Accept, decline, or hold and answer each individually without dropping anyone.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Calling",
+        "feature_name": "Simultaneous Call Handling",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-051",
+      "category": "Communication and Engagement",
+      "subcategory": "Calling",
+      "feature": "Call Waiting",
+      "description": "Place an active call on hold when a second inbound call arrives, then switch between them.",
+      "is_new": false,
+      "text": "Call Waiting: Place an active call on hold when a second inbound call arrives, then switch between them.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Calling",
+        "feature_name": "Call Waiting",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-052",
+      "category": "Communication and Engagement",
+      "subcategory": "Calling",
+      "feature": "Call Transfers",
+      "description": "Transfer a live call to another team member or department with a warm or cold handoff.",
+      "is_new": false,
+      "text": "Call Transfers: Transfer a live call to another team member or department with a warm or cold handoff.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Calling",
+        "feature_name": "Call Transfers",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-053",
+      "category": "Communication and Engagement",
+      "subcategory": "Calling",
+      "feature": "Forward Calls to Voicemail",
+      "description": "Send incoming calls directly to voicemail when unavailable or after hours.",
+      "is_new": false,
+      "text": "Forward Calls to Voicemail: Send incoming calls directly to voicemail when unavailable or after hours.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Calling",
+        "feature_name": "Forward Calls to Voicemail",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-054",
+      "category": "Communication and Engagement",
+      "subcategory": "Calling",
+      "feature": "Calling History and Activity",
+      "description": "Every call is logged on the contact's timeline with duration, direction, and recording links.",
+      "is_new": false,
+      "text": "Calling History and Activity: Every call is logged on the contact's timeline with duration, direction, and recording links.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Calling",
+        "feature_name": "Calling History and Activity",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-055",
+      "category": "Communication and Engagement",
+      "subcategory": "Calling",
+      "feature": "Call History Export",
+      "description": "Export call history data for offline analysis, compliance documentation, or reporting.",
+      "is_new": true,
+      "text": "Call History Export: Export call history data for offline analysis, compliance documentation, or reporting.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Calling",
+        "feature_name": "Call History Export",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-056",
+      "category": "Communication and Engagement",
+      "subcategory": "Calling",
+      "feature": "Call Transcription",
+      "description": "Automatically transcribe recorded calls into searchable text.",
+      "is_new": false,
+      "text": "Call Transcription: Automatically transcribe recorded calls into searchable text.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Calling",
+        "feature_name": "Call Transcription",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-057",
+      "category": "Communication and Engagement",
+      "subcategory": "Calling",
+      "feature": "AI Call Transcript and Summaries",
+      "description": "AI generates instant summaries of call transcripts with next steps. Summaries sync to HubSpot and ActiveCampaign.",
+      "is_new": true,
+      "text": "AI Call Transcript and Summaries: AI generates instant summaries of call transcripts with next steps. Summaries sync to HubSpot and ActiveCampaign.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Calling",
+        "feature_name": "AI Call Transcript and Summaries",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-058",
+      "category": "Communication and Engagement",
+      "subcategory": "Calling",
+      "feature": "Calling Cards",
+      "description": "View real-time contact insights and CRM data on-screen during live calls.",
+      "is_new": true,
+      "text": "Calling Cards: View real-time contact insights and CRM data on-screen during live calls.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Calling",
+        "feature_name": "Calling Cards",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-059",
+      "category": "Communication and Engagement",
+      "subcategory": "Calling",
+      "feature": "Smart Text to Speech",
+      "description": "Convert text into natural-sounding voice recordings using basic, premium, or custom AI-cloned voices.",
+      "is_new": true,
+      "text": "Smart Text to Speech: Convert text into natural-sounding voice recordings using basic, premium, or custom AI-cloned voices.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Calling",
+        "feature_name": "Smart Text to Speech",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-060",
+      "category": "Communication and Engagement",
+      "subcategory": "Calling",
+      "feature": "Smart Call Flows",
+      "description": "Visual call flow builder that combines Ring, Call Queue, Voicemail, Play Audio, and Send SMS actions into flexible routing sequences managed from one place.",
+      "is_new": true,
+      "text": "Smart Call Flows: Visual call flow builder that combines Ring, Call Queue, Voicemail, Play Audio, and Send SMS actions into flexible routing sequences managed from one place.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Calling",
+        "feature_name": "Smart Call Flows",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-061",
+      "category": "Communication and Engagement",
+      "subcategory": "Calling",
+      "feature": "Spam Call Blocking",
+      "description": "Mark any incoming call as spam directly from the call interface to block repeat offenders and keep your call queue clean.",
+      "is_new": true,
+      "text": "Spam Call Blocking: Mark any incoming call as spam directly from the call interface to block repeat offenders and keep your call queue clean.",
+      "metadata": {
+        "category": "Communication and Engagement",
+        "subcategory": "Calling",
+        "feature_name": "Spam Call Blocking",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-062",
+      "category": "AI and Automation",
+      "subcategory": "AI Agents (Textbot 2.0)",
+      "feature": "AI Agents for Inbox Conversations",
+      "description": "AI Agents manage common inbox replies, qualify contacts, and forward important messages to the right person.",
+      "is_new": true,
+      "text": "AI Agents for Inbox Conversations: AI Agents manage common inbox replies, qualify contacts, and forward important messages to the right person.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Agents (Textbot 2.0)",
+        "feature_name": "AI Agents for Inbox Conversations",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-063",
+      "category": "AI and Automation",
+      "subcategory": "AI Agents (Textbot 2.0)",
+      "feature": "AI Agents for Broadcast Replies",
+      "description": "AI Agents automatically respond to broadcast replies in real time with accurate, engaging messages.",
+      "is_new": true,
+      "text": "AI Agents for Broadcast Replies: AI Agents automatically respond to broadcast replies in real time with accurate, engaging messages.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Agents (Textbot 2.0)",
+        "feature_name": "AI Agents for Broadcast Replies",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-064",
+      "category": "AI and Automation",
+      "subcategory": "AI Agents (Textbot 2.0)",
+      "feature": "Pause and Resume AI Conversations",
+      "description": "Pause the AI Agent at any point to take over manually. Resume the session and let the AI continue seamlessly.",
+      "is_new": true,
+      "text": "Pause and Resume AI Conversations: Pause the AI Agent at any point to take over manually. Resume the session and let the AI continue seamlessly.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Agents (Textbot 2.0)",
+        "feature_name": "Pause and Resume AI Conversations",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-065",
+      "category": "AI and Automation",
+      "subcategory": "AI Agents (Textbot 2.0)",
+      "feature": "Automated Texting Conversations",
+      "description": "AI-powered agents that initiate and manage text conversations autonomously for lead qualification, scheduling, and support.",
+      "is_new": false,
+      "text": "Automated Texting Conversations: AI-powered agents that initiate and manage text conversations autonomously for lead qualification, scheduling, and support.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Agents (Textbot 2.0)",
+        "feature_name": "Automated Texting Conversations",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-066",
+      "category": "AI and Automation",
+      "subcategory": "AI Agents (Textbot 2.0)",
+      "feature": "Unified Agent Builder",
+      "description": "Build a texting agent from a single message describing what you want. A Creator Agent interviews you and generates a ready-to-use prompt automatically.",
+      "is_new": true,
+      "text": "Unified Agent Builder: Build a texting agent from a single message describing what you want. A Creator Agent interviews you and generates a ready-to-use prompt automatically.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Agents (Textbot 2.0)",
+        "feature_name": "Unified Agent Builder",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-067",
+      "category": "AI and Automation",
+      "subcategory": "AI Agents (Textbot 2.0)",
+      "feature": "Customizable Purpose, Tone and Length",
+      "description": "Configure the AI Agent's personality, communication style, and response length to match your brand voice.",
+      "is_new": false,
+      "text": "Customizable Purpose, Tone and Length: Configure the AI Agent's personality, communication style, and response length to match your brand voice.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Agents (Textbot 2.0)",
+        "feature_name": "Customizable Purpose, Tone and Length",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-068",
+      "category": "AI and Automation",
+      "subcategory": "AI Agents (Textbot 2.0)",
+      "feature": "24/7 Availability",
+      "description": "The AI Agent responds to incoming messages around the clock ensuring immediate engagement.",
+      "is_new": false,
+      "text": "24/7 Availability: The AI Agent responds to incoming messages around the clock ensuring immediate engagement.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Agents (Textbot 2.0)",
+        "feature_name": "24/7 Availability",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-069",
+      "category": "AI and Automation",
+      "subcategory": "AI Agents (Textbot 2.0)",
+      "feature": "Personalized Greetings",
+      "description": "Configure custom welcome messages that the AI Agent sends when a new conversation begins.",
+      "is_new": false,
+      "text": "Personalized Greetings: Configure custom welcome messages that the AI Agent sends when a new conversation begins.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Agents (Textbot 2.0)",
+        "feature_name": "Personalized Greetings",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-070",
+      "category": "AI and Automation",
+      "subcategory": "AI Agents (Textbot 2.0)",
+      "feature": "Human-Like Contextual Responses",
+      "description": "The AI generates natural, context-aware replies based on the full conversation history.",
+      "is_new": false,
+      "text": "Human-Like Contextual Responses: The AI generates natural, context-aware replies based on the full conversation history.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Agents (Textbot 2.0)",
+        "feature_name": "Human-Like Contextual Responses",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-071",
+      "category": "AI and Automation",
+      "subcategory": "AI Agents (Textbot 2.0)",
+      "feature": "Optional Data Collection Fields",
+      "description": "The AI Agent gathers configurable fields of data from contacts and stores them as structured data.",
+      "is_new": true,
+      "text": "Optional Data Collection Fields: The AI Agent gathers configurable fields of data from contacts and stores them as structured data.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Agents (Textbot 2.0)",
+        "feature_name": "Optional Data Collection Fields",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-072",
+      "category": "AI and Automation",
+      "subcategory": "AI Agents (Textbot 2.0)",
+      "feature": "Objective-Based Responses",
+      "description": "Define specific goals for the AI Agent and configure how it responds when objectives are met or unmet.",
+      "is_new": false,
+      "text": "Objective-Based Responses: Define specific goals for the AI Agent and configure how it responds when objectives are met or unmet.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Agents (Textbot 2.0)",
+        "feature_name": "Objective-Based Responses",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-073",
+      "category": "AI and Automation",
+      "subcategory": "AI Agents (Textbot 2.0)",
+      "feature": "Performance Tracking and Metrics",
+      "description": "Monitor AI Agent activity with metrics on conversations started, completed, contact statuses, and skipped interactions.",
+      "is_new": false,
+      "text": "Performance Tracking and Metrics: Monitor AI Agent activity with metrics on conversations started, completed, contact statuses, and skipped interactions.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Agents (Textbot 2.0)",
+        "feature_name": "Performance Tracking and Metrics",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-074",
+      "category": "AI and Automation",
+      "subcategory": "AI Agents (Textbot 2.0)",
+      "feature": "Conversation History",
+      "description": "The AI Agent maintains full conversation history for every contact providing context for follow-ups.",
+      "is_new": false,
+      "text": "Conversation History: The AI Agent maintains full conversation history for every contact providing context for follow-ups.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Agents (Textbot 2.0)",
+        "feature_name": "Conversation History",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-075",
+      "category": "AI and Automation",
+      "subcategory": "AI Agents (Textbot 2.0)",
+      "feature": "Human Intervention Option",
+      "description": "Pause the AI Agent and seamlessly take over the conversation as a human agent.",
+      "is_new": false,
+      "text": "Human Intervention Option: Pause the AI Agent and seamlessly take over the conversation as a human agent.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Agents (Textbot 2.0)",
+        "feature_name": "Human Intervention Option",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-076",
+      "category": "AI and Automation",
+      "subcategory": "AI Agents (Textbot 2.0)",
+      "feature": "AI-Powered Insight for Sales and Support",
+      "description": "AI analyzes conversation patterns and outcomes to surface actionable insights.",
+      "is_new": false,
+      "text": "AI-Powered Insight for Sales and Support: AI analyzes conversation patterns and outcomes to surface actionable insights.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Agents (Textbot 2.0)",
+        "feature_name": "AI-Powered Insight for Sales and Support",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-077",
+      "category": "AI and Automation",
+      "subcategory": "AI Agents (Textbot 2.0)",
+      "feature": "Google Sheets and Docs Live Sync",
+      "description": "Link Google Sheets or Google Docs directly to your agent's knowledge base for real-time data on every conversation. Pricing, FAQs, and scripts stay accurate automatically.",
+      "is_new": true,
+      "text": "Google Sheets and Docs Live Sync: Link Google Sheets or Google Docs directly to your agent's knowledge base for real-time data on every conversation. Pricing, FAQs, and scripts stay accurate automatically.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Agents (Textbot 2.0)",
+        "feature_name": "Google Sheets and Docs Live Sync",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-078",
+      "category": "AI and Automation",
+      "subcategory": "AI Agents (Textbot 2.0)",
+      "feature": "Agent Session Windows",
+      "description": "Configure longer session windows for AI agents to allow better follow-up timing before conversations close.",
+      "is_new": true,
+      "text": "Agent Session Windows: Configure longer session windows for AI agents to allow better follow-up timing before conversations close.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Agents (Textbot 2.0)",
+        "feature_name": "Agent Session Windows",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-079",
+      "category": "AI and Automation",
+      "subcategory": "AI Agents (Textbot 2.0)",
+      "feature": "Owner Inbox Sending",
+      "description": "Ensure AI agent messages are sent from the assigned contact owner's inbox for personalized outreach.",
+      "is_new": true,
+      "text": "Owner Inbox Sending: Ensure AI agent messages are sent from the assigned contact owner's inbox for personalized outreach.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Agents (Textbot 2.0)",
+        "feature_name": "Owner Inbox Sending",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-080",
+      "category": "AI and Automation",
+      "subcategory": "AI Agents (Textbot 2.0)",
+      "feature": "Single Agent Per Contact",
+      "description": "Prevent overlapping AI agent interactions by ensuring each contact is handled by only one agent at a time.",
+      "is_new": true,
+      "text": "Single Agent Per Contact: Prevent overlapping AI agent interactions by ensuring each contact is handled by only one agent at a time.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Agents (Textbot 2.0)",
+        "feature_name": "Single Agent Per Contact",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-081",
+      "category": "AI and Automation",
+      "subcategory": "AI Agents (Textbot 2.0)",
+      "feature": "Enhanced AI Prompts",
+      "description": "Salesmsg analyzes your conversation history and automatically suggests optimized agent instructions for smoother flows and better outcomes.",
+      "is_new": true,
+      "text": "Enhanced AI Prompts: Salesmsg analyzes your conversation history and automatically suggests optimized agent instructions for smoother flows and better outcomes.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Agents (Textbot 2.0)",
+        "feature_name": "Enhanced AI Prompts",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-082",
+      "category": "AI and Automation",
+      "subcategory": "AI Texting Assistant",
+      "feature": "Smart Response Suggestions",
+      "description": "AI-powered response suggestions that help agents compose better messages faster directly in the conversation composer.",
+      "is_new": true,
+      "text": "Smart Response Suggestions: AI-powered response suggestions that help agents compose better messages faster directly in the conversation composer.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Texting Assistant",
+        "feature_name": "Smart Response Suggestions",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-083",
+      "category": "AI and Automation",
+      "subcategory": "AI Texting Assistant",
+      "feature": "AI Conversation Summaries",
+      "description": "Generate summaries of texting conversations using the AI assistant. Create notes from call transcripts and messages for easy handoffs.",
+      "is_new": true,
+      "text": "AI Conversation Summaries: Generate summaries of texting conversations using the AI assistant. Create notes from call transcripts and messages for easy handoffs.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Texting Assistant",
+        "feature_name": "AI Conversation Summaries",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-084",
+      "category": "AI and Automation",
+      "subcategory": "AI Qualify",
+      "feature": "Automated Lead Qualification",
+      "description": "AI evaluates contacts in real time using conversation data and CRM properties to identify qualified and disqualified leads.",
+      "is_new": true,
+      "text": "Automated Lead Qualification: AI evaluates contacts in real time using conversation data and CRM properties to identify qualified and disqualified leads.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Qualify",
+        "feature_name": "Automated Lead Qualification",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-085",
+      "category": "AI and Automation",
+      "subcategory": "AI Qualify",
+      "feature": "Custom Qualification Instructions",
+      "description": "Write custom AI instructions in the qualification step to define your criteria for consistent, accurate qualification.",
+      "is_new": true,
+      "text": "Custom Qualification Instructions: Write custom AI instructions in the qualification step to define your criteria for consistent, accurate qualification.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Qualify",
+        "feature_name": "Custom Qualification Instructions",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-086",
+      "category": "AI and Automation",
+      "subcategory": "AI Qualify",
+      "feature": "Qualify Using Any Properties",
+      "description": "Reference both collected conversation data and existing CRM properties to evaluate contact fit.",
+      "is_new": true,
+      "text": "Qualify Using Any Properties: Reference both collected conversation data and existing CRM properties to evaluate contact fit.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Qualify",
+        "feature_name": "Qualify Using Any Properties",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-087",
+      "category": "AI and Automation",
+      "subcategory": "AI Qualify",
+      "feature": "Auto-Stop Disqualified Contacts",
+      "description": "Automatically conclude conversations with disqualified contacts by sending a final message.",
+      "is_new": true,
+      "text": "Auto-Stop Disqualified Contacts: Automatically conclude conversations with disqualified contacts by sending a final message.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Qualify",
+        "feature_name": "Auto-Stop Disqualified Contacts",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-088",
+      "category": "AI and Automation",
+      "subcategory": "AI Booking Agent",
+      "feature": "Automated Meeting Scheduling",
+      "description": "The Booking AI Agent handles the back-and-forth of scheduling calls and meetings automatically.",
+      "is_new": true,
+      "text": "Automated Meeting Scheduling: The Booking AI Agent handles the back-and-forth of scheduling calls and meetings automatically.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Booking Agent",
+        "feature_name": "Automated Meeting Scheduling",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-089",
+      "category": "AI and Automation",
+      "subcategory": "AI Booking Agent",
+      "feature": "Calendly Integration",
+      "description": "Connect your Calendly account and select which event the AI Agent should use for real-time bookings.",
+      "is_new": true,
+      "text": "Calendly Integration: Connect your Calendly account and select which event the AI Agent should use for real-time bookings.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Booking Agent",
+        "feature_name": "Calendly Integration",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-090",
+      "category": "AI and Automation",
+      "subcategory": "AI Booking Agent",
+      "feature": "HubSpot Meetings Integration",
+      "description": "Native HubSpot Meetings support for the AI Booking Agent. Handles the full scheduling flow synced directly to your HubSpot calendar.",
+      "is_new": true,
+      "text": "HubSpot Meetings Integration: Native HubSpot Meetings support for the AI Booking Agent. Handles the full scheduling flow synced directly to your HubSpot calendar.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Booking Agent",
+        "feature_name": "HubSpot Meetings Integration",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-091",
+      "category": "AI and Automation",
+      "subcategory": "AI Booking Agent",
+      "feature": "Smart Data Collection Via Chat",
+      "description": "The Agent collects key information like name, email, and preferences through natural conversation.",
+      "is_new": true,
+      "text": "Smart Data Collection Via Chat: The Agent collects key information like name, email, and preferences through natural conversation.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Booking Agent",
+        "feature_name": "Smart Data Collection Via Chat",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-092",
+      "category": "AI and Automation",
+      "subcategory": "AI Booking Agent",
+      "feature": "Automated Cancellations and Rescheduling",
+      "description": "The AI Booking Agent handles cancellations, updates your schedule, and sends recovery messages.",
+      "is_new": true,
+      "text": "Automated Cancellations and Rescheduling: The AI Booking Agent handles cancellations, updates your schedule, and sends recovery messages.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Booking Agent",
+        "feature_name": "Automated Cancellations and Rescheduling",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-093",
+      "category": "AI and Automation",
+      "subcategory": "AI Booking Agent",
+      "feature": "Booking Performance Analytics",
+      "description": "Track your AI Booking Agent's performance with real-time insights into booking activity and conversion metrics.",
+      "is_new": true,
+      "text": "Booking Performance Analytics: Track your AI Booking Agent's performance with real-time insights into booking activity and conversion metrics.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Booking Agent",
+        "feature_name": "Booking Performance Analytics",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-094",
+      "category": "AI and Automation",
+      "subcategory": "AI Calling Agents",
+      "feature": "Automated Voice Conversations",
+      "description": "Create and configure AI Calling Agents that handle real-time voice conversations with natural-sounding AI voices.",
+      "is_new": true,
+      "text": "Automated Voice Conversations: Create and configure AI Calling Agents that handle real-time voice conversations with natural-sounding AI voices.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Calling Agents",
+        "feature_name": "Automated Voice Conversations",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-095",
+      "category": "AI and Automation",
+      "subcategory": "AI Calling Agents",
+      "feature": "Prebuilt Calling Agent Templates",
+      "description": "Build a Calling Agent from templates for answering FAQs, taking messages, collecting caller details, or create a custom agent.",
+      "is_new": true,
+      "text": "Prebuilt Calling Agent Templates: Build a Calling Agent from templates for answering FAQs, taking messages, collecting caller details, or create a custom agent.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Calling Agents",
+        "feature_name": "Prebuilt Calling Agent Templates",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-096",
+      "category": "AI and Automation",
+      "subcategory": "AI Calling Agents",
+      "feature": "Inbox-Level Calling Agent Assignment",
+      "description": "Assign an AI Calling Agent to specific inboxes to answer inbound calls and capture caller details when unavailable.",
+      "is_new": true,
+      "text": "Inbox-Level Calling Agent Assignment: Assign an AI Calling Agent to specific inboxes to answer inbound calls and capture caller details when unavailable.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Calling Agents",
+        "feature_name": "Inbox-Level Calling Agent Assignment",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-097",
+      "category": "AI and Automation",
+      "subcategory": "AI Calling Agents",
+      "feature": "Knowledge Base-Powered Calling",
+      "description": "Connect your Knowledge Base to AI Calling Agents for accurate, context-aware answers during live calls.",
+      "is_new": true,
+      "text": "Knowledge Base-Powered Calling: Connect your Knowledge Base to AI Calling Agents for accurate, context-aware answers during live calls.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Calling Agents",
+        "feature_name": "Knowledge Base-Powered Calling",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-098",
+      "category": "AI and Automation",
+      "subcategory": "AI Calling Agents",
+      "feature": "Calling Agent Testing and Analytics",
+      "description": "Test your agent before going live and monitor results through built-in analytics.",
+      "is_new": true,
+      "text": "Calling Agent Testing and Analytics: Test your agent before going live and monitor results through built-in analytics.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Calling Agents",
+        "feature_name": "Calling Agent Testing and Analytics",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-099",
+      "category": "AI and Automation",
+      "subcategory": "AI Calling Agents",
+      "feature": "Escalate to Human Agent",
+      "description": "Automatically route calls to your inbox ring group the moment a caller needs more than the AI can provide.",
+      "is_new": true,
+      "text": "Escalate to Human Agent: Automatically route calls to your inbox ring group the moment a caller needs more than the AI can provide.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Calling Agents",
+        "feature_name": "Escalate to Human Agent",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-100",
+      "category": "AI and Automation",
+      "subcategory": "AI Calling Agents",
+      "feature": "CRM Data Capture During Calls",
+      "description": "AI Calling Agents capture and save contact data to your CRM in real time during voice conversations.",
+      "is_new": true,
+      "text": "CRM Data Capture During Calls: AI Calling Agents capture and save contact data to your CRM in real time during voice conversations.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Calling Agents",
+        "feature_name": "CRM Data Capture During Calls",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-101",
+      "category": "AI and Automation",
+      "subcategory": "AI Calling Agents",
+      "feature": "Automatic SMS Follow-Ups After Calls",
+      "description": "AI Calling Agents automatically send SMS follow-up messages after a call ends to keep conversations moving.",
+      "is_new": true,
+      "text": "Automatic SMS Follow-Ups After Calls: AI Calling Agents automatically send SMS follow-up messages after a call ends to keep conversations moving.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Calling Agents",
+        "feature_name": "Automatic SMS Follow-Ups After Calls",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-102",
+      "category": "AI and Automation",
+      "subcategory": "AI Calling Agents",
+      "feature": "AI and Transferred Call Timelines",
+      "description": "View distinct timelines for the AI-handled portion and any transferred human call in each conversation.",
+      "is_new": true,
+      "text": "AI and Transferred Call Timelines: View distinct timelines for the AI-handled portion and any transferred human call in each conversation.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Calling Agents",
+        "feature_name": "AI and Transferred Call Timelines",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-103",
+      "category": "AI and Automation",
+      "subcategory": "AI Knowledge Base",
+      "feature": "Upload Business Documents",
+      "description": "Upload product guides, sales playbooks, FAQ sheets, and pricing documents for AI Agents.",
+      "is_new": false,
+      "text": "Upload Business Documents: Upload product guides, sales playbooks, FAQ sheets, and pricing documents for AI Agents.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Knowledge Base",
+        "feature_name": "Upload Business Documents",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-104",
+      "category": "AI and Automation",
+      "subcategory": "AI Knowledge Base",
+      "feature": "Add URLs to Knowledge Base",
+      "description": "Insert live website URLs into your Knowledge Base as sources for smarter AI agent responses.",
+      "is_new": true,
+      "text": "Add URLs to Knowledge Base: Insert live website URLs into your Knowledge Base as sources for smarter AI agent responses.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Knowledge Base",
+        "feature_name": "Add URLs to Knowledge Base",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-105",
+      "category": "AI and Automation",
+      "subcategory": "AI Knowledge Base",
+      "feature": "Add Custom Text Entries",
+      "description": "Drop custom text directly into the Knowledge Base without uploading files.",
+      "is_new": true,
+      "text": "Add Custom Text Entries: Drop custom text directly into the Knowledge Base without uploading files.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Knowledge Base",
+        "feature_name": "Add Custom Text Entries",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-106",
+      "category": "AI and Automation",
+      "subcategory": "AI Knowledge Base",
+      "feature": "Agent-Level Knowledge Access",
+      "description": "Control which AI Agents can access specific Knowledge Base content.",
+      "is_new": true,
+      "text": "Agent-Level Knowledge Access: Control which AI Agents can access specific Knowledge Base content.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Knowledge Base",
+        "feature_name": "Agent-Level Knowledge Access",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-107",
+      "category": "AI and Automation",
+      "subcategory": "AI Knowledge Base",
+      "feature": "Centralized Knowledge Storage",
+      "description": "All documents, URLs, and text entries organized in a single repository accessible to the AI engine.",
+      "is_new": false,
+      "text": "Centralized Knowledge Storage: All documents, URLs, and text entries organized in a single repository accessible to the AI engine.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Knowledge Base",
+        "feature_name": "Centralized Knowledge Storage",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-108",
+      "category": "AI and Automation",
+      "subcategory": "AI Knowledge Base",
+      "feature": "Automatic Agent Training",
+      "description": "AI Agents automatically learn from newly uploaded documents without manual configuration.",
+      "is_new": false,
+      "text": "Automatic Agent Training: AI Agents automatically learn from newly uploaded documents without manual configuration.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Knowledge Base",
+        "feature_name": "Automatic Agent Training",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-109",
+      "category": "AI and Automation",
+      "subcategory": "AI Knowledge Base",
+      "feature": "Document Preview Before Upload",
+      "description": "Preview document contents before adding them to the Knowledge Base.",
+      "is_new": true,
+      "text": "Document Preview Before Upload: Preview document contents before adding them to the Knowledge Base.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Knowledge Base",
+        "feature_name": "Document Preview Before Upload",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-110",
+      "category": "AI and Automation",
+      "subcategory": "AI Agent Templates",
+      "feature": "Lead Qualification Chatbot",
+      "description": "A pre-built AI Agent template to capture leads and collect essential details.",
+      "is_new": false,
+      "text": "Lead Qualification Chatbot: A pre-built AI Agent template to capture leads and collect essential details.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Agent Templates",
+        "feature_name": "Lead Qualification Chatbot",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-111",
+      "category": "AI and Automation",
+      "subcategory": "AI Agent Templates",
+      "feature": "NPS Survey Chatbot",
+      "description": "An automated template that sends Net Promoter Score surveys via text and follows up based on score.",
+      "is_new": false,
+      "text": "NPS Survey Chatbot: An automated template that sends Net Promoter Score surveys via text and follows up based on score.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Agent Templates",
+        "feature_name": "NPS Survey Chatbot",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-112",
+      "category": "AI and Automation",
+      "subcategory": "AI Agent Templates",
+      "feature": "FAQ Chatbot",
+      "description": "A template to answer common customer questions instantly via text.",
+      "is_new": false,
+      "text": "FAQ Chatbot: A template to answer common customer questions instantly via text.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Agent Templates",
+        "feature_name": "FAQ Chatbot",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-113",
+      "category": "AI and Automation",
+      "subcategory": "AI Agent Templates",
+      "feature": "Support Agent Template",
+      "description": "Pre-loaded support agent template with proven prompt for customer service use cases.",
+      "is_new": true,
+      "text": "Support Agent Template: Pre-loaded support agent template with proven prompt for customer service use cases.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Agent Templates",
+        "feature_name": "Support Agent Template",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-114",
+      "category": "AI and Automation",
+      "subcategory": "AI Agent Templates",
+      "feature": "Booking Agent Template",
+      "description": "Pre-loaded booking agent template for appointment scheduling scenarios.",
+      "is_new": true,
+      "text": "Booking Agent Template: Pre-loaded booking agent template for appointment scheduling scenarios.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "AI Agent Templates",
+        "feature_name": "Booking Agent Template",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-115",
+      "category": "AI and Automation",
+      "subcategory": "Personalization",
+      "feature": "Merge Fields from CRM",
+      "description": "Dynamically insert contact-specific data into messages using merge fields from your connected CRM.",
+      "is_new": false,
+      "text": "Merge Fields from CRM: Dynamically insert contact-specific data into messages using merge fields from your connected CRM.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "Personalization",
+        "feature_name": "Merge Fields from CRM",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-116",
+      "category": "AI and Automation",
+      "subcategory": "Personalization",
+      "feature": "Canned Responses",
+      "description": "Save pre-written replies to frequently asked questions and insert them with a single click.",
+      "is_new": false,
+      "text": "Canned Responses: Save pre-written replies to frequently asked questions and insert them with a single click.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "Personalization",
+        "feature_name": "Canned Responses",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-117",
+      "category": "AI and Automation",
+      "subcategory": "Personalization",
+      "feature": "Canned Messages in Broadcasts",
+      "description": "Use your saved canned responses as broadcast message templates.",
+      "is_new": false,
+      "text": "Canned Messages in Broadcasts: Use your saved canned responses as broadcast message templates.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "Personalization",
+        "feature_name": "Canned Messages in Broadcasts",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-118",
+      "category": "AI and Automation",
+      "subcategory": "Personalization",
+      "feature": "SMS Link Shortener",
+      "description": "Automatically shorten long URLs into compact, trackable links.",
+      "is_new": false,
+      "text": "SMS Link Shortener: Automatically shorten long URLs into compact, trackable links.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "Personalization",
+        "feature_name": "SMS Link Shortener",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-119",
+      "category": "AI and Automation",
+      "subcategory": "Personalization",
+      "feature": "Link Shortnr",
+      "description": "Salesmsg's proprietary link-shortening service with built-in click analytics, conversion tracking, and branded short domains.",
+      "is_new": false,
+      "text": "Link Shortnr: Salesmsg's proprietary link-shortening service with built-in click analytics, conversion tracking, and branded short domains.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "Personalization",
+        "feature_name": "Link Shortnr",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-120",
+      "category": "AI and Automation",
+      "subcategory": "Personalization",
+      "feature": "Custom Domain for Links",
+      "description": "Replace generic short-link domains with your own branded domain name with auto-generated SSL certificates.",
+      "is_new": false,
+      "text": "Custom Domain for Links: Replace generic short-link domains with your own branded domain name with auto-generated SSL certificates.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "Personalization",
+        "feature_name": "Custom Domain for Links",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-121",
+      "category": "AI and Automation",
+      "subcategory": "Personalization",
+      "feature": "Quick Links",
+      "description": "Create personalized URLs on contact cards using merge fields for one-click access to CRM profiles, help docs, or external tools.",
+      "is_new": true,
+      "text": "Quick Links: Create personalized URLs on contact cards using merge fields for one-click access to CRM profiles, help docs, or external tools.",
+      "metadata": {
+        "category": "AI and Automation",
+        "subcategory": "Personalization",
+        "feature_name": "Quick Links",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-122",
+      "category": "Campaigns and Workflows",
+      "subcategory": "Campaigns",
+      "feature": "Multi-Step Message Sequences",
+      "description": "Build automated campaigns with multiple messages combining SMS and Ringless Voicemail with delays and triggers.",
+      "is_new": true,
+      "text": "Multi-Step Message Sequences: Build automated campaigns with multiple messages combining SMS and Ringless Voicemail with delays and triggers.",
+      "metadata": {
+        "category": "Campaigns and Workflows",
+        "subcategory": "Campaigns",
+        "feature_name": "Multi-Step Message Sequences",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-123",
+      "category": "Campaigns and Workflows",
+      "subcategory": "Campaigns",
+      "feature": "Dynamic Send Times",
+      "description": "Schedule each campaign message to send instantly, after a delay, or according to dynamic dates in contact custom fields.",
+      "is_new": true,
+      "text": "Dynamic Send Times: Schedule each campaign message to send instantly, after a delay, or according to dynamic dates in contact custom fields.",
+      "metadata": {
+        "category": "Campaigns and Workflows",
+        "subcategory": "Campaigns",
+        "feature_name": "Dynamic Send Times",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-124",
+      "category": "Campaigns and Workflows",
+      "subcategory": "Campaigns",
+      "feature": "Dynamic Campaign Dates",
+      "description": "Trigger messages based on each contact's unique timeline like webinar reminders, renewal dates, or onboarding milestones.",
+      "is_new": true,
+      "text": "Dynamic Campaign Dates: Trigger messages based on each contact's unique timeline like webinar reminders, renewal dates, or onboarding milestones.",
+      "metadata": {
+        "category": "Campaigns and Workflows",
+        "subcategory": "Campaigns",
+        "feature_name": "Dynamic Campaign Dates",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-125",
+      "category": "Campaigns and Workflows",
+      "subcategory": "Campaigns",
+      "feature": "Campaign Enrollment and Re-Enrollment",
+      "description": "Automatically add contacts to campaigns using triggers or filters. Re-enroll contacts who completed a flow.",
+      "is_new": true,
+      "text": "Campaign Enrollment and Re-Enrollment: Automatically add contacts to campaigns using triggers or filters. Re-enroll contacts who completed a flow.",
+      "metadata": {
+        "category": "Campaigns and Workflows",
+        "subcategory": "Campaigns",
+        "feature_name": "Campaign Enrollment and Re-Enrollment",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-126",
+      "category": "Campaigns and Workflows",
+      "subcategory": "Campaigns",
+      "feature": "Convert Broadcasts to Campaigns",
+      "description": "Transform existing one-time broadcasts into multi-step campaign sequences.",
+      "is_new": true,
+      "text": "Convert Broadcasts to Campaigns: Transform existing one-time broadcasts into multi-step campaign sequences.",
+      "metadata": {
+        "category": "Campaigns and Workflows",
+        "subcategory": "Campaigns",
+        "feature_name": "Convert Broadcasts to Campaigns",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-127",
+      "category": "Campaigns and Workflows",
+      "subcategory": "Campaigns",
+      "feature": "Campaign Performance Tracking",
+      "description": "Track how contacts progress through each campaign with real-time stats.",
+      "is_new": true,
+      "text": "Campaign Performance Tracking: Track how contacts progress through each campaign with real-time stats.",
+      "metadata": {
+        "category": "Campaigns and Workflows",
+        "subcategory": "Campaigns",
+        "feature_name": "Campaign Performance Tracking",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-128",
+      "category": "Campaigns and Workflows",
+      "subcategory": "Campaigns",
+      "feature": "Live Campaign Editing",
+      "description": "Edit campaigns while they are running without pausing or restarting them. Adjust messaging, timing, and logic on the fly.",
+      "is_new": true,
+      "text": "Live Campaign Editing: Edit campaigns while they are running without pausing or restarting them. Adjust messaging, timing, and logic on the fly.",
+      "metadata": {
+        "category": "Campaigns and Workflows",
+        "subcategory": "Campaigns",
+        "feature_name": "Live Campaign Editing",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-129",
+      "category": "Campaigns and Workflows",
+      "subcategory": "Workflows",
+      "feature": "Visual Workflow Builder",
+      "description": "Design custom automations with a visual drag-and-drop interface. Choose triggers, add actions, set conditions.",
+      "is_new": true,
+      "text": "Visual Workflow Builder: Design custom automations with a visual drag-and-drop interface. Choose triggers, add actions, set conditions.",
+      "metadata": {
+        "category": "Campaigns and Workflows",
+        "subcategory": "Workflows",
+        "feature_name": "Visual Workflow Builder",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-130",
+      "category": "Campaigns and Workflows",
+      "subcategory": "Workflows",
+      "feature": "Workflow Templates",
+      "description": "Pre-built templates for autoresponders, nurture campaigns, review requests, appointment reminders, and more.",
+      "is_new": true,
+      "text": "Workflow Templates: Pre-built templates for autoresponders, nurture campaigns, review requests, appointment reminders, and more.",
+      "metadata": {
+        "category": "Campaigns and Workflows",
+        "subcategory": "Workflows",
+        "feature_name": "Workflow Templates",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-131",
+      "category": "Campaigns and Workflows",
+      "subcategory": "Workflows",
+      "feature": "Custom Field Workflow Filters",
+      "description": "Select any custom field as an enrollment filter to build precise automations targeting contacts by business-specific data.",
+      "is_new": true,
+      "text": "Custom Field Workflow Filters: Select any custom field as an enrollment filter to build precise automations targeting contacts by business-specific data.",
+      "metadata": {
+        "category": "Campaigns and Workflows",
+        "subcategory": "Workflows",
+        "feature_name": "Custom Field Workflow Filters",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-132",
+      "category": "Campaigns and Workflows",
+      "subcategory": "Workflows",
+      "feature": "Custom Property Triggers",
+      "description": "Trigger workflow enrollments through custom properties including number, text, URL, date, and date-time fields.",
+      "is_new": true,
+      "text": "Custom Property Triggers: Trigger workflow enrollments through custom properties including number, text, URL, date, and date-time fields.",
+      "metadata": {
+        "category": "Campaigns and Workflows",
+        "subcategory": "Workflows",
+        "feature_name": "Custom Property Triggers",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-133",
+      "category": "Campaigns and Workflows",
+      "subcategory": "Workflows",
+      "feature": "Webhook Actions in Workflows",
+      "description": "Send HTTP posts to external URLs from within workflows to sync with CRMs and internal systems.",
+      "is_new": true,
+      "text": "Webhook Actions in Workflows: Send HTTP posts to external URLs from within workflows to sync with CRMs and internal systems.",
+      "metadata": {
+        "category": "Campaigns and Workflows",
+        "subcategory": "Workflows",
+        "feature_name": "Webhook Actions in Workflows",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-134",
+      "category": "Campaigns and Workflows",
+      "subcategory": "Workflows",
+      "feature": "Edit Active Workflows",
+      "description": "Make changes to workflows while they are running without pausing or restarting them.",
+      "is_new": true,
+      "text": "Edit Active Workflows: Make changes to workflows while they are running without pausing or restarting them.",
+      "metadata": {
+        "category": "Campaigns and Workflows",
+        "subcategory": "Workflows",
+        "feature_name": "Edit Active Workflows",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-135",
+      "category": "Campaigns and Workflows",
+      "subcategory": "Workflows",
+      "feature": "Bulk Workflow Enrollment",
+      "description": "Enroll contacts into active workflows from the sidebar, contact record, or contacts page.",
+      "is_new": true,
+      "text": "Bulk Workflow Enrollment: Enroll contacts into active workflows from the sidebar, contact record, or contacts page.",
+      "metadata": {
+        "category": "Campaigns and Workflows",
+        "subcategory": "Workflows",
+        "feature_name": "Bulk Workflow Enrollment",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-136",
+      "category": "Campaigns and Workflows",
+      "subcategory": "Workflows",
+      "feature": "Manual Unenrollment",
+      "description": "Manually unenroll specific contacts from active workflows when they no longer need to receive automated messages.",
+      "is_new": true,
+      "text": "Manual Unenrollment: Manually unenroll specific contacts from active workflows when they no longer need to receive automated messages.",
+      "metadata": {
+        "category": "Campaigns and Workflows",
+        "subcategory": "Workflows",
+        "feature_name": "Manual Unenrollment",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-137",
+      "category": "Campaigns and Workflows",
+      "subcategory": "Workflows",
+      "feature": "Auto-Add Contact Notes and Custom Fields",
+      "description": "Automatically capture notes and update custom fields on contact records as workflow steps execute.",
+      "is_new": true,
+      "text": "Auto-Add Contact Notes and Custom Fields: Automatically capture notes and update custom fields on contact records as workflow steps execute.",
+      "metadata": {
+        "category": "Campaigns and Workflows",
+        "subcategory": "Workflows",
+        "feature_name": "Auto-Add Contact Notes and Custom Fields",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-138",
+      "category": "Campaigns and Workflows",
+      "subcategory": "Workflows",
+      "feature": "Workflow Click Tracking",
+      "description": "Track link clicks directly in workflow statistics to measure engagement at each automation step.",
+      "is_new": true,
+      "text": "Workflow Click Tracking: Track link clicks directly in workflow statistics to measure engagement at each automation step.",
+      "metadata": {
+        "category": "Campaigns and Workflows",
+        "subcategory": "Workflows",
+        "feature_name": "Workflow Click Tracking",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-139",
+      "category": "Campaigns and Workflows",
+      "subcategory": "Surveys and Reviews",
+      "feature": "NPS Surveys",
+      "description": "Create and activate NPS surveys that send automatically to enrolled contacts. Follow-ups are tailored to each score with category-based messaging. Track scores and trends in real time.",
+      "is_new": true,
+      "text": "NPS Surveys: Create and activate NPS surveys that send automatically to enrolled contacts. Follow-ups are tailored to each score with category-based messaging. Track scores and trends in real time.",
+      "metadata": {
+        "category": "Campaigns and Workflows",
+        "subcategory": "Surveys and Reviews",
+        "feature_name": "NPS Surveys",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-140",
+      "category": "Campaigns and Workflows",
+      "subcategory": "Surveys and Reviews",
+      "feature": "Reviews",
+      "description": "Create a branded review page, send review requests through Conversations, Broadcasts, or AI Agents, and direct happy customers to public review sites while capturing lower ratings privately.",
+      "is_new": true,
+      "text": "Reviews: Create a branded review page, send review requests through Conversations, Broadcasts, or AI Agents, and direct happy customers to public review sites while capturing lower ratings privately.",
+      "metadata": {
+        "category": "Campaigns and Workflows",
+        "subcategory": "Surveys and Reviews",
+        "feature_name": "Reviews",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-141",
+      "category": "Campaigns and Workflows",
+      "subcategory": "Scheduling and Auto-Replies",
+      "feature": "Scheduled Messages",
+      "description": "Compose a message now and schedule it to send at a specific date and time in the future.",
+      "is_new": false,
+      "text": "Scheduled Messages: Compose a message now and schedule it to send at a specific date and time in the future.",
+      "metadata": {
+        "category": "Campaigns and Workflows",
+        "subcategory": "Scheduling and Auto-Replies",
+        "feature_name": "Scheduled Messages",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-142",
+      "category": "Campaigns and Workflows",
+      "subcategory": "Scheduling and Auto-Replies",
+      "feature": "Manage All Scheduled Messages",
+      "description": "A centralized view of every scheduled message across all inboxes and team members.",
+      "is_new": false,
+      "text": "Manage All Scheduled Messages: A centralized view of every scheduled message across all inboxes and team members.",
+      "metadata": {
+        "category": "Campaigns and Workflows",
+        "subcategory": "Scheduling and Auto-Replies",
+        "feature_name": "Manage All Scheduled Messages",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-143",
+      "category": "Campaigns and Workflows",
+      "subcategory": "Scheduling and Auto-Replies",
+      "feature": "Schedule and Draft SMS",
+      "description": "Save messages as drafts for review before sending, or schedule them for optimal delivery times.",
+      "is_new": false,
+      "text": "Schedule and Draft SMS: Save messages as drafts for review before sending, or schedule them for optimal delivery times.",
+      "metadata": {
+        "category": "Campaigns and Workflows",
+        "subcategory": "Scheduling and Auto-Replies",
+        "feature_name": "Schedule and Draft SMS",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-144",
+      "category": "Campaigns and Workflows",
+      "subcategory": "Scheduling and Auto-Replies",
+      "feature": "Broadcast in Contact's Timezone",
+      "description": "Automatically deliver broadcasts based on each recipient's local timezone.",
+      "is_new": false,
+      "text": "Broadcast in Contact's Timezone: Automatically deliver broadcasts based on each recipient's local timezone.",
+      "metadata": {
+        "category": "Campaigns and Workflows",
+        "subcategory": "Scheduling and Auto-Replies",
+        "feature_name": "Broadcast in Contact's Timezone",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-145",
+      "category": "Campaigns and Workflows",
+      "subcategory": "Scheduling and Auto-Replies",
+      "feature": "Auto-Replies and Business Hours",
+      "description": "Set your business hours and configure automatic replies for messages received outside those hours.",
+      "is_new": false,
+      "text": "Auto-Replies and Business Hours: Set your business hours and configure automatic replies for messages received outside those hours.",
+      "metadata": {
+        "category": "Campaigns and Workflows",
+        "subcategory": "Scheduling and Auto-Replies",
+        "feature_name": "Auto-Replies and Business Hours",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-146",
+      "category": "Campaigns and Workflows",
+      "subcategory": "Scheduling and Auto-Replies",
+      "feature": "Recurring Broadcasts",
+      "description": "Create broadcast campaigns that automatically repeat on a defined schedule.",
+      "is_new": false,
+      "text": "Recurring Broadcasts: Create broadcast campaigns that automatically repeat on a defined schedule.",
+      "metadata": {
+        "category": "Campaigns and Workflows",
+        "subcategory": "Scheduling and Auto-Replies",
+        "feature_name": "Recurring Broadcasts",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-147",
+      "category": "Campaigns and Workflows",
+      "subcategory": "Scheduling and Auto-Replies",
+      "feature": "Voicemail Drops",
+      "description": "Drop a pre-recorded audio message directly into a contact's voicemail without ringing their phone.",
+      "is_new": false,
+      "text": "Voicemail Drops: Drop a pre-recorded audio message directly into a contact's voicemail without ringing their phone.",
+      "metadata": {
+        "category": "Campaigns and Workflows",
+        "subcategory": "Scheduling and Auto-Replies",
+        "feature_name": "Voicemail Drops",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-148",
+      "category": "Campaigns and Workflows",
+      "subcategory": "Scheduling and Auto-Replies",
+      "feature": "Ringless Voicemail",
+      "description": "Deliver voicemail messages that bypass the phone's ringer entirely.",
+      "is_new": false,
+      "text": "Ringless Voicemail: Deliver voicemail messages that bypass the phone's ringer entirely.",
+      "metadata": {
+        "category": "Campaigns and Workflows",
+        "subcategory": "Scheduling and Auto-Replies",
+        "feature_name": "Ringless Voicemail",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-149",
+      "category": "Campaigns and Workflows",
+      "subcategory": "Scheduling and Auto-Replies",
+      "feature": "Ringless Voicemail Broadcast",
+      "description": "Send ringless voicemail drops to an entire contact list in a single campaign.",
+      "is_new": false,
+      "text": "Ringless Voicemail Broadcast: Send ringless voicemail drops to an entire contact list in a single campaign.",
+      "metadata": {
+        "category": "Campaigns and Workflows",
+        "subcategory": "Scheduling and Auto-Replies",
+        "feature_name": "Ringless Voicemail Broadcast",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-150",
+      "category": "Campaigns and Workflows",
+      "subcategory": "Scheduling and Auto-Replies",
+      "feature": "IVR Phone Tree",
+      "description": "Build a customizable interactive voice response system for inbound calls.",
+      "is_new": false,
+      "text": "IVR Phone Tree: Build a customizable interactive voice response system for inbound calls.",
+      "metadata": {
+        "category": "Campaigns and Workflows",
+        "subcategory": "Scheduling and Auto-Replies",
+        "feature_name": "IVR Phone Tree",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-151",
+      "category": "Campaigns and Workflows",
+      "subcategory": "Scheduling and Auto-Replies",
+      "feature": "IVR Automated SMS",
+      "description": "Trigger automatic SMS messages from within IVR flows to keep conversations moving after the call ends.",
+      "is_new": true,
+      "text": "IVR Automated SMS: Trigger automatic SMS messages from within IVR flows to keep conversations moving after the call ends.",
+      "metadata": {
+        "category": "Campaigns and Workflows",
+        "subcategory": "Scheduling and Auto-Replies",
+        "feature_name": "IVR Automated SMS",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-152",
+      "category": "Contact and Lead Management",
+      "subcategory": "Contact Import and Management",
+      "feature": "Import from CSV/CRM/Copy-Paste",
+      "description": "Bring contacts into Salesmsg by uploading a CSV file, syncing from your CRM, or copying and pasting a list.",
+      "is_new": false,
+      "text": "Import from CSV/CRM/Copy-Paste: Bring contacts into Salesmsg by uploading a CSV file, syncing from your CRM, or copying and pasting a list.",
+      "metadata": {
+        "category": "Contact and Lead Management",
+        "subcategory": "Contact Import and Management",
+        "feature_name": "Import from CSV/CRM/Copy-Paste",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-153",
+      "category": "Contact and Lead Management",
+      "subcategory": "Contact Import and Management",
+      "feature": "Bulk Invite CRM Users",
+      "description": "Invite large batches of contacts from your connected CRM with a single action.",
+      "is_new": false,
+      "text": "Bulk Invite CRM Users: Invite large batches of contacts from your connected CRM with a single action.",
+      "metadata": {
+        "category": "Contact and Lead Management",
+        "subcategory": "Contact Import and Management",
+        "feature_name": "Bulk Invite CRM Users",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-154",
+      "category": "Contact and Lead Management",
+      "subcategory": "Contact Import and Management",
+      "feature": "Search and Invite CRM Contacts",
+      "description": "Search your CRM directly from within Salesmsg to find and invite specific contacts.",
+      "is_new": false,
+      "text": "Search and Invite CRM Contacts: Search your CRM directly from within Salesmsg to find and invite specific contacts.",
+      "metadata": {
+        "category": "Contact and Lead Management",
+        "subcategory": "Contact Import and Management",
+        "feature_name": "Search and Invite CRM Contacts",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-155",
+      "category": "Contact and Lead Management",
+      "subcategory": "Contact Import and Management",
+      "feature": "Profile Merging for Multi Orgs",
+      "description": "Merge duplicate contact profiles across multiple organizations into a single unified record.",
+      "is_new": false,
+      "text": "Profile Merging for Multi Orgs: Merge duplicate contact profiles across multiple organizations into a single unified record.",
+      "metadata": {
+        "category": "Contact and Lead Management",
+        "subcategory": "Contact Import and Management",
+        "feature_name": "Profile Merging for Multi Orgs",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-156",
+      "category": "Contact and Lead Management",
+      "subcategory": "Contact Import and Management",
+      "feature": "Clean Up Contacts",
+      "description": "Identify and remove invalid, duplicate, or outdated contacts from your database.",
+      "is_new": false,
+      "text": "Clean Up Contacts: Identify and remove invalid, duplicate, or outdated contacts from your database.",
+      "metadata": {
+        "category": "Contact and Lead Management",
+        "subcategory": "Contact Import and Management",
+        "feature_name": "Clean Up Contacts",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-157",
+      "category": "Contact and Lead Management",
+      "subcategory": "Contact Import and Management",
+      "feature": "Bulk Opt-Out Contacts",
+      "description": "Opt out large groups of contacts from messaging in a single batch operation.",
+      "is_new": false,
+      "text": "Bulk Opt-Out Contacts: Opt out large groups of contacts from messaging in a single batch operation.",
+      "metadata": {
+        "category": "Contact and Lead Management",
+        "subcategory": "Contact Import and Management",
+        "feature_name": "Bulk Opt-Out Contacts",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-158",
+      "category": "Contact and Lead Management",
+      "subcategory": "Contact Import and Management",
+      "feature": "Contact Sharing Across Teams",
+      "description": "Access shared HubSpot contacts across teams with real-time syncing and secure permissions.",
+      "is_new": true,
+      "text": "Contact Sharing Across Teams: Access shared HubSpot contacts across teams with real-time syncing and secure permissions.",
+      "metadata": {
+        "category": "Contact and Lead Management",
+        "subcategory": "Contact Import and Management",
+        "feature_name": "Contact Sharing Across Teams",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-159",
+      "category": "Contact and Lead Management",
+      "subcategory": "Segmentation",
+      "feature": "Tag-Based Segmentation",
+      "description": "Apply custom tags to contacts and use them to filter and target specific groups.",
+      "is_new": false,
+      "text": "Tag-Based Segmentation: Apply custom tags to contacts and use them to filter and target specific groups.",
+      "metadata": {
+        "category": "Contact and Lead Management",
+        "subcategory": "Segmentation",
+        "feature_name": "Tag-Based Segmentation",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-160",
+      "category": "Contact and Lead Management",
+      "subcategory": "Segmentation",
+      "feature": "Segment Contacts Like a Pro",
+      "description": "Combine multiple tags, filters, and criteria to build precisely targeted audiences.",
+      "is_new": false,
+      "text": "Segment Contacts Like a Pro: Combine multiple tags, filters, and criteria to build precisely targeted audiences.",
+      "metadata": {
+        "category": "Contact and Lead Management",
+        "subcategory": "Segmentation",
+        "feature_name": "Segment Contacts Like a Pro",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-161",
+      "category": "Contact and Lead Management",
+      "subcategory": "Segmentation",
+      "feature": "Dynamic Segments (Info, Activity, Location)",
+      "description": "Segments that automatically update as contact data changes.",
+      "is_new": false,
+      "text": "Dynamic Segments (Info, Activity, Location): Segments that automatically update as contact data changes.",
+      "metadata": {
+        "category": "Contact and Lead Management",
+        "subcategory": "Segmentation",
+        "feature_name": "Dynamic Segments (Info, Activity, Location)",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-162",
+      "category": "Contact and Lead Management",
+      "subcategory": "Lead Capture",
+      "feature": "Redesigned SMS Keywords",
+      "description": "Overhauled keyword dashboard with search, filter, and instant keyword creation with automated personalized replies.",
+      "is_new": true,
+      "text": "Redesigned SMS Keywords: Overhauled keyword dashboard with search, filter, and instant keyword creation with automated personalized replies.",
+      "metadata": {
+        "category": "Contact and Lead Management",
+        "subcategory": "Lead Capture",
+        "feature_name": "Redesigned SMS Keywords",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-163",
+      "category": "Contact and Lead Management",
+      "subcategory": "Lead Capture",
+      "feature": "Text-to-Join Keywords",
+      "description": "Enable contacts to subscribe to your messaging list by texting a keyword to your number.",
+      "is_new": false,
+      "text": "Text-to-Join Keywords: Enable contacts to subscribe to your messaging list by texting a keyword to your number.",
+      "metadata": {
+        "category": "Contact and Lead Management",
+        "subcategory": "Lead Capture",
+        "feature_name": "Text-to-Join Keywords",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-164",
+      "category": "Contact and Lead Management",
+      "subcategory": "Lead Capture",
+      "feature": "Website Widget 2.0",
+      "description": "Redesigned widget with improved UI, faster load times, file sharing, typing indicators, and customizable branding.",
+      "is_new": true,
+      "text": "Website Widget 2.0: Redesigned widget with improved UI, faster load times, file sharing, typing indicators, and customizable branding.",
+      "metadata": {
+        "category": "Contact and Lead Management",
+        "subcategory": "Lead Capture",
+        "feature_name": "Website Widget 2.0",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-165",
+      "category": "Contact and Lead Management",
+      "subcategory": "Lead Capture",
+      "feature": "Website to Chat Widget",
+      "description": "Convert your website's chat interface into an SMS-based conversation.",
+      "is_new": false,
+      "text": "Website to Chat Widget: Convert your website's chat interface into an SMS-based conversation.",
+      "metadata": {
+        "category": "Contact and Lead Management",
+        "subcategory": "Lead Capture",
+        "feature_name": "Website to Chat Widget",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-166",
+      "category": "Contact and Lead Management",
+      "subcategory": "Lead Capture",
+      "feature": "HubSpot Widget 2.0",
+      "description": "Embedded Salesmsg widget inside HubSpot for texting, filtering conversations, and handling calls without leaving your CRM.",
+      "is_new": true,
+      "text": "HubSpot Widget 2.0: Embedded Salesmsg widget inside HubSpot for texting, filtering conversations, and handling calls without leaving your CRM.",
+      "metadata": {
+        "category": "Contact and Lead Management",
+        "subcategory": "Lead Capture",
+        "feature_name": "HubSpot Widget 2.0",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-167",
+      "category": "Integrations",
+      "subcategory": "HubSpot",
+      "feature": "HubSpot Deep Integration",
+      "description": "Native two-way sync with HubSpot that maps contacts, logs conversations, triggers workflows.",
+      "is_new": false,
+      "text": "HubSpot Deep Integration: Native two-way sync with HubSpot that maps contacts, logs conversations, triggers workflows.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "HubSpot",
+        "feature_name": "HubSpot Deep Integration",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-168",
+      "category": "Integrations",
+      "subcategory": "HubSpot",
+      "feature": "HubSpot Custom Channels",
+      "description": "Connect Salesmsg as a native channel in HubSpot's Inbox and Help Desk using the Custom Channel API.",
+      "is_new": true,
+      "text": "HubSpot Custom Channels: Connect Salesmsg as a native channel in HubSpot's Inbox and Help Desk using the Custom Channel API.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "HubSpot",
+        "feature_name": "HubSpot Custom Channels",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-169",
+      "category": "Integrations",
+      "subcategory": "HubSpot",
+      "feature": "HubSpot App Cards",
+      "description": "Send SMS and engage contacts with AI, campaigns, and Power Dialer tools from an embedded card on any HubSpot contact record.",
+      "is_new": true,
+      "text": "HubSpot App Cards: Send SMS and engage contacts with AI, campaigns, and Power Dialer tools from an embedded card on any HubSpot contact record.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "HubSpot",
+        "feature_name": "HubSpot App Cards",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-170",
+      "category": "Integrations",
+      "subcategory": "HubSpot",
+      "feature": "HubSpot Calling Insight Cards",
+      "description": "See actionable calling insights for every call directly inside HubSpot contact records.",
+      "is_new": true,
+      "text": "HubSpot Calling Insight Cards: See actionable calling insights for every call directly inside HubSpot contact records.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "HubSpot",
+        "feature_name": "HubSpot Calling Insight Cards",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-171",
+      "category": "Integrations",
+      "subcategory": "HubSpot",
+      "feature": "HubSpot Call Logging",
+      "description": "Automatically log every Salesmsg call as an activity on the HubSpot contact record.",
+      "is_new": false,
+      "text": "HubSpot Call Logging: Automatically log every Salesmsg call as an activity on the HubSpot contact record.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "HubSpot",
+        "feature_name": "HubSpot Call Logging",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-172",
+      "category": "Integrations",
+      "subcategory": "HubSpot",
+      "feature": "HubSpot Call Outcome Capture",
+      "description": "Call outcomes are saved automatically whether a call ends via voicemail drop, abrupt close, or any path that skips the save button.",
+      "is_new": true,
+      "text": "HubSpot Call Outcome Capture: Call outcomes are saved automatically whether a call ends via voicemail drop, abrupt close, or any path that skips the save button.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "HubSpot",
+        "feature_name": "HubSpot Call Outcome Capture",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-173",
+      "category": "Integrations",
+      "subcategory": "HubSpot",
+      "feature": "HubSpot Timeline Events",
+      "description": "Push key Salesmsg events onto the HubSpot contact timeline.",
+      "is_new": false,
+      "text": "HubSpot Timeline Events: Push key Salesmsg events onto the HubSpot contact timeline.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "HubSpot",
+        "feature_name": "HubSpot Timeline Events",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-174",
+      "category": "Integrations",
+      "subcategory": "HubSpot",
+      "feature": "HubSpot Workflow Tracking",
+      "description": "See all HubSpot workflows that send SMS with performance stats and step-by-step automation logs.",
+      "is_new": true,
+      "text": "HubSpot Workflow Tracking: See all HubSpot workflows that send SMS with performance stats and step-by-step automation logs.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "HubSpot",
+        "feature_name": "HubSpot Workflow Tracking",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-175",
+      "category": "Integrations",
+      "subcategory": "HubSpot",
+      "feature": "HubSpot Smart Data Collection",
+      "description": "Add Smart Data Collection action to HubSpot Workflows to let AI collect missing contact fields automatically.",
+      "is_new": true,
+      "text": "HubSpot Smart Data Collection: Add Smart Data Collection action to HubSpot Workflows to let AI collect missing contact fields automatically.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "HubSpot",
+        "feature_name": "HubSpot Smart Data Collection",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-176",
+      "category": "Integrations",
+      "subcategory": "HubSpot",
+      "feature": "HubSpot Custom Property Sync",
+      "description": "Sync custom HubSpot properties automatically from Salesmsg including latest message activity, content, and delivery status.",
+      "is_new": true,
+      "text": "HubSpot Custom Property Sync: Sync custom HubSpot properties automatically from Salesmsg including latest message activity, content, and delivery status.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "HubSpot",
+        "feature_name": "HubSpot Custom Property Sync",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-177",
+      "category": "Integrations",
+      "subcategory": "HubSpot",
+      "feature": "HubSpot Automatic URL Shortening",
+      "description": "Automatically shorten URLs in HubSpot workflow messages for professional appearance and improved engagement.",
+      "is_new": true,
+      "text": "HubSpot Automatic URL Shortening: Automatically shorten URLs in HubSpot workflow messages for professional appearance and improved engagement.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "HubSpot",
+        "feature_name": "HubSpot Automatic URL Shortening",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-178",
+      "category": "Integrations",
+      "subcategory": "HubSpot",
+      "feature": "HubSpot Campaign Auto-Enrollment",
+      "description": "Automatically enroll contacts into Salesmsg campaigns from HubSpot workflows.",
+      "is_new": true,
+      "text": "HubSpot Campaign Auto-Enrollment: Automatically enroll contacts into Salesmsg campaigns from HubSpot workflows.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "HubSpot",
+        "feature_name": "HubSpot Campaign Auto-Enrollment",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-179",
+      "category": "Integrations",
+      "subcategory": "HubSpot",
+      "feature": "HubSpot Power Dialer Queue Building",
+      "description": "Instantly build Power Dialer queues from HubSpot contact lists and workflows.",
+      "is_new": true,
+      "text": "HubSpot Power Dialer Queue Building: Instantly build Power Dialer queues from HubSpot contact lists and workflows.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "HubSpot",
+        "feature_name": "HubSpot Power Dialer Queue Building",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-180",
+      "category": "Integrations",
+      "subcategory": "HubSpot",
+      "feature": "PhoneCheckr Properties in HubSpot",
+      "description": "Surface phone number validation data as properties on HubSpot contact records.",
+      "is_new": false,
+      "text": "PhoneCheckr Properties in HubSpot: Surface phone number validation data as properties on HubSpot contact records.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "HubSpot",
+        "feature_name": "PhoneCheckr Properties in HubSpot",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-181",
+      "category": "Integrations",
+      "subcategory": "HubSpot",
+      "feature": "Business Messaging for Franchises",
+      "description": "Multi-location and franchise support for HubSpot users with org cloning and team mapping.",
+      "is_new": true,
+      "text": "Business Messaging for Franchises: Multi-location and franchise support for HubSpot users with org cloning and team mapping.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "HubSpot",
+        "feature_name": "Business Messaging for Franchises",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-182",
+      "category": "Integrations",
+      "subcategory": "Salesforce",
+      "feature": "Salesforce Integration",
+      "description": "Connect Salesmsg with Salesforce to sync contacts, log messaging activity, and trigger texts from workflows.",
+      "is_new": false,
+      "text": "Salesforce Integration: Connect Salesmsg with Salesforce to sync contacts, log messaging activity, and trigger texts from workflows.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "Salesforce",
+        "feature_name": "Salesforce Integration",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-183",
+      "category": "Integrations",
+      "subcategory": "Salesforce",
+      "feature": "Salesforce Custom Object Texting",
+      "description": "Send SMS and log activity directly on Salesforce custom objects, not just Contacts and Leads.",
+      "is_new": true,
+      "text": "Salesforce Custom Object Texting: Send SMS and log activity directly on Salesforce custom objects, not just Contacts and Leads.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "Salesforce",
+        "feature_name": "Salesforce Custom Object Texting",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-184",
+      "category": "Integrations",
+      "subcategory": "Salesforce",
+      "feature": "Salesforce Custom Object Flow Actions",
+      "description": "Trigger Salesmsg SMS actions from any Salesforce custom object in Flow Builder.",
+      "is_new": true,
+      "text": "Salesforce Custom Object Flow Actions: Trigger Salesmsg SMS actions from any Salesforce custom object in Flow Builder.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "Salesforce",
+        "feature_name": "Salesforce Custom Object Flow Actions",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-185",
+      "category": "Integrations",
+      "subcategory": "Salesforce",
+      "feature": "Salesforce Send as Contact/Record Owner",
+      "description": "Configure Send SMS action to send from the Contact or Record Owner's number so replies land in the right inbox.",
+      "is_new": true,
+      "text": "Salesforce Send as Contact/Record Owner: Configure Send SMS action to send from the Contact or Record Owner's number so replies land in the right inbox.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "Salesforce",
+        "feature_name": "Salesforce Send as Contact/Record Owner",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-186",
+      "category": "Integrations",
+      "subcategory": "Salesforce",
+      "feature": "Salesforce Contact Create and Update via Flow",
+      "description": "Use Create and Update Contact actions in Salesforce Flow to push contact data into Salesmsg automatically.",
+      "is_new": true,
+      "text": "Salesforce Contact Create and Update via Flow: Use Create and Update Contact actions in Salesforce Flow to push contact data into Salesmsg automatically.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "Salesforce",
+        "feature_name": "Salesforce Contact Create and Update via Flow",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-187",
+      "category": "Integrations",
+      "subcategory": "Salesforce",
+      "feature": "Salesforce AI Agent and Power Dialer Triggers",
+      "description": "Trigger AI Agent enrollments and Power Dialer sessions directly from Salesforce Flows.",
+      "is_new": true,
+      "text": "Salesforce AI Agent and Power Dialer Triggers: Trigger AI Agent enrollments and Power Dialer sessions directly from Salesforce Flows.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "Salesforce",
+        "feature_name": "Salesforce AI Agent and Power Dialer Triggers",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-188",
+      "category": "Integrations",
+      "subcategory": "Salesforce",
+      "feature": "Salesforce Ringless Voicemail",
+      "description": "Trigger ringless voicemail drops directly from Salesforce workflows and Marketing Cloud.",
+      "is_new": true,
+      "text": "Salesforce Ringless Voicemail: Trigger ringless voicemail drops directly from Salesforce workflows and Marketing Cloud.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "Salesforce",
+        "feature_name": "Salesforce Ringless Voicemail",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-189",
+      "category": "Integrations",
+      "subcategory": "Salesforce",
+      "feature": "Salesforce Tag Application via Flow",
+      "description": "Apply Salesmsg tags to contacts automatically through Salesforce Flow actions.",
+      "is_new": true,
+      "text": "Salesforce Tag Application via Flow: Apply Salesmsg tags to contacts automatically through Salesforce Flow actions.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "Salesforce",
+        "feature_name": "Salesforce Tag Application via Flow",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-190",
+      "category": "Integrations",
+      "subcategory": "Salesforce",
+      "feature": "Salesforce Quarterly Updates",
+      "description": "Ongoing improvements including enhanced syncing, new workflow actions, and expanded object support.",
+      "is_new": true,
+      "text": "Salesforce Quarterly Updates: Ongoing improvements including enhanced syncing, new workflow actions, and expanded object support.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "Salesforce",
+        "feature_name": "Salesforce Quarterly Updates",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-191",
+      "category": "Integrations",
+      "subcategory": "Zoho CRM",
+      "feature": "Zoho CRM Integration",
+      "description": "Sync Zoho CRM contacts and records with Salesmsg. Map fields, message contacts, and maintain a unified workflow.",
+      "is_new": true,
+      "text": "Zoho CRM Integration: Sync Zoho CRM contacts and records with Salesmsg. Map fields, message contacts, and maintain a unified workflow.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "Zoho CRM",
+        "feature_name": "Zoho CRM Integration",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-192",
+      "category": "Integrations",
+      "subcategory": "Other CRM and App Integrations",
+      "feature": "ActiveCampaign Custom Objects",
+      "description": "Sync Salesmsg data to ActiveCampaign custom objects for advanced segmentation and automation.",
+      "is_new": false,
+      "text": "ActiveCampaign Custom Objects: Sync Salesmsg data to ActiveCampaign custom objects for advanced segmentation and automation.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "Other CRM and App Integrations",
+        "feature_name": "ActiveCampaign Custom Objects",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-193",
+      "category": "Integrations",
+      "subcategory": "Other CRM and App Integrations",
+      "feature": "ActiveCampaign Contact Create/Update from Workflows",
+      "description": "Create or update ActiveCampaign contacts directly from Salesmsg workflow steps.",
+      "is_new": true,
+      "text": "ActiveCampaign Contact Create/Update from Workflows: Create or update ActiveCampaign contacts directly from Salesmsg workflow steps.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "Other CRM and App Integrations",
+        "feature_name": "ActiveCampaign Contact Create/Update from Workflows",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-194",
+      "category": "Integrations",
+      "subcategory": "Other CRM and App Integrations",
+      "feature": "ActiveCampaign Recipes",
+      "description": "Pre-built automation recipes for ActiveCampaign combining SMS triggers and actions.",
+      "is_new": true,
+      "text": "ActiveCampaign Recipes: Pre-built automation recipes for ActiveCampaign combining SMS triggers and actions.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "Other CRM and App Integrations",
+        "feature_name": "ActiveCampaign Recipes",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-195",
+      "category": "Integrations",
+      "subcategory": "Other CRM and App Integrations",
+      "feature": "Pipedrive Widget and Enhancements",
+      "description": "Embedded Salesmsg widget inside Pipedrive with enhanced contact syncing, AI assistant, and timeline events.",
+      "is_new": false,
+      "text": "Pipedrive Widget and Enhancements: Embedded Salesmsg widget inside Pipedrive with enhanced contact syncing, AI assistant, and timeline events.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "Other CRM and App Integrations",
+        "feature_name": "Pipedrive Widget and Enhancements",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-196",
+      "category": "Integrations",
+      "subcategory": "Other CRM and App Integrations",
+      "feature": "Intercom Integration",
+      "description": "Enhanced integration with Intercom including conversation syncing, inbox mapping, contact mapping, and tagging.",
+      "is_new": false,
+      "text": "Intercom Integration: Enhanced integration with Intercom including conversation syncing, inbox mapping, contact mapping, and tagging.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "Other CRM and App Integrations",
+        "feature_name": "Intercom Integration",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-197",
+      "category": "Integrations",
+      "subcategory": "Other CRM and App Integrations",
+      "feature": "Make Integration",
+      "description": "Connect Salesmsg to hundreds of apps through Make automation scenarios.",
+      "is_new": false,
+      "text": "Make Integration: Connect Salesmsg to hundreds of apps through Make automation scenarios.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "Other CRM and App Integrations",
+        "feature_name": "Make Integration",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-198",
+      "category": "Integrations",
+      "subcategory": "Other CRM and App Integrations",
+      "feature": "Make Custom Objects Recipes",
+      "description": "Pre-built Make scenarios using custom objects for advanced data mapping and multi-step automations.",
+      "is_new": true,
+      "text": "Make Custom Objects Recipes: Pre-built Make scenarios using custom objects for advanced data mapping and multi-step automations.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "Other CRM and App Integrations",
+        "feature_name": "Make Custom Objects Recipes",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-199",
+      "category": "Integrations",
+      "subcategory": "Other CRM and App Integrations",
+      "feature": "Zapier (1,500+ Apps)",
+      "description": "Integrate Salesmsg with over 1,500 applications through Zapier's no-code platform.",
+      "is_new": false,
+      "text": "Zapier (1,500+ Apps): Integrate Salesmsg with over 1,500 applications through Zapier's no-code platform.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "Other CRM and App Integrations",
+        "feature_name": "Zapier (1,500+ Apps)",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-200",
+      "category": "Integrations",
+      "subcategory": "Other CRM and App Integrations",
+      "feature": "Zaps Updates and Templates",
+      "description": "Updated Zapier templates with new triggers and actions for faster SMS automation deployment.",
+      "is_new": true,
+      "text": "Zaps Updates and Templates: Updated Zapier templates with new triggers and actions for faster SMS automation deployment.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "Other CRM and App Integrations",
+        "feature_name": "Zaps Updates and Templates",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-201",
+      "category": "Integrations",
+      "subcategory": "Other CRM and App Integrations",
+      "feature": "Slack Integration",
+      "description": "Send, receive, and manage SMS conversations directly from Slack.",
+      "is_new": true,
+      "text": "Slack Integration: Send, receive, and manage SMS conversations directly from Slack.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "Other CRM and App Integrations",
+        "feature_name": "Slack Integration",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-202",
+      "category": "Integrations",
+      "subcategory": "Other CRM and App Integrations",
+      "feature": "Twilio Integration (BYOC)",
+      "description": "Connect your existing Twilio account and numbers to Salesmsg without porting.",
+      "is_new": true,
+      "text": "Twilio Integration (BYOC): Connect your existing Twilio account and numbers to Salesmsg without porting.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "Other CRM and App Integrations",
+        "feature_name": "Twilio Integration (BYOC)",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-203",
+      "category": "Integrations",
+      "subcategory": "Other CRM and App Integrations",
+      "feature": "Aircall Integration",
+      "description": "Use existing Aircall numbers for two-way SMS/MMS conversations, mass texting, CRM integration, and call activity tracking.",
+      "is_new": true,
+      "text": "Aircall Integration: Use existing Aircall numbers for two-way SMS/MMS conversations, mass texting, CRM integration, and call activity tracking.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "Other CRM and App Integrations",
+        "feature_name": "Aircall Integration",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-204",
+      "category": "Integrations",
+      "subcategory": "Other CRM and App Integrations",
+      "feature": "Expanded App Marketplace",
+      "description": "CRM integrations now include Close, Attio, Outreach, and Insightly alongside HubSpot and Salesforce. Real-time contact and activity syncing.",
+      "is_new": true,
+      "text": "Expanded App Marketplace: CRM integrations now include Close, Attio, Outreach, and Insightly alongside HubSpot and Salesforce. Real-time contact and activity syncing.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "Other CRM and App Integrations",
+        "feature_name": "Expanded App Marketplace",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-205",
+      "category": "Integrations",
+      "subcategory": "Email and Communication",
+      "feature": "Email Integration",
+      "description": "Receive SMS notifications via email and reply directly from your email client.",
+      "is_new": false,
+      "text": "Email Integration: Receive SMS notifications via email and reply directly from your email client.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "Email and Communication",
+        "feature_name": "Email Integration",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-206",
+      "category": "Integrations",
+      "subcategory": "Email and Communication",
+      "feature": "Email Voicemail Transcript",
+      "description": "Voicemail recordings are automatically transcribed and sent to your email inbox.",
+      "is_new": false,
+      "text": "Email Voicemail Transcript: Voicemail recordings are automatically transcribed and sent to your email inbox.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "Email and Communication",
+        "feature_name": "Email Voicemail Transcript",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-207",
+      "category": "Integrations",
+      "subcategory": "Email and Communication",
+      "feature": "Reply to Texts from Email",
+      "description": "Respond to incoming text messages by replying to the email notification.",
+      "is_new": false,
+      "text": "Reply to Texts from Email: Respond to incoming text messages by replying to the email notification.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "Email and Communication",
+        "feature_name": "Reply to Texts from Email",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-208",
+      "category": "Integrations",
+      "subcategory": "App Marketplace",
+      "feature": "Redesigned App Marketplace",
+      "description": "A rebuilt integrations hub with search, filters, and categories for browsing and managing all integrations.",
+      "is_new": true,
+      "text": "Redesigned App Marketplace: A rebuilt integrations hub with search, filters, and categories for browsing and managing all integrations.",
+      "metadata": {
+        "category": "Integrations",
+        "subcategory": "App Marketplace",
+        "feature_name": "Redesigned App Marketplace",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-209",
+      "category": "Team Collaboration",
+      "subcategory": "Inbox Management",
+      "feature": "Inboxes 2.0",
+      "description": "Redesigned inbox experience with a five-step setup for creating new inboxes, assigning teammates, and attaching AI Agents.",
+      "is_new": true,
+      "text": "Inboxes 2.0: Redesigned inbox experience with a five-step setup for creating new inboxes, assigning teammates, and attaching AI Agents.",
+      "metadata": {
+        "category": "Team Collaboration",
+        "subcategory": "Inbox Management",
+        "feature_name": "Inboxes 2.0",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-210",
+      "category": "Team Collaboration",
+      "subcategory": "Inbox Management",
+      "feature": "Shared Inbox",
+      "description": "A team-wide inbox where multiple agents can view, claim, and respond to conversations.",
+      "is_new": false,
+      "text": "Shared Inbox: A team-wide inbox where multiple agents can view, claim, and respond to conversations.",
+      "metadata": {
+        "category": "Team Collaboration",
+        "subcategory": "Inbox Management",
+        "feature_name": "Shared Inbox",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-211",
+      "category": "Team Collaboration",
+      "subcategory": "Inbox Management",
+      "feature": "Smart Inbox Functionality",
+      "description": "Intelligent inbox features including auto-assignment rules, priority sorting, and filtered views.",
+      "is_new": false,
+      "text": "Smart Inbox Functionality: Intelligent inbox features including auto-assignment rules, priority sorting, and filtered views.",
+      "metadata": {
+        "category": "Team Collaboration",
+        "subcategory": "Inbox Management",
+        "feature_name": "Smart Inbox Functionality",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-212",
+      "category": "Team Collaboration",
+      "subcategory": "Inbox Management",
+      "feature": "Smart Views",
+      "description": "Build custom filtered conversation lists by tags, contact, inbox, and assignee with live unread counts and real-time updates.",
+      "is_new": true,
+      "text": "Smart Views: Build custom filtered conversation lists by tags, contact, inbox, and assignee with live unread counts and real-time updates.",
+      "metadata": {
+        "category": "Team Collaboration",
+        "subcategory": "Inbox Management",
+        "feature_name": "Smart Views",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-213",
+      "category": "Team Collaboration",
+      "subcategory": "Inbox Management",
+      "feature": "Notification Center",
+      "description": "View unassigned conversations, filter to your own threads, jump to mentions, and access drafts with real-time unread counts.",
+      "is_new": true,
+      "text": "Notification Center: View unassigned conversations, filter to your own threads, jump to mentions, and access drafts with real-time unread counts.",
+      "metadata": {
+        "category": "Team Collaboration",
+        "subcategory": "Inbox Management",
+        "feature_name": "Notification Center",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-214",
+      "category": "Team Collaboration",
+      "subcategory": "Inbox Management",
+      "feature": "Advanced Conversation Assignment",
+      "description": "Multiple assignment methods including manual, round-robin, and role-based restrictions on reassignment for quality customer service.",
+      "is_new": true,
+      "text": "Advanced Conversation Assignment: Multiple assignment methods including manual, round-robin, and role-based restrictions on reassignment for quality customer service.",
+      "metadata": {
+        "category": "Team Collaboration",
+        "subcategory": "Inbox Management",
+        "feature_name": "Advanced Conversation Assignment",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-215",
+      "category": "Team Collaboration",
+      "subcategory": "Inbox Management",
+      "feature": "Internal Notes and Mentions",
+      "description": "Add private notes to any conversation and tag teammates with @ mentions for instant notifications. Mentions in Contact Notes too.",
+      "is_new": true,
+      "text": "Internal Notes and Mentions: Add private notes to any conversation and tag teammates with @ mentions for instant notifications. Mentions in Contact Notes too.",
+      "metadata": {
+        "category": "Team Collaboration",
+        "subcategory": "Inbox Management",
+        "feature_name": "Internal Notes and Mentions",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-216",
+      "category": "Team Collaboration",
+      "subcategory": "Inbox Management",
+      "feature": "Contact Notes",
+      "description": "Attach persistent notes directly to a contact's profile across all conversations.",
+      "is_new": false,
+      "text": "Contact Notes: Attach persistent notes directly to a contact's profile across all conversations.",
+      "metadata": {
+        "category": "Team Collaboration",
+        "subcategory": "Inbox Management",
+        "feature_name": "Contact Notes",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-217",
+      "category": "Team Collaboration",
+      "subcategory": "Inbox Management",
+      "feature": "Group Chat",
+      "description": "Add multiple contacts to a single group conversation.",
+      "is_new": false,
+      "text": "Group Chat: Add multiple contacts to a single group conversation.",
+      "metadata": {
+        "category": "Team Collaboration",
+        "subcategory": "Inbox Management",
+        "feature_name": "Group Chat",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-218",
+      "category": "Team Collaboration",
+      "subcategory": "Inbox Management",
+      "feature": "Search Results Page",
+      "description": "Dedicated search results page for finding conversations across contacts and message content with instant access.",
+      "is_new": true,
+      "text": "Search Results Page: Dedicated search results page for finding conversations across contacts and message content with instant access.",
+      "metadata": {
+        "category": "Team Collaboration",
+        "subcategory": "Inbox Management",
+        "feature_name": "Search Results Page",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-219",
+      "category": "Team Collaboration",
+      "subcategory": "Inbox Management",
+      "feature": "Needs Response Filter",
+      "description": "Mark conversations as responded or needing response to keep inboxes clean and focused on pending items.",
+      "is_new": true,
+      "text": "Needs Response Filter: Mark conversations as responded or needing response to keep inboxes clean and focused on pending items.",
+      "metadata": {
+        "category": "Team Collaboration",
+        "subcategory": "Inbox Management",
+        "feature_name": "Needs Response Filter",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-220",
+      "category": "Team Collaboration",
+      "subcategory": "Teams and Members",
+      "feature": "Teams",
+      "description": "Group Salesmsg users into collaborative teams with shared contacts, permissions, and visibility controls.",
+      "is_new": true,
+      "text": "Teams: Group Salesmsg users into collaborative teams with shared contacts, permissions, and visibility controls.",
+      "metadata": {
+        "category": "Team Collaboration",
+        "subcategory": "Teams and Members",
+        "feature_name": "Teams",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-221",
+      "category": "Team Collaboration",
+      "subcategory": "Teams and Members",
+      "feature": "Members 2.0",
+      "description": "Redesigned team management with centralized invitations, role assignment, inbox access, and billing management.",
+      "is_new": true,
+      "text": "Members 2.0: Redesigned team management with centralized invitations, role assignment, inbox access, and billing management.",
+      "metadata": {
+        "category": "Team Collaboration",
+        "subcategory": "Teams and Members",
+        "feature_name": "Members 2.0",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-222",
+      "category": "Team Collaboration",
+      "subcategory": "Teams and Members",
+      "feature": "Multi-Organization Environment",
+      "description": "Create and manage multiple Salesmsg organizations under a single user account.",
+      "is_new": true,
+      "text": "Multi-Organization Environment: Create and manage multiple Salesmsg organizations under a single user account.",
+      "metadata": {
+        "category": "Team Collaboration",
+        "subcategory": "Teams and Members",
+        "feature_name": "Multi-Organization Environment",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-223",
+      "category": "Team Collaboration",
+      "subcategory": "Teams and Members",
+      "feature": "Roles and Permissions",
+      "description": "View and update role-based permissions from a centralized page across messaging, contacts, analytics, and admin.",
+      "is_new": true,
+      "text": "Roles and Permissions: View and update role-based permissions from a centralized page across messaging, contacts, analytics, and admin.",
+      "metadata": {
+        "category": "Team Collaboration",
+        "subcategory": "Teams and Members",
+        "feature_name": "Roles and Permissions",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-224",
+      "category": "Team Collaboration",
+      "subcategory": "Teams and Members",
+      "feature": "Bulk Inbox Creation",
+      "description": "Create multiple inboxes with unique phone numbers in a single batch operation.",
+      "is_new": true,
+      "text": "Bulk Inbox Creation: Create multiple inboxes with unique phone numbers in a single batch operation.",
+      "metadata": {
+        "category": "Team Collaboration",
+        "subcategory": "Teams and Members",
+        "feature_name": "Bulk Inbox Creation",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-225",
+      "category": "Productivity Features",
+      "subcategory": "Productivity",
+      "feature": "Chrome Extension",
+      "description": "Send texts, manage group chats, use the AI Texting Assistant, tag teammates, and schedule messages from a Chrome extension.",
+      "is_new": true,
+      "text": "Chrome Extension: Send texts, manage group chats, use the AI Texting Assistant, tag teammates, and schedule messages from a Chrome extension.",
+      "metadata": {
+        "category": "Productivity Features",
+        "subcategory": "Productivity",
+        "feature_name": "Chrome Extension",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-226",
+      "category": "Productivity Features",
+      "subcategory": "Productivity",
+      "feature": "File Sharing Via SMS",
+      "description": "Send PDFs, Word documents, spreadsheets, and other files directly through text messages.",
+      "is_new": false,
+      "text": "File Sharing Via SMS: Send PDFs, Word documents, spreadsheets, and other files directly through text messages.",
+      "metadata": {
+        "category": "Productivity Features",
+        "subcategory": "Productivity",
+        "feature_name": "File Sharing Via SMS",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-227",
+      "category": "Productivity Features",
+      "subcategory": "Productivity",
+      "feature": "Appointment Booking",
+      "description": "Share booking links or schedule appointments directly within a text conversation.",
+      "is_new": false,
+      "text": "Appointment Booking: Share booking links or schedule appointments directly within a text conversation.",
+      "metadata": {
+        "category": "Productivity Features",
+        "subcategory": "Productivity",
+        "feature_name": "Appointment Booking",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-228",
+      "category": "Productivity Features",
+      "subcategory": "Productivity",
+      "feature": "Search Contacts and Conversations",
+      "description": "Full-text search across your entire contact database and conversation history.",
+      "is_new": false,
+      "text": "Search Contacts and Conversations: Full-text search across your entire contact database and conversation history.",
+      "metadata": {
+        "category": "Productivity Features",
+        "subcategory": "Productivity",
+        "feature_name": "Search Contacts and Conversations",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-229",
+      "category": "Productivity Features",
+      "subcategory": "Productivity",
+      "feature": "Custom Date Search",
+      "description": "Filter conversations and messages by custom date ranges.",
+      "is_new": false,
+      "text": "Custom Date Search: Filter conversations and messages by custom date ranges.",
+      "metadata": {
+        "category": "Productivity Features",
+        "subcategory": "Productivity",
+        "feature_name": "Custom Date Search",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-230",
+      "category": "Productivity Features",
+      "subcategory": "Productivity",
+      "feature": "Export Conversations as PDF",
+      "description": "Download any conversation thread as a formatted PDF document.",
+      "is_new": false,
+      "text": "Export Conversations as PDF: Download any conversation thread as a formatted PDF document.",
+      "metadata": {
+        "category": "Productivity Features",
+        "subcategory": "Productivity",
+        "feature_name": "Export Conversations as PDF",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-231",
+      "category": "Productivity Features",
+      "subcategory": "Productivity",
+      "feature": "Undo Sent Messages",
+      "description": "Recall a message within a short window after sending.",
+      "is_new": false,
+      "text": "Undo Sent Messages: Recall a message within a short window after sending.",
+      "metadata": {
+        "category": "Productivity Features",
+        "subcategory": "Productivity",
+        "feature_name": "Undo Sent Messages",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-232",
+      "category": "Productivity Features",
+      "subcategory": "Productivity",
+      "feature": "Export Closed Conversations",
+      "description": "Bulk export archived and closed conversations for offline analysis or long-term storage.",
+      "is_new": false,
+      "text": "Export Closed Conversations: Bulk export archived and closed conversations for offline analysis or long-term storage.",
+      "metadata": {
+        "category": "Productivity Features",
+        "subcategory": "Productivity",
+        "feature_name": "Export Closed Conversations",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-233",
+      "category": "Productivity Features",
+      "subcategory": "Productivity",
+      "feature": "Message Tag Filtering",
+      "description": "Filter your inbox by message tags to surface specific conversation types or priorities.",
+      "is_new": false,
+      "text": "Message Tag Filtering: Filter your inbox by message tags to surface specific conversation types or priorities.",
+      "metadata": {
+        "category": "Productivity Features",
+        "subcategory": "Productivity",
+        "feature_name": "Message Tag Filtering",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-234",
+      "category": "Productivity Features",
+      "subcategory": "Productivity",
+      "feature": "Emoji Support",
+      "description": "Include emojis in your text messages across all carrier networks.",
+      "is_new": false,
+      "text": "Emoji Support: Include emojis in your text messages across all carrier networks.",
+      "metadata": {
+        "category": "Productivity Features",
+        "subcategory": "Productivity",
+        "feature_name": "Emoji Support",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-235",
+      "category": "Productivity Features",
+      "subcategory": "Productivity",
+      "feature": "Audio Text Messaging",
+      "description": "Record and send short audio messages within text conversations.",
+      "is_new": false,
+      "text": "Audio Text Messaging: Record and send short audio messages within text conversations.",
+      "metadata": {
+        "category": "Productivity Features",
+        "subcategory": "Productivity",
+        "feature_name": "Audio Text Messaging",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-236",
+      "category": "Productivity Features",
+      "subcategory": "Productivity",
+      "feature": "Sharable Message Links",
+      "description": "Generate a shareable link for any conversation or message to send to colleagues.",
+      "is_new": false,
+      "text": "Sharable Message Links: Generate a shareable link for any conversation or message to send to colleagues.",
+      "metadata": {
+        "category": "Productivity Features",
+        "subcategory": "Productivity",
+        "feature_name": "Sharable Message Links",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-237",
+      "category": "Productivity Features",
+      "subcategory": "Productivity",
+      "feature": "Extend Access to Personal Inbox",
+      "description": "Grant other team members temporary or permanent access to your personal inbox.",
+      "is_new": false,
+      "text": "Extend Access to Personal Inbox: Grant other team members temporary or permanent access to your personal inbox.",
+      "metadata": {
+        "category": "Productivity Features",
+        "subcategory": "Productivity",
+        "feature_name": "Extend Access to Personal Inbox",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-238",
+      "category": "Productivity Features",
+      "subcategory": "Productivity",
+      "feature": "Unified Code Snippet",
+      "description": "A single JavaScript snippet that embeds all Salesmsg widgets and tracking on your website.",
+      "is_new": false,
+      "text": "Unified Code Snippet: A single JavaScript snippet that embeds all Salesmsg widgets and tracking on your website.",
+      "metadata": {
+        "category": "Productivity Features",
+        "subcategory": "Productivity",
+        "feature_name": "Unified Code Snippet",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-239",
+      "category": "Productivity Features",
+      "subcategory": "Productivity",
+      "feature": "New Navigation Menu",
+      "description": "Optimized menu structure with tooltips on hover and section memory for faster navigation.",
+      "is_new": true,
+      "text": "New Navigation Menu: Optimized menu structure with tooltips on hover and section memory for faster navigation.",
+      "metadata": {
+        "category": "Productivity Features",
+        "subcategory": "Productivity",
+        "feature_name": "New Navigation Menu",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-240",
+      "category": "Productivity Features",
+      "subcategory": "Productivity",
+      "feature": "Numbers 2.0",
+      "description": "Redesigned phone number management with bulk actions, real-time license tracking, and Twilio number import.",
+      "is_new": true,
+      "text": "Numbers 2.0: Redesigned phone number management with bulk actions, real-time license tracking, and Twilio number import.",
+      "metadata": {
+        "category": "Productivity Features",
+        "subcategory": "Productivity",
+        "feature_name": "Numbers 2.0",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-241",
+      "category": "Platform and Developer",
+      "subcategory": "API and Developer Tools",
+      "feature": "Public API 2.2 (500+ Endpoints)",
+      "description": "A comprehensive RESTful API with over 500 endpoints. Supports OAuth2 and PAT authentication with a mock server for testing.",
+      "is_new": true,
+      "text": "Public API 2.2 (500+ Endpoints): A comprehensive RESTful API with over 500 endpoints. Supports OAuth2 and PAT authentication with a mock server for testing.",
+      "metadata": {
+        "category": "Platform and Developer",
+        "subcategory": "API and Developer Tools",
+        "feature_name": "Public API 2.2 (500+ Endpoints)",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-242",
+      "category": "Platform and Developer",
+      "subcategory": "API and Developer Tools",
+      "feature": "Webhooks",
+      "description": "Configure real-time webhook notifications for events like incoming messages, opt-outs, and call completions.",
+      "is_new": false,
+      "text": "Webhooks: Configure real-time webhook notifications for events like incoming messages, opt-outs, and call completions.",
+      "metadata": {
+        "category": "Platform and Developer",
+        "subcategory": "API and Developer Tools",
+        "feature_name": "Webhooks",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-243",
+      "category": "Platform and Developer",
+      "subcategory": "API and Developer Tools",
+      "feature": "Salesmsg Triggers",
+      "description": "Redesigned triggers system for connecting Salesmsg events to external actions with improved filtering and testing.",
+      "is_new": true,
+      "text": "Salesmsg Triggers: Redesigned triggers system for connecting Salesmsg events to external actions with improved filtering and testing.",
+      "metadata": {
+        "category": "Platform and Developer",
+        "subcategory": "API and Developer Tools",
+        "feature_name": "Salesmsg Triggers",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-244",
+      "category": "Platform and Developer",
+      "subcategory": "API and Developer Tools",
+      "feature": "MCP Tools",
+      "description": "Connect Salesmsg to Claude Web, Claude Desktop, or any MCP-compatible AI agent. Manage contacts, search conversations, and send messages from any AI interface.",
+      "is_new": true,
+      "text": "MCP Tools: Connect Salesmsg to Claude Web, Claude Desktop, or any MCP-compatible AI agent. Manage contacts, search conversations, and send messages from any AI interface.",
+      "metadata": {
+        "category": "Platform and Developer",
+        "subcategory": "API and Developer Tools",
+        "feature_name": "MCP Tools",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-245",
+      "category": "Compliance, Security and Admin",
+      "subcategory": "Compliance and Opt-In",
+      "feature": "Opt-Out Management",
+      "description": "Built-in handling of opt-out keywords like STOP and UNSUBSCRIBE with automatic suppression.",
+      "is_new": false,
+      "text": "Opt-Out Management: Built-in handling of opt-out keywords like STOP and UNSUBSCRIBE with automatic suppression.",
+      "metadata": {
+        "category": "Compliance, Security and Admin",
+        "subcategory": "Compliance and Opt-In",
+        "feature_name": "Opt-Out Management",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-246",
+      "category": "Compliance, Security and Admin",
+      "subcategory": "Compliance and Opt-In",
+      "feature": "Double Opt-In",
+      "description": "Require contacts to confirm their subscription with a second confirmation message.",
+      "is_new": false,
+      "text": "Double Opt-In: Require contacts to confirm their subscription with a second confirmation message.",
+      "metadata": {
+        "category": "Compliance, Security and Admin",
+        "subcategory": "Compliance and Opt-In",
+        "feature_name": "Double Opt-In",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-247",
+      "category": "Compliance, Security and Admin",
+      "subcategory": "Compliance and Opt-In",
+      "feature": "10DLC Registration and Compliance",
+      "description": "Automated registration of your business and campaigns with the 10DLC system required by US carriers.",
+      "is_new": false,
+      "text": "10DLC Registration and Compliance: Automated registration of your business and campaigns with the 10DLC system required by US carriers.",
+      "metadata": {
+        "category": "Compliance, Security and Admin",
+        "subcategory": "Compliance and Opt-In",
+        "feature_name": "10DLC Registration and Compliance",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-248",
+      "category": "Compliance, Security and Admin",
+      "subcategory": "Compliance and Opt-In",
+      "feature": "Toll-Free Verification",
+      "description": "Manage toll-free number verification to comply with carrier requirements for higher throughput.",
+      "is_new": false,
+      "text": "Toll-Free Verification: Manage toll-free number verification to comply with carrier requirements for higher throughput.",
+      "metadata": {
+        "category": "Compliance, Security and Admin",
+        "subcategory": "Compliance and Opt-In",
+        "feature_name": "Toll-Free Verification",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-249",
+      "category": "Compliance, Security and Admin",
+      "subcategory": "Compliance and Opt-In",
+      "feature": "STIR/SHAKEN",
+      "description": "Implements the STIR/SHAKEN call authentication framework to prevent spam/scam flags.",
+      "is_new": false,
+      "text": "STIR/SHAKEN: Implements the STIR/SHAKEN call authentication framework to prevent spam/scam flags.",
+      "metadata": {
+        "category": "Compliance, Security and Admin",
+        "subcategory": "Compliance and Opt-In",
+        "feature_name": "STIR/SHAKEN",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-250",
+      "category": "Compliance, Security and Admin",
+      "subcategory": "Compliance and Opt-In",
+      "feature": "Canada Compliance Updates",
+      "description": "Ongoing updates for CASL and CRTC regulations compliance.",
+      "is_new": false,
+      "text": "Canada Compliance Updates: Ongoing updates for CASL and CRTC regulations compliance.",
+      "metadata": {
+        "category": "Compliance, Security and Admin",
+        "subcategory": "Compliance and Opt-In",
+        "feature_name": "Canada Compliance Updates",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-251",
+      "category": "Compliance, Security and Admin",
+      "subcategory": "Security and Certifications",
+      "feature": "SOC 2 Compliance",
+      "description": "Independently audited and certified SOC 2 compliance with annual recertification and penetration testing.",
+      "is_new": true,
+      "text": "SOC 2 Compliance: Independently audited and certified SOC 2 compliance with annual recertification and penetration testing.",
+      "metadata": {
+        "category": "Compliance, Security and Admin",
+        "subcategory": "Security and Certifications",
+        "feature_name": "SOC 2 Compliance",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-252",
+      "category": "Compliance, Security and Admin",
+      "subcategory": "Security and Certifications",
+      "feature": "HIPAA Compliance",
+      "description": "Healthcare-grade encryption, mandatory 2FA, end-to-end encryption, session management, audit logging, and BAA available for PHI handling.",
+      "is_new": true,
+      "text": "HIPAA Compliance: Healthcare-grade encryption, mandatory 2FA, end-to-end encryption, session management, audit logging, and BAA available for PHI handling.",
+      "metadata": {
+        "category": "Compliance, Security and Admin",
+        "subcategory": "Security and Certifications",
+        "feature_name": "HIPAA Compliance",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-253",
+      "category": "Compliance, Security and Admin",
+      "subcategory": "Security and Certifications",
+      "feature": "TLS 1.2 Encryption",
+      "description": "All data transmitted between your browser and the platform is encrypted using TLS 1.2.",
+      "is_new": false,
+      "text": "TLS 1.2 Encryption: All data transmitted between your browser and the platform is encrypted using TLS 1.2.",
+      "metadata": {
+        "category": "Compliance, Security and Admin",
+        "subcategory": "Security and Certifications",
+        "feature_name": "TLS 1.2 Encryption",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-254",
+      "category": "Compliance, Security and Admin",
+      "subcategory": "Security and Certifications",
+      "feature": "Multi-Factor Authentication",
+      "description": "Enable MFA for user accounts with authenticator app support.",
+      "is_new": false,
+      "text": "Multi-Factor Authentication: Enable MFA for user accounts with authenticator app support.",
+      "metadata": {
+        "category": "Compliance, Security and Admin",
+        "subcategory": "Security and Certifications",
+        "feature_name": "Multi-Factor Authentication",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-255",
+      "category": "Compliance, Security and Admin",
+      "subcategory": "Security and Certifications",
+      "feature": "Remote Logout",
+      "description": "Administrators can remotely log out any user's active sessions from the admin panel.",
+      "is_new": false,
+      "text": "Remote Logout: Administrators can remotely log out any user's active sessions from the admin panel.",
+      "metadata": {
+        "category": "Compliance, Security and Admin",
+        "subcategory": "Security and Certifications",
+        "feature_name": "Remote Logout",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-256",
+      "category": "Compliance, Security and Admin",
+      "subcategory": "Security and Certifications",
+      "feature": "Voice Integrity",
+      "description": "Advanced call security measures that authenticate outbound calls and prevent spoofing.",
+      "is_new": false,
+      "text": "Voice Integrity: Advanced call security measures that authenticate outbound calls and prevent spoofing.",
+      "metadata": {
+        "category": "Compliance, Security and Admin",
+        "subcategory": "Security and Certifications",
+        "feature_name": "Voice Integrity",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-257",
+      "category": "Compliance, Security and Admin",
+      "subcategory": "Administration",
+      "feature": "Custom Affiliate/Referral Program",
+      "description": "Earn $50 per referred paying customer with real-time tracking, no cap, and affiliate field capture on child accounts.",
+      "is_new": true,
+      "text": "Custom Affiliate/Referral Program: Earn $50 per referred paying customer with real-time tracking, no cap, and affiliate field capture on child accounts.",
+      "metadata": {
+        "category": "Compliance, Security and Admin",
+        "subcategory": "Administration",
+        "feature_name": "Custom Affiliate/Referral Program",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-258",
+      "category": "Compliance, Security and Admin",
+      "subcategory": "Administration",
+      "feature": "Unanswered Call Actions",
+      "description": "Configure what happens when an inbound call goes unanswered.",
+      "is_new": false,
+      "text": "Unanswered Call Actions: Configure what happens when an inbound call goes unanswered.",
+      "metadata": {
+        "category": "Compliance, Security and Admin",
+        "subcategory": "Administration",
+        "feature_name": "Unanswered Call Actions",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-259",
+      "category": "Compliance, Security and Admin",
+      "subcategory": "Administration",
+      "feature": "Multiple Payment Methods",
+      "description": "Add and manage several payment methods including credit cards, debit cards, and ACH.",
+      "is_new": false,
+      "text": "Multiple Payment Methods: Add and manage several payment methods including credit cards, debit cards, and ACH.",
+      "metadata": {
+        "category": "Compliance, Security and Admin",
+        "subcategory": "Administration",
+        "feature_name": "Multiple Payment Methods",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-260",
+      "category": "Compliance, Security and Admin",
+      "subcategory": "Administration",
+      "feature": "Away Status",
+      "description": "Set your availability to away so messages and calls route to other available team members.",
+      "is_new": false,
+      "text": "Away Status: Set your availability to away so messages and calls route to other available team members.",
+      "metadata": {
+        "category": "Compliance, Security and Admin",
+        "subcategory": "Administration",
+        "feature_name": "Away Status",
+        "is_new_feature": false,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    },
+    {
+      "id": "feature-261",
+      "category": "Compliance, Security and Admin",
+      "subcategory": "Administration",
+      "feature": "Blocked Contact Call Prevention",
+      "description": "Block incoming calls from blocked contacts to prevent unwanted callers from reaching your team.",
+      "is_new": true,
+      "text": "Blocked Contact Call Prevention: Block incoming calls from blocked contacts to prevent unwanted callers from reaching your team.",
+      "metadata": {
+        "category": "Compliance, Security and Admin",
+        "subcategory": "Administration",
+        "feature_name": "Blocked Contact Call Prevention",
+        "is_new_feature": true,
+        "product": "Salesmsg",
+        "source": "Featured Releases — August 2026"
+      }
+    }
+  ]
+}

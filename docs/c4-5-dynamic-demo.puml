@@ -1,0 +1,63 @@
+@startuml c4-5-dynamic-demo
+' C4 Dynamic — an outbound demo call placed from the dialpad
+' Render:  plantuml docs/c4-5-dynamic-demo.puml
+!include <C4/C4_Dynamic>
+
+LAYOUT_WITH_LEGEND()
+SHOW_PERSON_OUTLINE()
+
+title Dynamic — Outbound demo call: dial, qualify against the knowledge base, book
+
+Person(operator, "Operator")
+Container(dialpad_ui, "Dialpad", "Static HTML + JS")
+Component(dialpad_api, "Dialpad endpoints", "api/dialpad.py")
+System_Ext(twilio, "Twilio", "Voice + ConversationRelay")
+Person(prospect, "Prospect")
+Component(relay_ws, "Relay socket", "api/relay.py")
+Component(session, "CallSession", "services/call_session.py")
+Component(demo_tools, "Demo tools", "services/demo_tools.py")
+Component(knowledge, "KnowledgeBase", "services/knowledge.py")
+Component(store, "Store", "db/store.py")
+System_Ext(voyage, "Voyage AI")
+System_Ext(claude, "Claude API")
+
+Rel(operator, dialpad_ui, "Types a number, presses call")
+Rel(dialpad_ui, dialpad_api, "POST /calls {to}", "JSON/HTTPS")
+Rel(dialpad_api, twilio, "calls.create with async answering-machine detection", "REST")
+Rel(twilio, prospect, "Rings", "PSTN")
+Rel(twilio, dialpad_api, "POST /outbound-twiml", "HTTPS, signed")
+Rel(dialpad_api, twilio, "<ConversationRelay><Parameter name=mode value=demo>", "TwiML")
+
+note right of dialpad_api
+  If AnsweredBy is a machine or fax — here, or
+  later on POST /amd-status — hang up rather
+  than leave an AI voicemail.
+end note
+
+Rel(twilio, relay_ws, "setup, customParameters.mode=demo", "WSS")
+Rel(relay_ws, session, "CallSession(mode=demo, verified=True, no PIN)")
+Rel(session, store, "get_caller(to) — a second call starts from what is known")
+
+note right of session
+  Demo persona. The prospect never reaches
+  account data: only the knowledge base, the
+  booking tools, and the narrow allowlist in
+  DEMO_ACCOUNT_TOOLS.
+end note
+
+Rel(twilio, relay_ws, "prompt: 'does it do two-way texting?'", "WSS")
+Rel(session, claude, "Streams the turn", "HTTPS")
+Rel(claude, session, "tool_use: search_product_knowledge")
+Rel(session, demo_tools, "execute()")
+Rel(demo_tools, knowledge, "search(query)")
+Rel(knowledge, voyage, "Embed the query", "HTTPS")
+Rel(knowledge, demo_tools, "Top-k over the threshold, or nothing — and which it was")
+Rel(session, twilio, "Streamed answer; TTS speaks it", "WSS")
+
+Rel(claude, session, "tool_use: save_caller_details / book_demo")
+Rel(demo_tools, store, "upsert_caller(), save_appointment()")
+Rel(dialpad_ui, dialpad_api, "GET /calls/{sid} — polls status until completed", "JSON/HTTPS")
+Rel(twilio, dialpad_api, "POST /call-status: initiated, ringing, answered, completed", "HTTPS")
+Rel(session, store, "finish_conversation(): transcript, summary, every search that missed")
+
+@enduml

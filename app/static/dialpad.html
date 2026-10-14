@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Salesmessage — Demo Dialer</title>
+<style>
+  :root {
+    --bg: #f6f7f9; --panel: #ffffff; --ink: #14171a; --muted: #6b7280;
+    --line: #e5e7eb; --accent: #1f6feb; --accent-ink: #ffffff;
+    --ok: #087443; --ok-bg: #e7f6ee; --err: #b42318; --err-bg: #fdeceb;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1115; --panel: #171a21; --ink: #e8eaed; --muted: #9aa3af;
+      --line: #262b34; --accent: #4d8dfd; --accent-ink: #0b0d10;
+      --ok: #5ddb9a; --ok-bg: #10261c; --err: #ff8a80; --err-bg: #2a1512;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; display: grid; place-items: center;
+    background: var(--bg); color: var(--ink);
+    font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+    padding: 2rem 1rem;
+  }
+  .panel {
+    width: 100%; max-width: 22rem; background: var(--panel);
+    border: 1px solid var(--line); border-radius: 14px; padding: 1.5rem;
+  }
+  h1 { font-size: 1.05rem; margin: 0 0 .25rem; }
+  .sub { color: var(--muted); font-size: .85rem; margin: 0 0 1.25rem; }
+  #number {
+    width: 100%; padding: .7rem .8rem; font-size: 1.3rem; text-align: center;
+    letter-spacing: .04em; border: 1px solid var(--line); border-radius: 10px;
+    background: var(--bg); color: var(--ink); font-variant-numeric: tabular-nums;
+  }
+  #number:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .keys { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; margin: 1rem 0; }
+  .keys button {
+    padding: .85rem 0; font-size: 1.15rem; border: 1px solid var(--line);
+    border-radius: 10px; background: var(--panel); color: var(--ink); cursor: pointer;
+    font-variant-numeric: tabular-nums;
+  }
+  .keys button:hover { border-color: var(--accent); }
+  .keys button:active { transform: translateY(1px); }
+  .row { display: flex; gap: .5rem; }
+  .row button { flex: 1; padding: .8rem; font-size: .95rem; border-radius: 10px; cursor: pointer; }
+  #call { background: var(--accent); color: var(--accent-ink); border: 1px solid var(--accent); font-weight: 600; }
+  #call[disabled] { opacity: .55; cursor: not-allowed; }
+  #hangup { background: var(--err); color: #fff; border: 1px solid var(--err); font-weight: 600; }
+  #back { background: var(--panel); color: var(--ink); border: 1px solid var(--line); flex: 0 0 4.5rem; }
+  #status { margin-top: 1rem; padding: .7rem .8rem; border-radius: 10px; font-size: .88rem; display: none; }
+  #status.show { display: block; }
+  #status.ok { background: var(--ok-bg); color: var(--ok); }
+  #status.err { background: var(--err-bg); color: var(--err); }
+  .foot { margin-top: 1.1rem; color: var(--muted); font-size: .75rem; text-align: center; }
+</style>
+</head>
+<body>
+  <main class="panel">
+    <h1>Demo Dialer</h1>
+    <p class="sub">Calls the number and books a Salesmsg demo.</p>
+
+    <input id="number" inputmode="tel" autocomplete="off" placeholder="+1 555 000 1234" aria-label="Phone number">
+
+    <div class="keys" id="keys">
+      <button>1</button><button>2</button><button>3</button>
+      <button>4</button><button>5</button><button>6</button>
+      <button>7</button><button>8</button><button>9</button>
+      <button>*</button><button>0</button><button>#</button>
+    </div>
+
+    <div class="row">
+      <button id="back" type="button" aria-label="Delete last digit">⌫</button>
+      <button id="call" type="button">Call</button>
+      <button id="hangup" type="button" hidden>Hang up</button>
+    </div>
+
+    <div id="status" role="status" aria-live="polite"></div>
+    <p class="foot">Outbound calls are recorded and transcribed.</p>
+  </main>
+
+<script>
+  const number = document.getElementById('number');
+  const status = document.getElementById('status');
+  const callBtn = document.getElementById('call');
+
+  document.getElementById('keys').addEventListener('click', (e) => {
+    if (e.target.tagName === 'BUTTON') { number.value += e.target.textContent; number.focus(); }
+  });
+  document.getElementById('back').addEventListener('click', () => {
+    number.value = number.value.slice(0, -1); number.focus();
+  });
+
+  function show(message, kind) {
+    status.textContent = message;
+    status.className = 'show ' + kind;
+  }
+
+  const hangupBtn = document.getElementById('hangup');
+  let activeCall = null;
+  let poller = null;
+
+  // Twilio's own vocabulary, translated into what the operator needs to know.
+  const LABEL = {
+    queued: 'Queued…',
+    initiated: 'Connecting…',
+    ringing: 'Ringing…',
+    'in-progress': 'Answered — agent is talking',
+    completed: 'Call ended',
+    busy: 'Busy',
+    'no-answer': 'No answer — their phone never picked up',
+    canceled: 'Canceled',
+    failed: 'Call failed'
+  };
+
+  function inCall(active) {
+    callBtn.hidden = active;
+    hangupBtn.hidden = !active;
+    callBtn.disabled = false;
+  }
+
+  function stopPolling() {
+    if (poller) { clearInterval(poller); poller = null; }
+  }
+
+  async function pollStatus() {
+    if (!activeCall) return;
+    try {
+      const res = await fetch(`/calls/${activeCall}`);
+      if (!res.ok) return;
+      const s = await res.json();
+
+      let text = LABEL[s.status] || s.status;
+      // Machine detection tells us why a call that "connected" went nowhere.
+      if (s.answered_by && s.answered_by.startsWith('machine')) {
+        text = 'Voicemail — hung up without leaving a message';
+      }
+      if (s.status === 'completed' && s.duration) text += ` (${s.duration}s)`;
+      if (s.error) text += ` — ${s.error}`;
+
+      const done = ['completed', 'busy', 'no-answer', 'canceled', 'failed'].includes(s.status);
+      show(text, done && s.status !== 'completed' ? 'err' : 'ok');
+
+      if (done) { stopPolling(); activeCall = null; inCall(false); }
+    } catch { /* transient network blip; the next tick retries */ }
+  }
+
+  async function placeCall() {
+    const to = number.value.trim();
+    if (!to) { show('Enter a number first.', 'err'); return; }
+
+    callBtn.disabled = true;
+    show('Dialling…', 'ok');
+    try {
+      const res = await fetch('/calls', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ to })
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.detail || 'Call failed');
+
+      activeCall = data.call_sid;
+      show(`Calling ${data.to}…`, 'ok');
+      inCall(true);
+      stopPolling();
+      poller = setInterval(pollStatus, 1500);
+      pollStatus();
+    } catch (err) {
+      show(err.message, 'err');
+      callBtn.disabled = false;
+    }
+  }
+
+  async function hangUp() {
+    if (!activeCall) return;
+    hangupBtn.disabled = true;
+    try {
+      const res = await fetch(`/calls/${activeCall}/hangup`, { method: 'POST' });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.detail || 'Could not hang up');
+      show('Hung up.', 'ok');
+      stopPolling();
+      activeCall = null;
+      inCall(false);
+    } catch (err) {
+      show(err.message, 'err');
+    } finally {
+      hangupBtn.disabled = false;
+    }
+  }
+
+  callBtn.addEventListener('click', placeCall);
+  hangupBtn.addEventListener('click', hangUp);
+  number.addEventListener('keydown', (e) => { if (e.key === 'Enter' && !activeCall) placeCall(); });
+</script>
+</body>
+</html>

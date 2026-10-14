@@ -1,0 +1,79 @@
+@startuml c4-3-component-app
+' C4 Level 3 — Components inside the relay application
+' Render:  plantuml docs/c4-3-component-app.puml
+!include <C4/C4_Component>
+
+LAYOUT_WITH_LEGEND()
+LAYOUT_TOP_DOWN()
+
+title Components — Relay application (FastAPI process)
+
+Container_Ext(dialpad_ui, "Dialpad", "Static HTML + JS")
+System_Ext(twilio, "Twilio", "Voice + ConversationRelay")
+System_Ext(claude, "Claude API", "Messages API")
+System_Ext(salesmsg, "Salesmsg MCP server", "Account tools")
+System_Ext(salesmsg_as, "Salesmessage authorization server", "OAuth 2.0")
+System_Ext(voyage, "Voyage AI", "Embeddings")
+ContainerDb_Ext(sqlite, "Caller store", "SQLite")
+ContainerDb_Ext(index, "Knowledge index", ".npz")
+ContainerDb_Ext(tokens_file, "Token state", ".salesmsg_tokens.json")
+
+Container_Boundary(app, "Relay application") {
+
+    Component(main, "Application entrypoint", "app/main.py", "FastAPI app, lifespan, router registration. Creates the shared Anthropic client; warns loudly about every missing credential at startup.")
+    Component(config, "Settings and prompts", "core/config.py", "SETTINGS, SYSTEM_PROMPT, DEMO_SYSTEM_PROMPT, LOCKED_NOTICE, PROJECT_ROOT.")
+
+    Boundary(api, "HTTP and WebSocket surface", "api/") {
+        Component(voice, "Voice webhooks", "api/voice.py", "POST /twiml builds the <Connect><ConversationRelay> TwiML. POST /handoff turns a requested transfer into <Dial>, or hangs up.")
+        Component(relay_ws, "Relay socket", "api/relay.py", "WS /ws. Routes setup / prompt / interrupt / dtmf / error to the session; owns nothing else.")
+        Component(dialpad_api, "Dialpad endpoints", "api/dialpad.py", "GET /, POST /calls, GET+POST /calls/{sid}, /outbound-twiml, /amd-status, /call-status. Outbound calls carry <Parameter name=mode value=demo>.")
+        Component(explore, "Explorer endpoint", "api/explore.py", "GET /explore. Serves the generated page, warns when it is older than the index.")
+        Component(health, "Health", "api/health.py", "GET /health.")
+        Component(deps, "Request helpers", "api/dependencies.py", "public_host() normalizes whatever was configured; verify_twilio_signature() validates against the URL Twilio actually signed.")
+    }
+
+    Boundary(svc, "Call and account services", "services/") {
+        Component(session, "CallSession", "services/call_session.py", "One call. History, PIN gate, streaming Claude loop, barge-in rewrite, tool dispatch, transfer/hang-up, end-of-call persistence and summary.")
+        Component(call_tools, "Call-control tools", "services/call_tools.py + schemas/call_tools.py", "transfer_to_human, end_call. Schemas and handlers are cross-checked at import.")
+        Component(demo_tools, "Demo tools", "services/demo_tools.py + schemas/demo_tools.py", "search_product_knowledge, save_caller_details, book_demo. Demo mode only.")
+        Component(mcp, "SalesmsgMCP", "services/salesmsg_mcp.py", "One persistent MCP session for the process. Tool discovery, Anthropic schema conversion, caller-facing service groups, reconnect-and-retry.")
+        Component(auth, "SalesmsgTokens", "services/salesmsg_auth.py", "Mints access tokens from the refresh token, caches until 2 min before expiry, persists rotation. Returns None rather than raising.")
+        Component(knowledge, "KnowledgeBase", "services/knowledge.py", "Loads the index at startup; one Voyage embedding plus a dot product per query. Separates 'found nothing' from 'search failed'.")
+    }
+
+    Component(store, "Store", "db/store.py", "Caller memory across calls. Async wrappers over sqlite3 on a worker thread.")
+    Component(logging, "Logging setup", "core/logging.py", "Console plus OUTPUT_LOG and ERROR_LOG.")
+}
+
+Rel(twilio, voice, "Inbound call webhook, session-end handoff", "HTTPS, signed")
+Rel(twilio, relay_ws, "setup / prompt / interrupt / dtmf", "WSS, JSON")
+Rel(relay_ws, twilio, "text tokens, end, sendDigits", "WSS, JSON")
+Rel(dialpad_ui, dialpad_api, "Place, poll, hang up", "JSON/HTTPS")
+Rel(twilio, dialpad_api, "outbound TwiML, AMD and status callbacks", "HTTPS, signed")
+Rel(dialpad_api, twilio, "calls.create / calls.update", "HTTPS, REST")
+
+Rel(voice, deps, "Verifies the signature, resolves the public host")
+Rel(dialpad_api, deps, "Verifies the signature, resolves the public host")
+
+Rel(main, relay_ws, "Registers routers, owns the shared Anthropic client")
+Rel(relay_ws, session, "Creates one per call, forwards each message")
+
+Rel(session, claude, "Streams a turn", "HTTPS")
+Rel(session, call_tools, "Dispatches transfer_to_human / end_call")
+Rel(session, demo_tools, "Dispatches demo tools (demo mode)")
+Rel(session, mcp, "Tool schemas and tool calls — only once verified")
+Rel(session, store, "Loads caller memory, writes transcript + summary")
+Rel(session, config, "Prompts, model, effort, PIN, timezone")
+
+Rel(demo_tools, knowledge, "search()")
+Rel(demo_tools, store, "upsert_caller, save_appointment")
+Rel(knowledge, voyage, "Embeds the query", "HTTPS")
+Rel(knowledge, index, "Loads vectors and documents", "file")
+
+Rel(mcp, auth, "access_token()")
+Rel(mcp, salesmsg, "initialize, list_tools, call_tool", "MCP / streamable HTTP")
+Rel(auth, salesmsg_as, "refresh_token grant", "HTTPS")
+Rel(auth, tokens_file, "Persists a rotated refresh token", "file")
+Rel(store, sqlite, "Reads and writes", "sqlite3")
+
+@enduml

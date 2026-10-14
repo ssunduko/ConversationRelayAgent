@@ -1,0 +1,65 @@
+@startuml c4-4-dynamic-answering
+' C4 Dynamic — an inbound, PIN-gated answering call
+' Render:  plantuml docs/c4-4-dynamic-answering.puml
+!include <C4/C4_Dynamic>
+
+LAYOUT_WITH_LEGEND()
+SHOW_PERSON_OUTLINE()
+
+title Dynamic — Inbound answering call: connect, unlock, one spoken turn, hang up
+
+Person(member, "Salesmessage team member")
+System_Ext(twilio, "Twilio", "Voice + ConversationRelay")
+Component(voice, "Voice webhooks", "api/voice.py")
+Component(relay_ws, "Relay socket", "api/relay.py")
+Component(session, "CallSession", "services/call_session.py")
+Component(store, "Store", "db/store.py")
+Component(mcp, "SalesmsgMCP", "services/salesmsg_mcp.py")
+Component(auth, "SalesmsgTokens", "services/salesmsg_auth.py")
+System_Ext(claude, "Claude API")
+System_Ext(salesmsg, "Salesmsg MCP server")
+
+Rel(member, twilio, "Dials the published number", "PSTN")
+Rel(twilio, voice, "POST /twiml, X-Twilio-Signature", "HTTPS")
+Rel(voice, twilio, "<Connect action=/handoff><ConversationRelay url=wss://.../ws>", "TwiML")
+Rel(twilio, relay_ws, "Opens the socket, sends setup", "WSS")
+Rel(relay_ws, session, "Constructs the session, then prepare()")
+Rel(session, store, "get_caller() — what we already know about this number")
+
+note right of session
+  Locked. ACCESS_PIN has not been keyed yet,
+  so no account tool schema is put in the
+  request at all — there is nothing for the
+  model to reach for.
+end note
+
+Rel(twilio, relay_ws, "dtmf digits as the caller keys the PIN", "WSS")
+Rel(relay_ws, session, "on_dtmf() -> _check_pin()")
+Rel(session, mcp, "Verified: tool_definitions()")
+Rel(mcp, auth, "access_token()")
+Rel(auth, salesmsg, "refresh_token grant", "HTTPS")
+Rel(mcp, salesmsg, "initialize + list_tools — once per process", "MCP")
+
+Rel(twilio, relay_ws, "prompt, last=true — the transcribed utterance", "WSS")
+Rel(relay_ws, session, "on_user_text() -> _run_turn()")
+Rel(session, claude, "messages.stream: system + history + tools", "HTTPS")
+Rel(session, twilio, "Each text delta forwarded immediately; TTS starts mid-sentence", "WSS")
+Rel(claude, session, "tool_use block", "HTTPS")
+Rel(session, mcp, "call(name, args)")
+Rel(mcp, salesmsg, "call_tool — retried once on a fresh session", "MCP")
+Rel(session, claude, "tool_result, continue the turn", "HTTPS")
+
+note right of session
+  Barge-in: on interrupt, cancel the in-flight
+  task and rewrite the last assistant turn to
+  utteranceUntilInterrupt — the words the
+  caller actually heard.
+end note
+
+Rel(session, twilio, "end + handoffData {reasonCode}", "WSS")
+Rel(twilio, voice, "POST /handoff with HandoffData", "HTTPS")
+Rel(voice, twilio, "<Dial> the escalation number, or <Hangup>", "TwiML")
+Rel(relay_ws, session, "aclose(): summarize and persist")
+Rel(session, store, "finish_conversation(): transcript, summary, searches")
+
+@enduml

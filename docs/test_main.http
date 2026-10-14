@@ -1,0 +1,14 @@
+# Test your FastAPI endpoints
+
+GET http://127.0.0.1:8000/health
+Accept: application/json
+
+###
+
+# What Twilio POSTs when a call comes in — should return ConversationRelay TwiML
+POST http://127.0.0.1:8000/twiml
+Content-Type: application/x-www-form-urlencoded
+
+CallSid=CA00000000000000000000000000000000&From=%2B18005550100&To=%2B18005550101
+
+###

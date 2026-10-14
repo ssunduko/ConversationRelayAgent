@@ -1,0 +1,24 @@
+# Secrets
+.env
+.env.*
+!.env.example
+# rotated Salesmsg refresh token
+.salesmsg_tokens.json
+
+# Runtime
+logs/
+*.log
+# rotated generations
+*.log.[0-9]
+db/*.db
+# reset_db.py backups
+db/*.bak
+# rebuildable from features.json + the site
+data/knowledge.npz*
+data/index_explorer.html
+__pycache__/
+*.py[cod]
+
+# Environments and tooling
+.venv/
+.idea/

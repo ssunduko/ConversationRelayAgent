@@ -1,0 +1,61 @@
+@startuml c4-6-deployment
+' C4 Deployment — how it actually runs during development
+' Render:  plantuml docs/c4-6-deployment.puml
+!include <C4/C4_Deployment>
+
+LAYOUT_WITH_LEGEND()
+
+title Deployment — developer host behind an ngrok tunnel
+
+Deployment_Node(host, "Developer host", "Windows / macOS / Linux") {
+    Deployment_Node(py, "Python 3 virtualenv", ".venv") {
+        Container(app, "Relay application", "uvicorn app.main:app --host 0.0.0.0 --port 8000", "One process. Conversation state is in memory, so a restart drops in-flight calls.")
+        Container(scripts, "Operator scripts", "python scripts/*.py", "Run standalone from the repo root.")
+    }
+    Deployment_Node(fs, "Repo root", "local filesystem") {
+        ContainerDb(sqlite, "answering_service.db", "SQLite", "callers, conversations, appointments")
+        ContainerDb(index, "knowledge index", ".npz", "vectors + documents")
+        ContainerDb(tokens, ".salesmsg_tokens.json", "JSON, chmod 600", "rotated refresh token")
+        ContainerDb(envfile, ".env", "ini", "API keys, PIN, Twilio and Salesmsg credentials")
+    }
+    Deployment_Node(tunnel, "ngrok agent", "ngrok http 8000") {
+        Container(edge, "Public HTTPS/WSS endpoint", "https://<host>.ngrok.app", "PUBLIC_HOSTNAME, or X-Forwarded-Host. This is the URL Twilio signs against.")
+    }
+}
+
+Deployment_Node(twilio_cloud, "Twilio", "cloud") {
+    Container(voice_svc, "Programmable Voice + ConversationRelay", "SaaS", "STT, TTS (ElevenLabs voice), barge-in, DTMF")
+    Container(ci, "Conversational Intelligence", "SaaS, optional", "Stores a transcript per call when INTELLIGENCE_SERVICE_SID is set — figures read aloud included.")
+}
+
+Deployment_Node(anthropic_cloud, "Anthropic", "cloud") {
+    Container(claude, "Claude API", "Messages API", "CLAUDE_MODEL, adaptive thinking, prompt caching")
+}
+
+Deployment_Node(salesmsg_cloud, "Salesmessage", "cloud") {
+    Container(mcp_srv, "mcp.salesmessage.com", "MCP over streamable HTTP", "The endpoint is the root, not /mcp")
+    Container(as_srv, "app.salesmessage.com", "OAuth 2.0", "authorization_code + refresh_token; tokens last ~a day and rotate on use")
+}
+
+Deployment_Node(voyage_cloud, "Voyage AI", "cloud") {
+    Container(embed, "Embeddings API", "VOYAGE_MODEL")
+}
+
+Rel(app, sqlite, "reads/writes", "sqlite3")
+Rel(app, index, "loads at startup", "file")
+Rel(app, tokens, "writes on rotation", "file")
+Rel(app, envfile, "reads at import", "file")
+Rel(scripts, envfile, "seeds credentials", "file")
+Rel(scripts, index, "builds", "file")
+
+Rel(edge, app, "forwards", "HTTP + WS, localhost:8000")
+Rel(voice_svc, edge, "webhooks and the live socket", "HTTPS + WSS")
+Rel(app, voice_svc, "TwiML, spoken tokens, REST call control", "HTTPS")
+Rel(voice_svc, ci, "writes a transcript per call")
+
+Rel(app, claude, "streams turns", "HTTPS")
+Rel(app, mcp_srv, "one persistent session", "HTTPS")
+Rel(app, as_srv, "refresh grant", "HTTPS")
+Rel(app, embed, "query embeddings", "HTTPS")
+
+@enduml
