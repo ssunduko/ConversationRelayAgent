@@ -24,6 +24,8 @@ import sys
 
 import httpx
 
+from core.config import SETTINGS
+
 try:
     import websockets
 except ModuleNotFoundError:
@@ -57,8 +59,18 @@ async def run() -> int:
     print(f"Tunnel: {base}\n")
 
     print("1. Twilio's webhook -> /twiml")
+    url, data, headers = f"{base}/twiml", {"CallSid": "CApreflight"}, dict(HEADERS)
+    # With VALIDATE_TWILIO_SIGNATURE on, an unsigned request is rightly
+    # refused; sign it the way Twilio does so the check can pass.
+    if SETTINGS.validate_signature and SETTINGS.twilio_auth_token:
+        from twilio.request_validator import RequestValidator
+
+        headers["X-Twilio-Signature"] = RequestValidator(
+            SETTINGS.twilio_auth_token
+        ).compute_signature(url, data)
+        print("  (signed with TWILIO_AUTH_TOKEN — signature validation is on)")
     try:
-        resp = httpx.post(f"{base}/twiml", data={"CallSid": "CApreflight"}, headers=HEADERS, timeout=15)
+        resp = httpx.post(url, data=data, headers=headers, timeout=15)
     except Exception as exc:
         sys.exit(f"  FAIL  request failed — {exc}")
 

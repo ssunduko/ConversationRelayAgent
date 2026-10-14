@@ -31,6 +31,9 @@ os.environ.setdefault("ACCESS_PIN", "0000")
 os.environ.setdefault("MAX_PIN_ATTEMPTS", "3")
 os.environ.setdefault("SALESMSG_MCP_URL", "https://mcp.example.com/mcp")
 os.environ.setdefault("SALESMSG_MCP_TOKEN", "test-token-not-real")
+# Zep and WebMCP stay off unless a test swaps in a fake: no network, no browser.
+os.environ.setdefault("ZEP_API_KEY", "")
+os.environ.setdefault("WEBMCP_ENABLED", "false")
 # Never touch the real caller database: these tests create callers, book
 # appointments, and store transcripts.
 os.environ.setdefault(
@@ -232,6 +235,8 @@ def _settings_modules():
     import services.call_session
     import services.salesmsg_auth
     import services.salesmsg_mcp
+    import services.webmcp
+    import services.zep_memory
 
     return [
         api.dependencies,
@@ -241,6 +246,8 @@ def _settings_modules():
         services.call_session,
         services.salesmsg_auth,
         services.salesmsg_mcp,
+        services.webmcp,
+        services.zep_memory,
     ]
 
 
@@ -258,6 +265,106 @@ def patched_settings(**overrides):
     finally:
         for module, original in originals:
             module.SETTINGS = original
+
+
+class FakeZepClient:
+    """The slice of zep_cloud.AsyncZep (3.x) that services.zep_memory uses."""
+
+    def __init__(self, previous_context="", fail=False):
+        from zep_cloud.errors import NotFoundError
+
+        self._not_found = NotFoundError
+        self.fail = fail
+        self.users: dict[str, dict] = {}
+        self.threads: dict[str, dict] = {}       # thread_id -> {user_id, messages}
+        self.graphs: set[str] = set()
+        self.episodes: dict[str, dict] = {}      # uuid -> {graph_id, data, metadata}
+        self.searches: list[dict] = []
+        self.previous_context = previous_context
+        self._next = 0
+
+        ns = SimpleNamespace
+        self.user = ns(get=self._user_get, add=self._user_add, update=self._user_update,
+                       get_threads=self._get_threads)
+        self.thread = ns(create=self._thread_create, add_messages=self._add_messages,
+                         get_user_context=self._user_context)
+        self.graph = ns(get=self._graph_get, create=self._graph_create, add=self._graph_add,
+                        search=self._search,
+                        episode=ns(get_by_graph_id=self._episodes, delete=self._episode_delete))
+
+    def _check(self):
+        if self.fail:
+            raise ConnectionError("Zep is down")
+
+    async def _user_get(self, user_id):
+        self._check()
+        if user_id not in self.users:
+            raise self._not_found(body="not found")
+        return SimpleNamespace(user_id=user_id)
+
+    async def _user_add(self, *, user_id, **fields):
+        self._check()
+        self.users[user_id] = fields
+
+    async def _user_update(self, user_id, **fields):
+        self.users[user_id].update(fields)
+
+    async def _get_threads(self, user_id):
+        self._check()
+        return [SimpleNamespace(thread_id=t, created_at=str(i))
+                for i, (t, v) in enumerate(self.threads.items()) if v["user_id"] == user_id]
+
+    async def _thread_create(self, *, thread_id, user_id):
+        self._check()
+        self.threads[thread_id] = {"user_id": user_id, "messages": []}
+
+    async def _add_messages(self, thread_id, *, messages):
+        self._check()
+        self.threads[thread_id]["messages"].extend(messages)
+
+    async def _user_context(self, thread_id):
+        self._check()
+        return SimpleNamespace(context=self.previous_context)
+
+    async def _graph_get(self, graph_id):
+        if graph_id not in self.graphs:
+            raise self._not_found(body="not found")
+
+    async def _graph_create(self, *, graph_id, **_):
+        self.graphs.add(graph_id)
+
+    async def _graph_add(self, *, graph_id, data, metadata, **_):
+        self._next += 1
+        self.episodes[f"ep{self._next}"] = {"graph_id": graph_id, "data": data, "metadata": metadata}
+
+    async def _episodes(self, graph_id, lastn=None):
+        return SimpleNamespace(episodes=[
+            SimpleNamespace(uuid_=u, metadata=e["metadata"])
+            for u, e in self.episodes.items() if e["graph_id"] == graph_id
+        ])
+
+    async def _episode_delete(self, uuid_):
+        del self.episodes[uuid_]
+
+    async def _search(self, *, query, scope, limit, user_id=None, graph_id=None):
+        self._check()
+        self.searches.append({"query": query, "user_id": user_id, "graph_id": graph_id})
+        fact = f"{'caller' if user_id else 'catalogue'} fact about {query}"
+        return SimpleNamespace(edges=[SimpleNamespace(
+            fact=fact, invalid_at=None, valid_at="2026-10-01T00:00:00Z", created_at=None)])
+
+
+@contextlib.contextmanager
+def fake_zep(client: FakeZepClient):
+    """Zep on, talking to `client`, for the duration."""
+    from services.zep_memory import ZEP
+
+    with patched_settings(zep_api_key="test-zep-key", zep_sync_features=False):
+        ZEP._client, ZEP._known_users = client, set()
+        try:
+            yield client
+        finally:
+            ZEP._client, ZEP._known_users = None, set()
 
 
 def analytics_names(request: dict) -> set[str]:
@@ -936,7 +1043,10 @@ def test_locked_until_pin(client: TestClient) -> None:
 
     req = fake.requests[0]
     check("no analytics tools offered", not has_mcp(req))
-    check("only call-control tools present", {t["name"] for t in req["tools"]} == {"transfer_to_human", "end_call"})
+    # Web search is public information and stays available before the PIN;
+    # nothing that reaches into the account does.
+    names = {t["name"] for t in req["tools"]}
+    check("only call-control tools and web search present", names == {"transfer_to_human", "end_call", "web_search"}, str(names))
     check("model is told why it cannot look anything up", any("access PIN" in b["text"] for b in req["system"]))
     # The connector is gone: no server-side MCP means no per-request handshake.
     check("no MCP connector parameters", "mcp_servers" not in req and "betas" not in req)
@@ -1136,6 +1246,301 @@ def test_barge_in(client: TestClient) -> None:
     check("history ends with the new caller turn", history[-1]["role"] == "user")
 
 
+def test_feature_sync_plan() -> None:
+    """Add new, replace changed, keep unchanged — and never roll back."""
+    print("Feature sync plan")
+    from services.zep_memory import plan_feature_sync
+
+    features = {
+        "f1": {"hash": "same"},
+        "f2": {"hash": "new-text"},
+        "f3": {"hash": "x"},
+    }
+    existing = [
+        {"uuid": "e1", "feature_id": "f1", "hash": "same", "generated": "2026-08-16"},
+        {"uuid": "e2", "feature_id": "f2", "hash": "old-text", "generated": "2026-08-16"},
+        {"uuid": "e9", "feature_id": "gone", "hash": "y", "generated": "2026-08-16"},
+        # A leftover duplicate from an interrupted replace.
+        {"uuid": "e1b", "feature_id": "f1", "hash": "same", "generated": "2026-07-01"},
+    ]
+    plan = plan_feature_sync(features, "2026-09-01", existing)
+    check("adds the new feature", "f3" in plan["add"], str(plan))
+    check("replaces the changed feature", "f2" in plan["add"] and "e2" in plan["delete"], str(plan))
+    check("leaves the unchanged one", "f1" not in plan["add"] and "e1" not in plan["delete"])
+    check("removes a feature dropped from a newer file", "e9" in plan["delete"])
+    check("cleans up the duplicate", "e1b" in plan["delete"])
+
+    older = plan_feature_sync(features, "2026-01-01", existing)
+    check("an older file does not overwrite newer content", "e2" not in older["delete"], str(older))
+    check("an older file does not delete anything current", "e9" not in older["delete"], str(older))
+    check("counts what it kept back", older["stale"] == 2, str(older))
+
+
+def test_feature_sync_to_zep() -> None:
+    """Startup sync creates the graph, then only touches what changed."""
+    print("Feature sync against Zep")
+    import asyncio
+    import json as _json
+    import tempfile
+    from pathlib import Path as _Path
+
+    from services.zep_memory import ZEP
+
+    def write(path, generated, description):
+        path.write_text(_json.dumps({
+            "product": "Salesmsg", "generated": generated,
+            "documents": [
+                {"id": "feature-001", "feature": "Dashboard", "category": "Texting",
+                 "subcategory": "", "description": description, "is_new": False},
+                {"id": "feature-002", "feature": "Typing", "category": "Texting",
+                 "subcategory": "", "description": "Typing indicators.", "is_new": True},
+            ],
+        }), encoding="utf-8")
+
+    zep = FakeZepClient()
+    with fake_zep(zep), tempfile.TemporaryDirectory() as tmp:
+        path = _Path(tmp) / "features.json"
+        write(path, "2026-08-16", "A dashboard.")
+        first = asyncio.run(ZEP.sync_features(path))
+        second = asyncio.run(ZEP.sync_features(path))
+        write(path, "2026-09-01", "A redesigned dashboard.")
+        third = asyncio.run(ZEP.sync_features(path))
+
+    check("creates the catalogue graph", "salesmsg-features" in zep.graphs, str(zep.graphs))
+    check("loads every feature", first["added"] == 2, str(first))
+    check("a second start changes nothing", second == {"added": 0, "deleted": 0, "unchanged": 2, "kept_newer": 0}, str(second))
+    check("a newer file replaces only the changed feature", third["added"] == 1 and third["deleted"] == 1, str(third))
+    stored = [e for e in zep.episodes.values()]
+    check("one episode per feature", len(stored) == 2, str(stored))
+    check("holds the new version", any("redesigned" in e["data"] for e in stored))
+    check("tags it with the file date", all(e["metadata"]["generated"] for e in stored))
+
+
+RECALL_SCRIPT = [
+    {"say": ["Let me check. "], "tools": [tool_block("r1", "recall_memory", {"query": "support inbox"})]},
+    {"say": ["Got it."]},
+]
+
+
+def test_zep_memory_is_pin_gated(client: TestClient) -> None:
+    """A returning caller is recognised — but only after the PIN."""
+    print("Zep memory behind the PIN")
+    install_mcp(FakeMCP())
+    zep = FakeZepClient(previous_context="FACTS: Caller manages the Support inbox.")
+    # An earlier call from the same number.
+    zep.users["caller-18005550100"] = {}
+    zep.threads["call-CAearlier"] = {"user_id": "caller-18005550100", "messages": []}
+    fake = FakeClaude(script=RECALL_SCRIPT * 4)
+    main.app.state.claude = fake
+
+    with fake_zep(zep):
+        with client.websocket_connect("/ws") as ws:
+            ws.send_json(SETUP)
+            ws.send_json({"type": "prompt", "voicePrompt": "Which inbox do I use?", "last": True})
+            drain(ws)
+            locked = fake.requests[0]
+            locked_searches = list(zep.searches)
+
+            enter_pin(ws, "0000")
+            drain(ws)
+            unlocked = fake.requests[-1]
+
+        system_text = lambda req: " ".join(b["text"] for b in req["system"])
+        check("recall tool offered before the PIN", "recall_memory" in {t["name"] for t in locked["tools"]})
+        check("no remembered facts before the PIN", "Support inbox" not in system_text(locked))
+        check("pre-PIN recall searches the catalogue only",
+              locked_searches and all(s["user_id"] is None for s in locked_searches), str(locked_searches))
+        check("recognises the caller after the PIN", "Support inbox" in system_text(unlocked), system_text(unlocked)[-300:])
+        check("post-PIN recall searches the caller's own memory",
+              any(s["user_id"] == "caller-18005550100" for s in zep.searches), str(zep.searches))
+        results = [b for m in unlocked["messages"] if m["role"] == "user" and isinstance(m["content"], list)
+                   for b in m["content"] if b.get("type") == "tool_result"]
+        check("recall result reaches the model", any("caller fact" in r["content"] for r in results), str(results)[-300:])
+
+        # Turns are written in the background and flushed at hang-up.
+        deadline = time.monotonic() + 5
+        while time.monotonic() < deadline and not zep.threads.get("call-CA123", {}).get("messages"):
+            time.sleep(0.05)
+        stored = zep.threads.get("call-CA123", {}).get("messages", [])
+
+    check("opens a thread for this call", "call-CA123" in zep.threads, str(list(zep.threads)))
+    check("stores what the caller said", any(m.role == "user" and "Which inbox" in m.content for m in stored), str(stored))
+    check("stores what the agent said", any(m.role == "assistant" for m in stored))
+    check("does not store synthesized PIN prompts", not any("PIN" in m.content and m.content.startswith("[") for m in stored))
+
+
+def test_unverified_turns_never_reach_zep(client: TestClient) -> None:
+    """A caller who never enters the PIN leaves nothing in that number's memory."""
+    print("Unverified turns stay out of Zep")
+    install_mcp(FakeMCP())
+    zep = FakeZepClient()
+    main.app.state.claude = FakeClaude(script=SAY)
+
+    with fake_zep(zep):
+        with client.websocket_connect("/ws") as ws:
+            ws.send_json(SETUP)
+            ws.send_json({"type": "prompt", "voicePrompt": "I moved support to the Sales inbox.", "last": True})
+            drain(ws)
+        time.sleep(0.3)  # give a (wrong) background write the chance to land
+
+    stored = zep.threads.get("call-CA123", {}).get("messages", [])
+    check("nothing written without the PIN", not stored, str(stored))
+
+
+def test_new_caller_becomes_a_zep_user(client: TestClient) -> None:
+    print("New caller in Zep")
+    install_mcp(FakeMCP())
+    zep = FakeZepClient()
+    main.app.state.claude = FakeClaude(script=SAY)
+
+    with fake_zep(zep):
+        with client.websocket_connect("/ws") as ws:
+            ws.send_json(SETUP)
+            ws.send_json({"type": "prompt", "voicePrompt": "Hello?", "last": True})
+            drain(ws)
+
+    check("creates a Zep user per caller", "caller-18005550100" in zep.users, str(zep.users))
+    check("remembers the phone number", zep.users["caller-18005550100"]["metadata"]["phone"] == "+18005550100")
+
+
+def test_zep_outage_is_survivable(client: TestClient) -> None:
+    print("Zep outage")
+    install_mcp(FakeMCP())
+    fake = FakeClaude(script=RECALL_SCRIPT * 3)
+    main.app.state.claude = fake
+
+    with fake_zep(FakeZepClient(fail=True)):
+        with client.websocket_connect("/ws") as ws:
+            ws.send_json(SETUP)
+            ws.send_json({"type": "prompt", "voicePrompt": "Which inbox do I use?", "last": True})
+            out = drain(ws)
+
+    spoken = "".join(m.get("token", "") for m in out if m["type"] == "text")
+    check("the call carries on", "Got it." in spoken, spoken)
+    result = [b for b in fake.requests[-1]["messages"][-1]["content"] if b.get("type") == "tool_result"][0]
+    check("the agent is told memory came up empty", "Nothing in memory" in result["content"], result["content"])
+
+
+def test_demo_calls_do_not_use_zep(client: TestClient) -> None:
+    """Zep, WebMCP and web search belong to the answering service."""
+    print("Demo calls stay off Zep")
+    install_mcp(FakeMCP())
+    zep = FakeZepClient()
+    fake = FakeClaude(script=SAY)
+    main.app.state.claude = fake
+    demo_setup = {**SETUP, "callSid": "CAdemo2", "direction": "outbound-api",
+                  "from": "+15555550111", "to": "+16505550124", "customParameters": {"mode": "demo"}}
+
+    with fake_zep(zep):
+        with client.websocket_connect("/ws") as ws:
+            ws.send_json(demo_setup)
+            ws.send_json({"type": "prompt", "voicePrompt": "What's this about?", "last": True})
+            drain(ws)
+
+    names = {t["name"] for t in fake.requests[-1]["tools"]}
+    check("no Zep user for a prospect", not zep.users, str(zep.users))
+    check("no recall tool", "recall_memory" not in names, str(names))
+    check("no web search", "web_search" not in names, str(names))
+    check("still has the Voyage knowledge search", "search_product_knowledge" in names)
+
+
+class FakeWebMCP:
+    def __init__(self, listed):
+        self._listed = listed
+        self.calls: list[tuple[str, dict]] = []
+
+    @property
+    def configured(self):
+        return True
+
+    def handles(self, name):
+        return name.startswith("webmcp_")
+
+    async def tool_definitions(self, allowlist, mcp_names):
+        from services.webmcp import select_tools
+
+        return select_tools(self._listed, allowlist, mcp_names)
+
+    async def call(self, name, args):
+        self.calls.append((name, args))
+        return '{"articles": ["Setting up a broadcast"]}', False
+
+    async def aclose(self):
+        pass
+
+
+def test_webmcp_fallback(client: TestClient) -> None:
+    """Web-app tools fill gaps in MCP, and only after the PIN."""
+    print("WebMCP fallback")
+    from services import call_session as session_mod
+    from services.webmcp import select_tools
+
+    listed = [
+        {"name": "search_help_center", "description": "Search help articles.",
+         "inputSchema": '{"type":"object","properties":{"query":{"type":"string"}}}'},
+        {"name": "create_contact", "description": "Create a contact.", "inputSchema": "{}"},
+        {"name": "reply_to_conversation", "description": "Reply.", "inputSchema": "{}"},
+    ]
+    chosen = select_tools(listed, {"search_help_center", "create_contact"}, {"salesmsg_create_contact"})
+    check("skips what MCP already does", [t["name"] for t in chosen] == ["webmcp_search_help_center"], str(chosen))
+    check("parses the JSON-string schema", chosen[0]["input_schema"]["properties"]["query"]["type"] == "string")
+
+    install_mcp(FakeMCP())
+    original = session_mod.WEBMCP
+    web = session_mod.WEBMCP = FakeWebMCP(listed)
+    fake = FakeClaude(script=[
+        {"say": ["Hi. "]},
+        {"say": ["Checking. "], "tools": [tool_block("w1", "webmcp_search_help_center", {"query": "broadcasts"})]},
+        {"say": ["Found an article."]},
+    ] + SAY)
+    main.app.state.claude = fake
+    try:
+        with client.websocket_connect("/ws") as ws:
+            ws.send_json(SETUP)
+            ws.send_json({"type": "prompt", "voicePrompt": "Hi.", "last": True})
+            drain(ws)
+            locked = fake.requests[-1]
+            enter_pin(ws, "0000")
+            drain(ws)
+            unlocked = fake.requests[-1]
+    finally:
+        session_mod.WEBMCP = original
+
+    names = lambda req: {t["name"] for t in req["tools"]}
+    check("no web-app tools before the PIN", not any(n.startswith("webmcp_") for n in names(locked)), str(names(locked)))
+    check("web-app gap filler offered after the PIN", "webmcp_search_help_center" in names(unlocked), str(names(unlocked)))
+    check("never the approval-gated reply tool", "webmcp_reply_to_conversation" not in names(unlocked))
+    check("calls route to the browser", web.calls == [("webmcp_search_help_center", {"query": "broadcasts"})], str(web.calls))
+    search = [t for t in unlocked["tools"] if t["name"] == "web_search"]
+    check("web search is the last resort, after everything else", search and unlocked["tools"][-1] is search[0])
+
+    text = lambda req: " ".join(b["text"] for b in req["system"])
+    check("prompt names web-app tools once they're offered", "webmcp_" in text(unlocked))
+    check("prompt doesn't mention them before", "webmcp_" not in text(locked), text(locked)[-400:])
+
+
+def test_prompt_only_lists_available_lookups(client: TestClient) -> None:
+    """With WebMCP off, nothing tells the agent it exists — so it can't tell
+    the caller it's out of reach."""
+    print("Lookup order matches the tools")
+    install_mcp(FakeMCP())
+    fake = FakeClaude(script=SAY)
+    main.app.state.claude = fake
+
+    with client.websocket_connect("/ws") as ws:
+        ws.send_json(SETUP)
+        enter_pin(ws, "0000")
+        drain(ws)
+
+    req = fake.requests[-1]
+    text = " ".join(b["text"] for b in req["system"])
+    check("WebMCP is off here", not any(t["name"].startswith("webmcp_") for t in req["tools"]))
+    check("so the prompt never mentions it", "webmcp" not in text.lower(), text[-500:])
+    check("the order lists the account tools", "salesmsg_ account tools" in text)
+    check("and web search last", text.rfind("web_search") > text.rfind("salesmsg_ account tools"))
+    check("the fixed prompt names no tools", "webmcp" not in req["system"][0]["text"].lower())
+
+
 if __name__ == "__main__":
     with TestClient(main.app) as client:
         test_token_refresh()
@@ -1164,4 +1569,13 @@ if __name__ == "__main__":
         test_call_context(client)
         test_end_call(client)
         test_barge_in(client)
+        test_feature_sync_plan()
+        test_feature_sync_to_zep()
+        test_zep_memory_is_pin_gated(client)
+        test_new_caller_becomes_a_zep_user(client)
+        test_unverified_turns_never_reach_zep(client)
+        test_zep_outage_is_survivable(client)
+        test_demo_calls_do_not_use_zep(client)
+        test_webmcp_fallback(client)
+        test_prompt_only_lists_available_lookups(client)
     print("\nAll checks passed.")

@@ -5,3 +5,9 @@ python-dotenv>=1.0.0
 twilio>=9.0.0
 # Windows has no system IANA timezone database; zoneinfo needs this.
 tzdata>=2024.1
+# Answering-service memory. Pinned below 4: zep-cloud 4.x switches to
+# Zep-generated UUIDs and breaks this API (see services/zep_memory.py).
+zep-cloud==3.30.0
+# Optional WebMCP fallback (WEBMCP_ENABLED=true). After installing, also run:
+#   playwright install chromium
+# playwright>=1.50
