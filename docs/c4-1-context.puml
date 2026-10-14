@@ -10,15 +10,18 @@ title System Context — Salesmessage Answering Service
 
 Person(member, "Salesmessage team member", "Dials the published number and keys in ACCESS_PIN to reach their own account by voice.")
 Person(prospect, "Prospect", "Receives an outbound demo call. Never has a PIN and never reaches account data.")
-Person(operator, "Operator", "Runs the service, places demo calls from the dialpad, builds the knowledge index, holds the OAuth credentials.")
+Person(operator, "Operator", "Runs the service, places demo calls from the dialpad, builds the knowledge index, holds the OAuth credentials and the web-app login.")
 
 System(relay, "Salesmessage Answering Service", "FastAPI app. Bridges a live phone call to Claude, gates account access behind a PIN, and remembers callers between calls.")
 
 System_Ext(twilio, "Twilio", "Programmable Voice, ConversationRelay (STT/TTS, barge-in, DTMF), optional Conversational Intelligence transcripts.")
-System_Ext(claude, "Claude API", "Messages API. Decides what to say and which tools to call; streamed token by token.")
+System_Ext(claude, "Claude API", "Messages API. Decides what to say and which tools to call; streamed token by token. Runs web search server-side.")
 System_Ext(salesmsg, "Salesmsg MCP server", "mcp.salesmessage.com — every tool that reads or changes the Salesmessage account.")
-System_Ext(salesmsg_as, "Salesmessage authorization server", "app.salesmessage.com — OAuth 2.0. authorization_code + refresh_token only; no client_credentials grant.")
-System_Ext(voyage, "Voyage AI", "Embeddings for the product knowledge base.")
+System_Ext(salesmsg_as, "Salesmessage authorization server", "OAuth 2.0. authorization_code + refresh_token only; no client_credentials grant.")
+System_Ext(webapp, "Salesmessage web app", "app.salesmessage.com — registers WebMCP tools inside the logged-in page (help center, onboarding, compliance, ...).")
+System_Ext(zep, "Zep", "Long-term memory for the answering service: one user per caller, a thread per call, and the shared feature-catalogue graph.")
+System_Ext(web, "Public web", "Searched only as a last resort, for questions nothing else answers.")
+System_Ext(voyage, "Voyage AI", "Embeddings for the demo dialer's product knowledge base.")
 System_Ext(website, "salesmsg.com", "Public site and feature list, crawled offline to build the knowledge index.")
 
 Rel(member, twilio, "Calls the published number, speaks, keys the PIN", "PSTN / DTMF")
@@ -29,9 +32,12 @@ Rel(twilio, relay, "Voice webhooks and the live call", "HTTPS + WSS")
 Rel(relay, twilio, "TwiML, spoken tokens, REST call control", "HTTPS")
 
 Rel(relay, claude, "Streams the conversation and tool results", "HTTPS, Messages API")
+Rel(claude, web, "web_search, when nothing else answers", "HTTPS")
 Rel(relay, salesmsg, "Calls account tools over one persistent session", "MCP over streamable HTTP")
 Rel(relay, salesmsg_as, "Exchanges the refresh token for access tokens", "HTTPS, OAuth 2.0")
-Rel(relay, voyage, "Embeds the caller's question", "HTTPS")
+Rel(relay, webapp, "Calls WebMCP tools MCP lacks, through a headless browser", "HTTPS, in-page JS")
+Rel(relay, zep, "Answering service: remembers callers, recalls facts, syncs the catalogue", "HTTPS")
+Rel(relay, voyage, "Demo dialer: embeds the prospect's question", "HTTPS")
 Rel_Back(relay, website, "Crawled offline by scripts/build_index.py", "HTTPS")
 
 @enduml
