@@ -105,9 +105,54 @@ class Settings:
     knowledge_min_score: float = float(os.getenv("KNOWLEDGE_MIN_SCORE", "0.35"))
 
     # --- Storage ---------------------------------------------------------
+    # Demo dialer only: callers, bookings and transcripts of outbound calls.
     database_path: Path = Path(
         os.getenv("DATABASE_PATH", str(PROJECT_ROOT / "db" / "answering_service.db"))
     )
+
+    # --- Zep memory (answering service only) -------------------------------
+    # Unset turns Zep off; inbound calls then run without long-term memory.
+    zep_api_key: str | None = os.getenv("ZEP_API_KEY")
+    # Shared graph holding the product catalogue, synced at startup.
+    zep_features_graph_id: str = os.getenv("ZEP_FEATURES_GRAPH_ID", "salesmsg-features")
+    zep_features_path: Path = Path(
+        os.getenv("ZEP_FEATURES_PATH", str(PROJECT_ROOT / "data" / "features.json"))
+    )
+    zep_sync_features: bool = _bool("ZEP_SYNC_FEATURES", True)
+    zep_sync_concurrency: int = int(os.getenv("ZEP_SYNC_CONCURRENCY", "4"))
+    zep_search_limit: int = int(os.getenv("ZEP_SEARCH_LIMIT", "5"))
+    # Ceiling on any Zep read inside a live turn. Past it the agent carries on
+    # without memory rather than leaving the caller in silence.
+    zep_timeout: float = float(os.getenv("ZEP_TIMEOUT", "3"))
+
+    # --- Fallbacks (answering service only) --------------------------------
+    # Order the agent tries things: Zep memory, then the Salesmsg MCP tools,
+    # then the web app's WebMCP tools, then a web search.
+    #
+    # WebMCP drives a headless browser logged in to the Salesmessage web app.
+    # Off by default: it needs Playwright and a saved login
+    # (python scripts/webmcp_login.py).
+    webmcp_enabled: bool = _bool("WEBMCP_ENABLED", False)
+    webmcp_url: str = os.getenv("WEBMCP_URL", "https://app.salesmessage.com/conversations/")
+    webmcp_storage_state: Path = Path(
+        os.getenv("WEBMCP_STORAGE_STATE", str(PROJECT_ROOT / ".webmcp_state.json"))
+    )
+    # Web tools worth offering on a phone call. Anything the MCP server already
+    # covers is dropped automatically; reply_to_conversation is deliberately
+    # absent (it waits on an approval click no one is there to make).
+    webmcp_tools: str = os.getenv(
+        "WEBMCP_TOOLS",
+        "search_help_center,read_help_article,list_failed_messages,"
+        "get_onboarding_status,list_import_fields,list_broadcast_numbers,"
+        "get_compliance_status,list_unread_conversations",
+    )
+    webmcp_timeout: float = float(os.getenv("WEBMCP_TIMEOUT", "8"))
+
+    # Anthropic's server-side web search: the last resort for a question
+    # nothing else can answer. Each search adds a few seconds to the turn.
+    web_search_enabled: bool = _bool("WEB_SEARCH_ENABLED", True)
+    web_search_tool_type: str = os.getenv("WEB_SEARCH_TOOL_TYPE", "web_search_20260209")
+    web_search_max_uses: int = int(os.getenv("WEB_SEARCH_MAX_USES", "2"))
 
     # --- Access control -------------------------------------------------
     # Analytics tools are withheld from the model until the caller keys this
@@ -229,7 +274,17 @@ numbers, names, and anything you are about to send. If something was garbled,
 say so and ask them to repeat it rather than guessing.
 
 When a caller needs a person, transfer them — do not try to talk them out of
-it.""",
+it.
+
+Your call context lists the ways you can find things out on this call, in the
+order to try them. Stop at the first that answers. Use only what is listed
+there — what is available changes from call to call.
+
+Never name your tools or describe your internals to the caller: no tool names
+and no technical terms for how you look things up. Talk about what you can do,
+not how. If they
+ask you to look something up in a way you can't on this call, say plainly that
+you can't do that right now and offer what you can do instead.""",
 )
 
 DEMO_SYSTEM_PROMPT = os.getenv(

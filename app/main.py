@@ -24,6 +24,8 @@ from core.logging import ERROR_LOG, OUTPUT_LOG, setup_logging
 from services.knowledge import KNOWLEDGE
 from services.salesmsg_auth import TOKENS
 from services.salesmsg_mcp import MCP
+from services.webmcp import WEBMCP
+from services.zep_memory import ZEP
 
 setup_logging()
 log = logging.getLogger("relay")
@@ -74,12 +76,27 @@ async def lifespan(app: FastAPI):
         else:
             log.warning("OUTBOUND_CALLER_ID is not set — the dialpad cannot place calls.")
 
+    # Answering-service memory. Both start in the background: the feature sync
+    # takes minutes and the browser several seconds, and neither should hold
+    # up the first call.
+    if ZEP.configured:
+        log.info("Zep memory on for the answering service")
+        ZEP.start_feature_sync()
+    else:
+        log.warning("ZEP_API_KEY is not set — the answering service has no long-term memory.")
+    if WEBMCP.configured:
+        WEBMCP.start()
+    if SETTINGS.web_search_enabled:
+        log.info("web search fallback on (%s)", SETTINGS.web_search_tool_type)
+
     try:
         yield
     finally:
         await app.state.claude.close()
         await MCP.aclose()
         await TOKENS.aclose()
+        await ZEP.aclose()
+        await WEBMCP.aclose()
 
 
 app = FastAPI(title="Salesmessage Answering Service", lifespan=lifespan)

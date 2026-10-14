@@ -4,6 +4,8 @@
 !.env.example
 # rotated Salesmsg refresh token
 .salesmsg_tokens.json
+# saved Salesmessage web-app login for WebMCP (scripts/webmcp_login.py)
+.webmcp_state.json
 
 # Runtime
 logs/

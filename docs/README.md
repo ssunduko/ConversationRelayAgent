@@ -10,7 +10,8 @@ Claude client and one Salesmsg MCP session:
 | Gate | Keypad PIN; account tools are withheld until it is entered | None — the prospect never reaches account data |
 | Persona | `SYSTEM_PROMPT` in `core/config.py` | `DEMO_SYSTEM_PROMPT` in `core/config.py` |
 | Tools | Every Salesmsg MCP tool (31), plus transfer / hang-up | Knowledge search, lead capture, booking, plus a 7-tool account allowlist |
-| Memory | None — state dies with the call | SQLite: who called, what was said, what was booked |
+| Memory | Zep: one user per caller, one thread per call, plus the feature catalogue — PIN-gated | SQLite: who called, what was said, what was booked |
+| Fallbacks | Zep memory → MCP → WebMCP (web app) → web search | Voyage knowledge search |
 | Entry point | `POST /twiml` (Twilio webhook) | `GET /` (the dialpad page) |
 
 Which one a call becomes is decided by a single TwiML parameter. Outbound TwiML
@@ -23,8 +24,10 @@ same `CallSession` object.
  caller ─PSTN─┐      │                                                   │
               ├─ Twilio ─ConversationRelay─ WS /ws ─ CallSession ─┬─ Claude API
  prospect ────┘      │         (STT + TTS)          mode=?        ├─ Salesmsg MCP
-        ▲            │                                            ├─ Voyage AI
-        └── dialpad ─┤ POST /calls → Twilio REST                  └─ SQLite
+        ▲            │                                            ├─ Zep (answering)
+        │            │                                            ├─ WebMCP browser (answering, optional)
+        │            │                                            ├─ Voyage AI (demo)
+        └── dialpad ─┤ POST /calls → Twilio REST                  └─ SQLite (demo)
                      └───────────────────────────────────────────────────┘
 ```
 
@@ -68,6 +71,48 @@ caller is verified.
 `handoffData`; Twilio then POSTs `/handoff`, which replies with `<Dial>` to
 `ESCALATION_NUMBER`. Without the `action` attribute on `<Connect>` the caller
 would simply be hung up on.
+
+**Memory (Zep).** Each caller is a Zep user, keyed by phone number
+(`caller-<digits>`), so every caller is their own tenant with their own graph.
+Each call is a thread (`call-<CallSid>`), and every turn is written to it in
+the background as the call goes — nothing waits on Zep. When a returning
+caller is verified, what Zep knows from their latest earlier call goes into
+the agent's context, and `recall_memory` searches their facts plus the feature
+catalogue, so a question answered before needs no MCP round trip. Remembered
+figures are a snapshot; the agent says when they're from and offers the live
+number.
+
+Memory is PIN-gated the same way the account tools are, because caller ID can
+be spoofed: before the PIN, `recall_memory` searches only the product
+catalogue, nothing remembered is put in the prompt, and the caller's turns are
+held back — written to Zep only once the PIN is accepted, and dropped if it
+never is. Otherwise an impostor's words would become "facts" read back to the
+real account holder.
+
+**The feature catalogue.** At startup `data/features.json` is synced into a
+shared Zep graph (`ZEP_FEATURES_GRAPH_ID`), one episode per feature, tagged
+with its id, a content hash and the file's `generated` date. New features are
+added, changed ones replaced (old episode deleted, new one added), and
+features gone from the file removed — but only when the file is at least as
+new as what Zep holds, so an old checkout can't roll the catalogue back. The
+sync runs in the background; restarts with an unchanged file do nothing.
+
+**Fallbacks.** The prompt tells the agent to stop at the first of: memory, the
+`salesmsg_` MCP tools, the `webmcp_` web-app tools, web search.
+
+- *WebMCP* (`WEBMCP_ENABLED`, off by default). app.salesmessage.com registers
+  24 WebMCP tools inside the logged-in app. The service keeps one headless
+  Chromium page open on it (warmed at startup — a cold load is 4–10s) and calls
+  them through the app's own polyfill. Only `WEBMCP_TOOLS` are offered, any tool
+  the MCP server already covers is dropped automatically, and they are PIN-gated.
+  `reply_to_conversation` is never offered: it waits on an approval click.
+  Needs `pip install playwright && playwright install chromium`, a saved login
+  from `python scripts/webmcp_login.py`, and the in-app AI agent enabled on
+  the account (the app registers no tools without it).
+- *Web search* (`WEB_SEARCH_ENABLED`, on by default) is Anthropic's server-side
+  tool, capped at `WEB_SEARCH_MAX_USES` per turn. It stays available before the
+  PIN — it's public information — and the prompt forbids searching the web for
+  anything about the caller's own account.
 
 ---
 
@@ -238,7 +283,31 @@ the repo root, so it does not matter which directory you launch from.
 | `KNOWLEDGE_MAX_PAGES` | `60` |
 | `KNOWLEDGE_TOP_K` | `5` |
 | `KNOWLEDGE_MIN_SCORE` | `0.35` |
-| `DATABASE_PATH` | `db/answering_service.db` |
+| `DATABASE_PATH` | `db/answering_service.db` (demo dialer only, despite the name) |
+
+### Zep memory and fallbacks (answering service)
+
+| Variable | Default |
+| --- | --- |
+| `ZEP_API_KEY` | unset — the answering service runs without long-term memory |
+| `ZEP_FEATURES_GRAPH_ID` | `salesmsg-features` |
+| `ZEP_FEATURES_PATH` | `data/features.json` |
+| `ZEP_SYNC_FEATURES` | `true` |
+| `ZEP_SYNC_CONCURRENCY` | `4` |
+| `ZEP_SEARCH_LIMIT` | `5` facts per graph |
+| `ZEP_TIMEOUT` | `3` seconds per Zep read inside a turn |
+| `WEBMCP_ENABLED` | `false` |
+| `WEBMCP_URL` | `https://app.salesmessage.com/conversations/` |
+| `WEBMCP_STORAGE_STATE` | `.webmcp_state.json` (gitignored — it is a live login) |
+| `WEBMCP_TOOLS` | `search_help_center,read_help_article,list_failed_messages,get_onboarding_status,list_import_fields,list_broadcast_numbers,get_compliance_status,list_unread_conversations` |
+| `WEBMCP_TIMEOUT` | `8` |
+| `WEB_SEARCH_ENABLED` | `true` |
+| `WEB_SEARCH_TOOL_TYPE` | `web_search_20260209` (needs Opus/Sonnet 4.6 or later) |
+| `WEB_SEARCH_MAX_USES` | `2` |
+
+`zep-cloud` is pinned to 3.30.0: 4.0.0 (released 2026-10-14) addresses
+everything by Zep-generated UUIDs and breaks this API. All Zep calls live in
+`services/zep_memory.py`, so the migration is confined to that file.
 
 ---
 
@@ -387,10 +456,13 @@ services/  call_session.py  one call: mode, history, PIN gate, Claude loop, barg
            salesmsg_auth.py OAuth token refresh and rotation
            call_tools.py    transfer_to_human / end_call
            demo_tools.py    knowledge search, lead capture, booking
-           knowledge.py     the vector index and search
+           knowledge.py     the vector index and search (demo dialer)
+           zep_memory.py    Zep: feature-catalogue sync, callers, threads, recall
+           memory_tools.py  recall_memory (answering service), PIN-gated
+           webmcp.py        headless browser bridge to the web app's WebMCP tools
 db/        store.py, answering_service.db — callers, conversations, appointments
 data/      features.json, knowledge.npz, index_explorer.html
-schemas/   call_tools.py, demo_tools.py — JSON tool schemas
+schemas/   call_tools.py, demo_tools.py, memory_tools.py — JSON tool schemas
 scripts/   operator tooling (above)
 tests/     test_relay.py (offline), test_live.py (real Claude)
 docs/      this file, the C4 diagrams, test_main.http
@@ -401,8 +473,14 @@ docs/      this file, the C4 diagrams, test_main.http
 ## Notes and limits
 
 - Conversation state is in memory, keyed to the WebSocket. A process restart
-  drops in-flight calls. Only the demo dialer persists anything, and only after
-  the call ends.
+  drops in-flight calls. The answering service writes each turn to Zep as it
+  goes; the demo dialer writes to SQLite after the call ends.
+- Zep extracts facts asynchronously — seconds to minutes after a turn — so
+  something said moments ago may not be searchable yet on the same call.
+- WebMCP runs a real Chromium (~200–400 MB). On Windows, Playwright needs the
+  Proactor event loop; run uvicorn without `--reload` if the browser fails to
+  start. The saved login expires — re-run `scripts/webmcp_login.py` when the
+  startup log says "WebMCP unavailable".
 - Unlocking mid-call changes the tool list, invalidating that call's prompt
   cache once. Cheap at one miss per call.
 - With write scopes granted, the line can send messages and delete contacts.
