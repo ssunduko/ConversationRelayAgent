@@ -1,65 +1,86 @@
 @startuml c4-4-dynamic-answering
 ' C4 Dynamic — an inbound, PIN-gated answering call
 ' Render:  plantuml docs/c4-4-dynamic-answering.puml
-!include <C4/C4_Dynamic>
+'
+' Drawn as a sequence: with this many steps the graph layout runs past
+' PlantUML's 4096px limit and gets clipped.
+!include <C4/C4_Sequence>
 
-LAYOUT_WITH_LEGEND()
 SHOW_PERSON_OUTLINE()
+SHOW_INDEX()
 
-title Dynamic — Inbound answering call: connect, unlock, one spoken turn, hang up
+title Dynamic — Inbound answering call: connect, recognise, unlock, one spoken turn, hang up
 
 Person(member, "Salesmessage team member")
 System_Ext(twilio, "Twilio", "Voice + ConversationRelay")
 Component(voice, "Voice webhooks", "api/voice.py")
 Component(relay_ws, "Relay socket", "api/relay.py")
 Component(session, "CallSession", "services/call_session.py")
-Component(store, "Store", "db/store.py")
+Component(zep_memory, "ZepMemory", "services/zep_memory.py")
+Component(memory_tools, "Memory tool", "services/memory_tools.py")
 Component(mcp, "SalesmsgMCP", "services/salesmsg_mcp.py")
 Component(auth, "SalesmsgTokens", "services/salesmsg_auth.py")
+Component(webmcp, "WebMCP", "services/webmcp.py")
+System_Ext(zep, "Zep")
 System_Ext(claude, "Claude API")
 System_Ext(salesmsg, "Salesmsg MCP server")
+System_Ext(webapp, "Salesmessage web app")
 
 Rel(member, twilio, "Dials the published number", "PSTN")
 Rel(twilio, voice, "POST /twiml, X-Twilio-Signature", "HTTPS")
 Rel(voice, twilio, "<Connect action=/handoff><ConversationRelay url=wss://.../ws>", "TwiML")
 Rel(twilio, relay_ws, "Opens the socket, sends setup", "WSS")
 Rel(relay_ws, session, "Constructs the session, then prepare()")
-Rel(session, store, "get_caller() — what we already know about this number")
+Rel(session, zep_memory, "ensure_user(phone), previous_context(), start_thread(call-CallSid)")
+Rel(zep_memory, zep, "user get/add, latest earlier thread's context, thread create", "HTTPS")
 
 note right of session
-  Locked. ACCESS_PIN has not been keyed yet,
-  so no account tool schema is put in the
-  request at all — there is nothing for the
-  model to reach for.
+  Locked. ACCESS_PIN has not been keyed yet: no account or WebMCP tool is in the request, recall_memory searches the catalogue only, and nothing remembered about this number is in the prompt. The caller's turns are held back, not written — caller ID can be spoofed.
 end note
 
 Rel(twilio, relay_ws, "dtmf digits as the caller keys the PIN", "WSS")
 Rel(relay_ws, session, "on_dtmf() -> _check_pin()")
+Rel(session, zep_memory, "Verified: release the held turns to the background writer")
 Rel(session, mcp, "Verified: tool_definitions()")
 Rel(mcp, auth, "access_token()")
 Rel(auth, salesmsg, "refresh_token grant", "HTTPS")
 Rel(mcp, salesmsg, "initialize + list_tools — once per process", "MCP")
+Rel(session, webmcp, "Verified: allowlisted tools MCP lacks")
 
 Rel(twilio, relay_ws, "prompt, last=true — the transcribed utterance", "WSS")
-Rel(relay_ws, session, "on_user_text() -> _run_turn()")
-Rel(session, claude, "messages.stream: system + history + tools", "HTTPS")
+Rel(relay_ws, session, "on_user_text() -> _run_turn(); queue the turn for Zep")
+Rel(session, claude, "messages.stream: system + caller memory + lookup order + history + tools", "HTTPS")
 Rel(session, twilio, "Each text delta forwarded immediately; TTS starts mid-sentence", "WSS")
-Rel(claude, session, "tool_use block", "HTTPS")
+
+note over claude
+  Lookup order, built per request from the tools actually offered — stop at the first that answers:
+  1. recall_memory
+  2. salesmsg_ tools
+  3. webmcp_ tools
+  4. web_search (server-side)
+end note
+
+Rel(claude, session, "tool_use: recall_memory", "HTTPS")
+Rel(session, memory_tools, "execute()")
+Rel(memory_tools, zep_memory, "search(query, user_id)")
+Rel(zep_memory, zep, "graph.search: caller's facts + catalogue, in parallel", "HTTPS")
+Rel(claude, session, "tool_use: a salesmsg_ tool, if memory didn't answer", "HTTPS")
 Rel(session, mcp, "call(name, args)")
 Rel(mcp, salesmsg, "call_tool — retried once on a fresh session", "MCP")
+Rel(claude, session, "tool_use: a webmcp_ tool, for what MCP can't do", "HTTPS")
+Rel(session, webmcp, "call(name, args)")
+Rel(webmcp, webapp, "executeTool in the warm headless page", "Playwright")
 Rel(session, claude, "tool_result, continue the turn", "HTTPS")
+Rel(session, zep_memory, "Background: add_messages(caller turn + agent reply)")
 
 note right of session
-  Barge-in: on interrupt, cancel the in-flight
-  task and rewrite the last assistant turn to
-  utteranceUntilInterrupt — the words the
-  caller actually heard.
+  Barge-in: on interrupt, cancel the in-flight task and rewrite the last assistant turn to utteranceUntilInterrupt — the words the caller actually heard. Only those reach Zep.
 end note
 
 Rel(session, twilio, "end + handoffData {reasonCode}", "WSS")
 Rel(twilio, voice, "POST /handoff with HandoffData", "HTTPS")
 Rel(voice, twilio, "<Dial> the escalation number, or <Hangup>", "TwiML")
-Rel(relay_ws, session, "aclose(): summarize and persist")
-Rel(session, store, "finish_conversation(): transcript, summary, searches")
+Rel(relay_ws, session, "aclose(): flush the remaining turns to Zep")
 
+SHOW_LEGEND()
 @enduml

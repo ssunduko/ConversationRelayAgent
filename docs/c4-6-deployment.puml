@@ -12,14 +12,19 @@ Deployment_Node(host, "Developer host", "Windows / macOS / Linux") {
         Container(app, "Relay application", "uvicorn app.main:app --host 0.0.0.0 --port 8000", "One process. Conversation state is in memory, so a restart drops in-flight calls.")
         Container(scripts, "Operator scripts", "python scripts/*.py", "Run standalone from the repo root.")
     }
+    Deployment_Node(chromium, "Chromium", "Playwright-managed, headless") {
+        Container(browser, "WebMCP browser", "one page on the web app", "Optional (WEBMCP_ENABLED). Child of the app process; ~200-400 MB. Needs `playwright install chromium`.")
+    }
     Deployment_Node(fs, "Repo root", "local filesystem") {
-        ContainerDb(sqlite, "answering_service.db", "SQLite", "callers, conversations, appointments")
-        ContainerDb(index, "knowledge index", ".npz", "vectors + documents")
+        ContainerDb(sqlite, "answering_service.db", "SQLite", "demo dialer: callers, conversations, appointments")
+        ContainerDb(index, "knowledge index", ".npz", "demo dialer: vectors + documents")
+        ContainerDb(features, "data/features.json", "JSON", "feature catalogue, synced to Zep at startup")
+        ContainerDb(web_login, ".webmcp_state.json", "JSON, gitignored", "saved web-app login; re-run scripts/webmcp_login.py when it expires")
         ContainerDb(tokens, ".salesmsg_tokens.json", "JSON, chmod 600", "rotated refresh token")
         ContainerDb(envfile, ".env", "ini", "API keys, PIN, Twilio and Salesmsg credentials")
     }
     Deployment_Node(tunnel, "ngrok agent", "ngrok http 8000") {
-        Container(edge, "Public HTTPS/WSS endpoint", "https://<host>.ngrok.app", "PUBLIC_HOSTNAME, or X-Forwarded-Host. This is the URL Twilio signs against.")
+        Container(edge, "Public HTTPS/WSS endpoint", "https://<host>.ngrok-free.dev", "PUBLIC_HOSTNAME, or X-Forwarded-Host. This is the URL Twilio signs against.")
     }
 }
 
@@ -29,12 +34,17 @@ Deployment_Node(twilio_cloud, "Twilio", "cloud") {
 }
 
 Deployment_Node(anthropic_cloud, "Anthropic", "cloud") {
-    Container(claude, "Claude API", "Messages API", "CLAUDE_MODEL, adaptive thinking, prompt caching")
+    Container(claude, "Claude API", "Messages API", "CLAUDE_MODEL, adaptive thinking, prompt caching, server-side web_search")
 }
 
 Deployment_Node(salesmsg_cloud, "Salesmessage", "cloud") {
     Container(mcp_srv, "mcp.salesmessage.com", "MCP over streamable HTTP", "The endpoint is the root, not /mcp")
     Container(as_srv, "app.salesmessage.com", "OAuth 2.0", "authorization_code + refresh_token; tokens last ~a day and rotate on use")
+    Container(webapp, "app.salesmessage.com web app", "SPA + WebMCP (webmcp-react)", "Registers tools only for accounts with the in-app AI agent enabled")
+}
+
+Deployment_Node(zep_cloud, "Zep", "cloud") {
+    Container(zep, "Zep API", "zep-cloud 3.x", "ZEP_API_KEY. Users caller-<digits>, threads call-<CallSid>, graph salesmsg-features")
 }
 
 Deployment_Node(voyage_cloud, "Voyage AI", "cloud") {
@@ -47,6 +57,12 @@ Rel(app, tokens, "writes on rotation", "file")
 Rel(app, envfile, "reads at import", "file")
 Rel(scripts, envfile, "seeds credentials", "file")
 Rel(scripts, index, "builds", "file")
+Rel(scripts, web_login, "saves after sign-in", "file")
+Rel(app, features, "reads at startup", "file")
+Rel(app, browser, "drives", "Playwright, CDP")
+Rel(browser, web_login, "loads", "file")
+Rel(browser, webapp, "WebMCP tool calls", "HTTPS")
+Rel(app, zep, "memory and catalogue", "HTTPS")
 
 Rel(edge, app, "forwards", "HTTP + WS, localhost:8000")
 Rel(voice_svc, edge, "webhooks and the live socket", "HTTPS + WSS")

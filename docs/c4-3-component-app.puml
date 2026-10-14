@@ -14,13 +14,17 @@ System_Ext(claude, "Claude API", "Messages API")
 System_Ext(salesmsg, "Salesmsg MCP server", "Account tools")
 System_Ext(salesmsg_as, "Salesmessage authorization server", "OAuth 2.0")
 System_Ext(voyage, "Voyage AI", "Embeddings")
-ContainerDb_Ext(sqlite, "Caller store", "SQLite")
-ContainerDb_Ext(index, "Knowledge index", ".npz")
+System_Ext(zep, "Zep", "Caller memory + catalogue graph")
+System_Ext(webapp, "Salesmessage web app", "WebMCP tools")
+ContainerDb_Ext(sqlite, "Caller store", "SQLite — demo dialer only")
+ContainerDb_Ext(index, "Knowledge index", ".npz — demo dialer only")
+ContainerDb_Ext(features, "Feature catalogue", "data/features.json")
 ContainerDb_Ext(tokens_file, "Token state", ".salesmsg_tokens.json")
+ContainerDb_Ext(web_login, "Web-app login", ".webmcp_state.json")
 
 Container_Boundary(app, "Relay application") {
 
-    Component(main, "Application entrypoint", "app/main.py", "FastAPI app, lifespan, router registration. Creates the shared Anthropic client; warns loudly about every missing credential at startup.")
+    Component(main, "Application entrypoint", "app/main.py", "FastAPI app, lifespan, router registration. Creates the shared Anthropic client; warns loudly about every missing credential at startup. Starts the Zep catalogue sync and warms the WebMCP browser, both in the background.")
     Component(config, "Settings and prompts", "core/config.py", "SETTINGS, SYSTEM_PROMPT, DEMO_SYSTEM_PROMPT, LOCKED_NOTICE, PROJECT_ROOT.")
 
     Boundary(api, "HTTP and WebSocket surface", "api/") {
@@ -33,15 +37,18 @@ Container_Boundary(app, "Relay application") {
     }
 
     Boundary(svc, "Call and account services", "services/") {
-        Component(session, "CallSession", "services/call_session.py", "One call. History, PIN gate, streaming Claude loop, barge-in rewrite, tool dispatch, transfer/hang-up, end-of-call persistence and summary.")
+        Component(session, "CallSession", "services/call_session.py", "One call. History, PIN gate, streaming Claude loop, barge-in rewrite, tool dispatch, transfer/hang-up. Answering: Zep memory, turns held until the PIN, per-request lookup order, web search tool. Demo: SQLite persistence and summary.")
         Component(call_tools, "Call-control tools", "services/call_tools.py + schemas/call_tools.py", "transfer_to_human, end_call. Schemas and handlers are cross-checked at import.")
         Component(demo_tools, "Demo tools", "services/demo_tools.py + schemas/demo_tools.py", "search_product_knowledge, save_caller_details, book_demo. Demo mode only.")
         Component(mcp, "SalesmsgMCP", "services/salesmsg_mcp.py", "One persistent MCP session for the process. Tool discovery, Anthropic schema conversion, caller-facing service groups, reconnect-and-retry.")
         Component(auth, "SalesmsgTokens", "services/salesmsg_auth.py", "Mints access tokens from the refresh token, caches until 2 min before expiry, persists rotation. Returns None rather than raising.")
-        Component(knowledge, "KnowledgeBase", "services/knowledge.py", "Loads the index at startup; one Voyage embedding plus a dot product per query. Separates 'found nothing' from 'search failed'.")
+        Component(knowledge, "KnowledgeBase", "services/knowledge.py", "Demo dialer. Loads the index at startup; one Voyage embedding plus a dot product per query. Separates 'found nothing' from 'search failed'.")
+        Component(zep_memory, "ZepMemory", "services/zep_memory.py", "Answering service. Catalogue sync (add / replace / remove, never roll back), one user per caller, a thread per call, batched turn writes, recall search. Every failure swallowed and logged.")
+        Component(memory_tools, "Memory tool", "services/memory_tools.py + schemas/memory_tools.py", "recall_memory. Searches the caller's own facts only once the PIN is entered; the catalogue always.")
+        Component(webmcp, "WebMCP", "services/webmcp.py", "Answering service, after the PIN. Keeps a headless page on the web app; allowlisted tools only, minus anything the MCP server already has. Reloads once on failure.")
     }
 
-    Component(store, "Store", "db/store.py", "Caller memory across calls. Async wrappers over sqlite3 on a worker thread.")
+    Component(store, "Store", "db/store.py", "Demo dialer's caller memory across calls. Async wrappers over sqlite3 on a worker thread.")
     Component(logging, "Logging setup", "core/logging.py", "Console plus OUTPUT_LOG and ERROR_LOG.")
 }
 
@@ -62,7 +69,13 @@ Rel(session, claude, "Streams a turn", "HTTPS")
 Rel(session, call_tools, "Dispatches transfer_to_human / end_call")
 Rel(session, demo_tools, "Dispatches demo tools (demo mode)")
 Rel(session, mcp, "Tool schemas and tool calls — only once verified")
-Rel(session, store, "Loads caller memory, writes transcript + summary")
+Rel(session, store, "Demo: loads caller memory, writes transcript + summary")
+Rel(session, zep_memory, "Answering: ensure_user, previous_context, start_thread, add_messages")
+Rel(session, memory_tools, "Dispatches recall_memory (answering mode)")
+Rel(session, webmcp, "Tool schemas and calls — only once verified")
+Rel(memory_tools, zep_memory, "search(query, user_id or None)")
+Rel(main, zep_memory, "start_feature_sync()")
+Rel(main, webmcp, "start() — warms the browser")
 Rel(session, config, "Prompts, model, effort, PIN, timezone")
 
 Rel(demo_tools, knowledge, "search()")
@@ -75,5 +88,9 @@ Rel(mcp, salesmsg, "initialize, list_tools, call_tool", "MCP / streamable HTTP")
 Rel(auth, salesmsg_as, "refresh_token grant", "HTTPS")
 Rel(auth, tokens_file, "Persists a rotated refresh token", "file")
 Rel(store, sqlite, "Reads and writes", "sqlite3")
+Rel(zep_memory, zep, "users, threads, graph episodes, search", "HTTPS, zep-cloud 3.x")
+Rel(zep_memory, features, "Reads for the startup sync", "file")
+Rel(webmcp, webapp, "navigator.modelContextTesting listTools / executeTool", "headless Chromium")
+Rel(webmcp, web_login, "Loads the saved session", "file")
 
 @enduml
