@@ -1,0 +1,22 @@
+# Checks every pull request (and merge-queue entry) for dependencies with known
+# vulnerabilities, using Google's OSV-Scanner:
+# https://google.github.io/osv-scanner/github-action/
+#
+# It scans the PR's target branch and the PR branch and fails only on vulnerabilities
+# the PR introduces, annotating them on the "Files changed" tab.
+name: OSV-Scanner PR Scan
+
+# No branch filter: every PR is scanned against whatever branch it targets.
+on:
+  pull_request:
+  merge_group:
+
+permissions:
+  # Required to upload SARIF to code scanning: https://github.com/github/codeql-action/issues/2117
+  actions: read
+  security-events: write
+  contents: read
+
+jobs:
+  scan-pr:
+    uses: "google/osv-scanner-action/.github/workflows/osv-scanner-reusable-pr.yml@v2.7.0"
